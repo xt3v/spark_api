@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'spark-web'`, () => {
+  it(`should have as title 'sparkweb'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('spark-web');
+    expect(app.title).toEqual('sparkweb');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('spark-web app is running!');
+    expect(compiled.querySelector('.content span').textContent).toContain('sparkweb app is running!');
   });
 });

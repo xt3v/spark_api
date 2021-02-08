@@ -1,5 +1,11 @@
 {
   "extends": "tslint:recommended",
+<<<<<<< HEAD
+=======
+  "rulesDirectory": [
+    "codelyzer"
+  ],
+>>>>>>> fe4c19dfdfbc85fb4617b647d5307656b883c6fc
   "rules": {
     "align": {
       "options": [
@@ -13,6 +19,7 @@
     "deprecation": {
       "severity": "warning"
     },
+<<<<<<< HEAD
     "component-class-suffix": true,
     "contextual-lifecycle": true,
     "directive-class-suffix": true,
@@ -28,6 +35,8 @@
       "app",
       "kebab-case"
     ],
+=======
+>>>>>>> fe4c19dfdfbc85fb4617b647d5307656b883c6fc
     "eofline": true,
     "import-blacklist": [
       true,
@@ -94,6 +103,13 @@
         "named": "never"
       }
     },
+<<<<<<< HEAD
+=======
+    "typedef": [
+      true,
+      "call-signature"
+    ],
+>>>>>>> fe4c19dfdfbc85fb4617b647d5307656b883c6fc
     "typedef-whitespace": {
       "options": [
         {
@@ -129,6 +145,12 @@
         "check-typecast"
       ]
     },
+<<<<<<< HEAD
+=======
+    "component-class-suffix": true,
+    "contextual-lifecycle": true,
+    "directive-class-suffix": true,
+>>>>>>> fe4c19dfdfbc85fb4617b647d5307656b883c6fc
     "no-conflicting-lifecycle": true,
     "no-host-metadata-property": true,
     "no-input-rename": true,
@@ -140,9 +162,27 @@
     "template-banana-in-box": true,
     "template-no-negated-async": true,
     "use-lifecycle-interface": true,
+<<<<<<< HEAD
     "use-pipe-transform-interface": true
   },
   "rulesDirectory": [
     "codelyzer"
   ]
 }
+=======
+    "use-pipe-transform-interface": true,
+    "directive-selector": [
+      true,
+      "attribute",
+      "app",
+      "camelCase"
+    ],
+    "component-selector": [
+      true,
+      "element",
+      "app",
+      "kebab-case"
+    ]
+  }
+}
+>>>>>>> fe4c19dfdfbc85fb4617b647d5307656b883c6fc
