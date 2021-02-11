@@ -6,7 +6,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthRoutes } from './authentication-routing.module';
 
 import { CoreModule } from '../core.module';
-
 @NgModule({
   declarations: [],
   imports: [

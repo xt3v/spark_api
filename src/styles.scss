@@ -1,1 +1,96 @@
-/* You can add global styles to this file, and also import other style files */
+/*****************************/
+/***** Bootstrap4 ************/
+/*****************************/
+// @import '../node_modules/bootstrap/scss/bootstrap';
+
+@import 'app/styles/_vars';
+
+/*****************************/
+/***** external settings *****/
+/*****************************/
+@import 'app/styles/_settings';
+
+/*****************************/
+/********** icons ************/
+/*****************************/
+// @import "icons";
+
+/*****************************/
+/*********** fonts ***********/
+/*****************************/
+// @import "fonts";
+
+/*****************************/
+/********** mixins ***********/
+/*****************************/
+// @import "mixins/_button";
+// @import "mixins/_checkbox";
+// @import "mixins/_object-fit";
+// @import "mixins/_global-page-padding";
+// @import "mixins/_talent-page-padding";
+// @import "mixins/_loading-indicator";
+// @import "mixins/text-input";
+// @import "mixins/_hide-uneven-childs";
+// @import "mixins/_ie";
+// @import "mixins/_page-states";
+
+/*****************************/
+/********* typography ********/
+/*****************************/
+// @import "mixins/_typography";
+
+// h1 {
+// 	@include typography(h1);
+// }
+
+// h2 {
+// 	@include typography(h2);
+// }
+
+// h3 {
+// 	@include typography(h3);
+// }
+
+// h4 {
+// 	@include typography(h4);
+// }
+
+// h5 {
+// 	@include typography(h5);
+// }
+
+// h6 {
+// 	@include typography(h6);
+// }
+
+// p {
+// 	line-height: inherit;
+// 	text-rendering: inherit;
+// }
+
+/*****************************/
+/******* our settings ********/
+/*****************************/
+html {
+  overflow-y: scroll;
+}
+body {
+  background-color: $color_background;
+  // @include typography(body);
+  width: 100%;
+}
+
+*:focus {
+  outline: none;
+}
+
+/*****************************/
+/********** addons ***********/
+/*****************************/
+
+/*****************************/
+/****** components scss ******/
+/*****************************/
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
