@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 
 /** Custom modules */
 import { ModalModule } from './modal/modal.module';
+import { IconsModule } from './icons/icons.module';
 
 @NgModule({
   declarations: [],
@@ -15,7 +16,8 @@ import { ModalModule } from './modal/modal.module';
     ReactiveFormsModule,
     RouterModule,
     ModalModule,
+    IconsModule,
   ],
-  exports: [FormsModule, ReactiveFormsModule, ModalModule],
+  exports: [FormsModule, ReactiveFormsModule, ModalModule, IconsModule],
 })
 export class SharedModule {}

@@ -1,0 +1,13 @@
+.authentication {
+  display: flex;
+  align-items: center;
+  position: relative;
+  height: 100%;
+
+  &__header {
+    text-align: center;
+  }
+  &__form {
+    padding-top: 4rem;
+  }
+}
