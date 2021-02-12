@@ -72,9 +72,9 @@
 /******* our settings ********/
 /*****************************/
 html {
-  overflow-y: scroll;
   height: 100%;
   margin: auto;
+  // overflow-y: scroll;
 }
 body {
   background-color: $color_background;

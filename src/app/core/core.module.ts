@@ -27,5 +27,6 @@ import { LockScreenComponent } from './authentication/lock-screen/lock-screen.co
     LockScreenComponent,
   ],
   imports: [CommonModule, SharedModule, RouterModule],
+  exports: [FooterComponent]
 })
 export class CoreModule {}

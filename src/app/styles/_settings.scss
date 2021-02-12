@@ -7,6 +7,7 @@
 //   2. Breakpoints
 //   3. Card
 //   4. Progress bar
+//   5. Footer
 
 // 1. Global
 // ---------
@@ -68,3 +69,7 @@ $progress-background: $color_lightergrey;
 $progress-margin-bottom: $global-margin;
 $progress-meter-background: $primary-color;
 $progress-radius: $global-radius;
+
+// 5. Footer
+// -----------------
+$footer-height: 5rem;

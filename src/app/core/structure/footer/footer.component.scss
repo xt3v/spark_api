@@ -1,0 +1,24 @@
+@import '../../../../styles.scss';
+
+.footer {
+    position: relative;
+    height: $footer-height;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &__title {
+        position: relative;
+        padding-left: 1rem;
+        -webkit-user-select: none; /* Safari */        
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* IE10+/Edge */
+        user-select: none; /* Standard */
+        &:before {
+            content: "\00A9";
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+}
