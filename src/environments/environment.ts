@@ -2,9 +2,13 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+//TODO -> Pull the environments from a dotenv for security purposes
 export const environment = {
-  production: false
-};
+  production: false,
+  APIEndpoint: 'https://api.spark.sisitech.dev/',
+  APIv1Endpoint: 'https://api.spark.sisitech.dev/api/v1/',
+  APIClientID : 'fbaPXGrD6wewVEqoOkJfvierIrYbnROPXMa8CDv5'
+}
 
 /*
  * For easier debugging in development mode, you can import the following file
