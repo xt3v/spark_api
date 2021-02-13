@@ -4,7 +4,7 @@
     max-width: 100%;
     font-weight: bold;
     line-height: 3.5rem;
-    text-transform: uppercase;
+    text-transform: capitalize;
     vertical-align: middle;
     text-align: center;
     padding: 0 1.5rem;
@@ -33,8 +33,13 @@
         cursor: default;
     }
 
-    &.has--loader {
-        @include loading(small);
+    &.lift {
+      transition: box-shadow 0.25s ease, transform 0.25s ease;
+      &:focus,
+      &:hover {
+        box-shadow: 0 1rem 2.5rem rgba(18, 38, 63, 0.1), 0 0.5rem 1rem -0.75rem rgba(18, 38, 63, 0.1) !important;
+        transform: translate3d(0, -3px, 0);
+      }
     }
 
 
