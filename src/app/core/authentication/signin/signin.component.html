@@ -16,44 +16,64 @@
         <h1>Sign In</h1>
         <p>Gain access to your Dashboard</p>
       </span>
-      <form class="authentication__form" action="">
+      <form class="authentication__form" [formGroup]="signinForm" (ngSubmit)="signIn()">
         <div class="form-group">
-          <label for="email">Email Address</label>
+          <label for="signin-email">Email Address</label>
           <input
+            aria-label="Email sign in"
+            id="signin-email"
             type="email"
             name="email"
             class="form-control"
+            formControlName="username"
             placeholder="name@address.com"
+            [ngClass]="{ 'is-invalid': submitted && f.username.errors }"
           />
+          <div *ngIf="submitted && f.username.errors" class="form-invalid-feedback"  [ngClass]="{'form.is-invalid': submitted && f.username.errors}">
+            <div *ngIf="f.username.errors.required">Email address is required</div>
+          </div>
         </div>
+        <div class="form-group">
+          <div class="row">
+            <div class="col">
+              <label for="password">Password</label>
+            </div>
+            <div class="col-auto">
+              <a [routerLink]="['/forgot-password']" class="form-text form-link small"> Forgot password? </a>
+            </div>
+          </div>
+          <!-- Input group -->
+          <div class="">
+            <input
+              aria_label="password" id="password" formControlName="password"
+              type="password"
+              class="form-control form-control-appended"
+              placeholder="Enter your password"
+              [ngClass]="{ 'form.is-invalid': submitted && f.password.errors }"
+            />
+            <!-- Icon -->
+            <div class="form-control-icon">
+              <span class="">
+                <i-feather class="icons" name="eye"></i-feather>
+              </span>
+            </div>
+
+          </div>
+          <div *ngIf="submitted && f.password.errors" class="form-invalid-feedback">
+              <div *ngIf="f.password.errors.required">Password is required</div>
+          </div>
+        </div>
+        <div class="form-group form-check">
+          <input aria_label="Remember me" type="checkbox" formControlName="remember_me" id="rememberMe"
+              class="form-check-input" />
+            <label for="rememberMe" class="form-check-label">Remember Me</label>
+        </div>
+        <button [attr.disabled]="loading ? true: null" type="submit" class="btn btn-lg btn-block btn-primary mb-3 lift">
+          <span class="spark-text has--loading" [ngClass]="{'has--loading': loading}">
+            {{ loading ? 'Signing In' : 'Sign In' }}
+          </span>
+        </button>
       </form>
-      <div class="form-group">
-        <div class="row">
-          <div class="col">
-            <label for="password">Password</label>
-          </div>
-          <div class="col-auto">
-            <a href="#" class="form-text form-link small"> Forgot password? </a>
-          </div>
-        </div>
-        <!-- Input group -->
-        <div class="input-group input-group-merge">
-          <input
-            type="password"
-            class="form-control form-control-appended"
-            placeholder="Enter your password"
-          />
-          <!-- Icon -->
-          <div class="input-group-append">
-            <span class="input-group-text">
-              <i-feather name="eye"></i-feather>
-            </span>
-          </div>
-        </div>
-      </div>
-      <button class="btn btn-lg btn-block btn-primary mb-3">
-        Sign in
-      </button>
     </div>
   </div>
 </div>

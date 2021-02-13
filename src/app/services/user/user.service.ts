@@ -26,6 +26,7 @@ export class UserService {
   userProfile(): Observable<any> {
     return this._http.get<any>(endpointV1 + 'users/me').pipe(
       map(res => {
+        console.log('THE USER PROFILE', res);
         this._storageService.setItem('userDetails', JSON.stringify(res));
         return res;
       })
