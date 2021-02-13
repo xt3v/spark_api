@@ -1,0 +1,41 @@
+@mixin button($size:null, $color:null, $outline:null) {
+    display: inline-block;
+    width: auto;
+    max-width: 100%;
+    font-weight: bold;
+    line-height: 3.5rem;
+    text-transform: uppercase;
+    vertical-align: middle;
+    text-align: center;
+    padding: 0 1.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    letter-spacing: 0;
+    border: .2rem solid transparent;
+    border-radius: .5rem;
+    background-color: $color_links_buttons;
+    color: $color_white;
+    opacity: 1;
+    transition-property: border-color,  background-color, color, opacity;
+    transition-duration: 0.25s;
+    transition-timing-function: ease-in-out;
+
+    cursor: pointer;
+    .no-touchevents &:not([disabled]):not(.disabled):not(.is--disabled):hover /*, &:focus */ {
+		background-color: lighten( $color_buttons, 10%);
+    }
+
+    &[disabled],
+    &.disabled,
+    &.is--disabled {
+		opacity : .35;
+        cursor: default;
+    }
+
+    &.has--loader {
+        @include loading(small);
+    }
+
+
+}
