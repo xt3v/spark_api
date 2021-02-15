@@ -1,0 +1,15 @@
+$color_text: #707070;
+$color_link: #036fb6;
+@import "../../../styles/mixins/typography";
+
+.forgot {
+    &__remember-me-link {
+        @include typography;
+        color: $color_text;
+        text-align: center;
+        
+        a {
+            color: $color_link;
+        }
+    }
+}
