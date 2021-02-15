@@ -1,1 +1,80 @@
-<p>reset works!</p>
+<div class="container authentication">
+    <div class="row align-items-center">
+      <div class="col-12 col-md-6 order-md-1 mb-5 mb-md-0">
+        <div class="text-center">
+          <img
+            src="assets/img/illustrations/coworking.svg"
+            alt="Sign In Illustration"
+            class="img-fluid"
+          />
+        </div>
+      </div>
+      <div
+        class="col-12 col-md-5 col-xl-4 offset-md-1 offset-xl-2 order-md-2 my-5"
+      >
+        <span class="authentication__header">
+          <h1>Password Reset</h1>
+          <p>Enter your password</p>
+        </span>
+        <div *ngIf="error">{{errorMessage}}</div>
+        <form class="authentication__form" [formGroup]="resetPasswordForm" (ngSubmit)="resetPassword()">
+            <div class="form-group">
+                <div class="form__password">
+                    <label for="password">Password</label>
+                    <input
+                    aria_label="password" 
+                    id="password" formControlName="password"
+                    type="password"
+                    class="form-control form-control-appended"
+                    placeholder="Enter your password"
+                    [ngClass]="{ 'form.is-invalid': submitted && f.password.errors }"
+                    />
+                    <!-- Icon -->
+                    <div class="form-control-icon">
+                    <span class="">
+                        <i-feather class="icons" name="eye"></i-feather>
+                    </span>
+                    </div>
+                </div>
+                <div *ngIf="submitted && f.password.errors" class="form-invalid-feedback">
+                    <div *ngIf="f.password.errors.required">Password is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="form__password">
+                    <label for="confirm_password">Confirm Password</label>
+                    <input
+                    aria_label="confirm password" 
+                    id="confirm_password" formControlName="confirm_password"
+                    type="password"
+                    class="form-control form-control-appended"
+                    placeholder="Enter your password"
+                    [ngClass]="{ 'form.is-invalid': submitted && f.confirm_password.errors }"
+                    />
+                    <!-- Icon -->
+                    <div class="form-control-icon">
+                    <span class="">
+                        <i-feather class="icons" name="eye"></i-feather>
+                    </span>
+                    </div>
+                </div>
+                <div *ngIf="submitted && f.confirm_password.errors" class="form-invalid-feedback">
+                    <div *ngIf="f.confirm_password.errors.required">Password is required</div>
+                    <div *ngIf="f.confirm_password.errors.required">Password Mismatch</div>
+                </div>
+            </div>
+          <button [attr.disabled]="loading ? true: null" type="submit" class="btn btn-lg btn-block btn-primary mb-3 lift">
+            <span class="spark-text has--loading" [ngClass]="{'has--loading': loading}">
+              {{ loading ? 'Loading' : 'Reset Passowrd' }}
+            </span>
+          </button>
+        </form>
+        <div class="forgot__remember-me-link">
+            <span>Remembered your login? 
+                <a [routerLink]="['/signin']"> Sign In </a>
+             </span>
+        </div>
+      </div>
+    </div>
+  </div>
+  

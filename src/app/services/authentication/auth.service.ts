@@ -169,10 +169,7 @@ export class AuthService {
   }
 
   forgotPassword(data: any) {
-    let body = {
-      phone: data,
-    };
-    return this._http.post<any>(endpointV1 + 'users/forgot-password', body);
+    return this._http.post<any>(endpointV1 + 'users/forgot-password', data);
   }
 
   changePassword(data: any) {

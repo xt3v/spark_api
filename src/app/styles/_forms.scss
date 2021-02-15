@@ -98,6 +98,7 @@
         input {
             @include typography;
             color: $color_title;
+            position: relative;
         }
     }
     &-check {

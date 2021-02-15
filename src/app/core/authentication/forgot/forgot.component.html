@@ -3,7 +3,7 @@
       <div class="col-12 col-md-6 order-md-1 mb-5 mb-md-0">
         <div class="text-center">
           <img
-            src="assets/img/illustrations/happiness.svg"
+            src="assets/img/illustrations/coworking.svg"
             alt="Sign In Illustration"
             class="img-fluid"
           />
@@ -16,6 +16,7 @@
           <h1>Password Reset</h1>
           <p>Enter your email to get a password reset link</p>
         </span>
+        <div *ngIf="error">{{errorMessage}}</div>
         <form class="authentication__form" [formGroup]="forgotPasswordForm" (ngSubmit)="forgotPassword()">
           <div class="form-group">
             <label for="signin-email">Email Address</label>
