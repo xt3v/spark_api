@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services';
+import { MustMatch } from '../../helpers/must-match';
+import { PasswordValidator } from '../../helpers/password-validator';
 @Component({
   selector: 'app-reset',
   templateUrl: './reset.component.html',
@@ -21,8 +23,21 @@ export class ResetComponent implements OnInit {
   ngOnInit(): void {
     this.resetPasswordForm = this.formBuilder.group({
       email: ['', Validators.required],
-      password: ['', Validators.required],
+      password: ['', 
+        [
+          Validators.required, 
+          PasswordValidator(/\d/, {hasNumber: true} ),
+          PasswordValidator(/[A-Z]/, {hasCapitalCase: true} ),
+          PasswordValidator(/[a-z]/, {hasSmallCase: true} ),
+          PasswordValidator(/[-!$%^&*()_+|~=`{}\[\]:\/;<>?,.@#]/, {hasSpecialCharacters: true} ),
+          Validators.minLength(8) 
+        ]
+      ],
       confirm_password: ['', Validators.required]
+    }, {
+      validator: [ 
+        MustMatch('password', 'confirm_password')
+      ],
     });
   }
 
@@ -43,16 +58,10 @@ export class ResetComponent implements OnInit {
     }
 
      
-    this._authService.forgotPassword(this.resetPasswordForm.value).subscribe((res) => {
+    this._authService.resetPassowrd(this.resetPasswordForm.value).subscribe((res) => {
       if (res) {
         this.loading = false;
         this.submitted = false;
-      }
-
-      if (res.detail === 'Failed to send email.') {
-          this.error = true;
-          this.errorMessage = res.detail;
-          return;
       }
 
       this.resetPasswordForm.reset();
