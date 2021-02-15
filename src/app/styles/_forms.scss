@@ -84,15 +84,32 @@
         }
         &-icon {
             position: absolute;
-            top: 40px;
-            left: calc(100% - 40px);
+            top: 50%;
+            left: calc(100% - 3rem);
+            transform: translate(-50%, -50%);
         }
     }
     &-group {
         position: relative;
         margin-bottom: 1.375rem;
+
+        .form-text,
+        label,
+        input {
+            @include typography;
+            color: $color_title;
+        }
     }
     &-check {
+        input[type="checkbox"] {
+            width: 1.5rem;
+            height: 1.5rem;
+            top: .15rem;
+
+            + label {
+                padding-left: 1rem;
+            }
+        }
         &-input{
             position: absolute;
             margin-top: 0.3rem;
@@ -133,6 +150,10 @@
         color: $color_links_buttons;
     }
     &-link {
+        &.forgot {
+            margin-right: -3rem;
+            color: $color_links_buttons;
+        }
         &:hover {
             text-decoration: underline;
         }
@@ -160,6 +181,9 @@
             background-color: #e63757;
             border-radius: 0.375rem;
         }
+    }
+    &__password {
+        position: relative;
     }
     &.is-invalid {
         ~ .form-invalid-feedback,
