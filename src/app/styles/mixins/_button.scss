@@ -20,6 +20,11 @@
     transition-property: border-color,  background-color, color, opacity;
     transition-duration: 0.25s;
     transition-timing-function: ease-in-out;
+    @include typography;
+
+    span {
+      @include typography;
+    }
 
     cursor: pointer;
     .no-touchevents &:not([disabled]):not(.disabled):not(.is--disabled):hover /*, &:focus */ {
