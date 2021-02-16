@@ -403,8 +403,12 @@ template {
     width: 100%;
     height: calc(100% - #{$footer-height});
     background-size: 100%;
-    margin-top: $navbar_height/2;
-    padding: 0 8.5rem;
+    margin-top: 2.5rem;
+    padding: 0 9rem;
+
+    &__wrapper {
+      margin-top: 7rem;
+    }
   }
 }
 /*****************************/
