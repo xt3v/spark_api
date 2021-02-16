@@ -1,0 +1,106 @@
+.navbar {
+    $navbar_height: 8.4rem;
+    $navbar_box_shadow: 0 .3rem .6rem rgba($color_black, .29);
+
+    position: fixed;
+    width: 100%;
+    height: 8.4rem;
+    max-height: 100%;
+    background-color: $color_navbar_background;
+    box-shadow: $navbar_box_shadow;
+    border: 1px solid $color_navbar_border;
+    z-index: 10;
+    padding-bottom: 0;
+
+    &__icon {
+        position: relative;
+        margin-right: -.5rem;
+        text-align: center;
+
+        &.grid {
+            top: -.2rem;
+        }
+        svg {
+            height: 1.6rem;
+        }
+        &.chevron-down {
+            svg {
+                fill: $color_title;
+            }
+        }
+    }
+
+    &__items {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    &__link {
+        flex: 1;
+        position: relative;
+        @include typography;
+        line-height: 2.2rem;
+        color: $color_title;
+        cursor: pointer;
+
+        &.has--dropdown {
+            transition: opacity .18s ease-out, transform .18s ease-out;
+
+            &:focus-within,
+            &.is--hovered {
+                .navbar__link--subitems {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
+        }
+        
+        &.subitems {
+            margin: auto 0;
+            padding: .6rem;
+
+            &:not(:first-child) {
+                border-top: 1px solid $color_navbar_border;
+            }
+
+            &.has--dropdown {
+                position: relative;
+    
+                &.is--hovered {
+                    + ul.navbar__link--subitems { 
+                        opacity: 1;
+                        transform: translateX(100%);
+                    }
+                }
+    
+                + ul.navbar__link--subitems {
+                    opacity: 0;
+                    position: absolute;
+                    top: 60%;
+                    border-top-color: $color_navbar_border;
+                    transform: translateX(0);
+                    transition: opacity .18s ease-out, transform .18s ease-out;
+                    z-index: -1;
+                }
+            }
+        }
+        &--subitems {
+            position: absolute;
+            top: $navbar_height/2 + .75rem;
+            width: 100%;
+            height: auto;
+            border: 1px solid $color_navbar_border;
+            border-top-color: transparent;
+            border-radius: .5rem;
+            box-shadow: $navbar_box_shadow;
+            z-index: 1;
+            opacity: 0;
+            transform: translateY(-150%);
+        }
+    }
+}

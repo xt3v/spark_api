@@ -1,1 +1,39 @@
-<p>navbar works!</p>
+<nav class="navbar">
+    <ul class="navbar__items">
+        <li class="navbar__link">Logo</li>
+        <li class="navbar__link">
+            <span class="navbar__icon grid">
+                <i-feather class="grid" name="grid"></i-feather>
+            </span>
+            Dashboard
+        </li>
+        <li class="navbar__link has--dropdown" (click)="toggleMouseOverSubElement()" [ngClass]="{'is--hovered': hoveredSubElement}">
+            Administration
+                <span class="navbar__icon chevron-down">
+                    <i-feather class="chevron-down" name="chevron-down"></i-feather>
+                </span>
+                <ul class="navbar__link--subitems">
+                    <li class="navbar__link subitems">User Management</li>
+                    <li class="navbar__link subitems">Suppliers</li>
+                    <li class="navbar__link subitems">Products</li>
+                    <li class="navbar__link subitems has--dropdown" (mouseover)="toggleMouseOverSubsubElement()" [ngClass]="{'is--hovered': hoveredSubsubElement}">Configurations</li>
+                        <ul class="navbar__link--subitems">
+                            <li (click)="navigateToUrl('item-type')" class="navbar__link subitems">Item Type</li>
+                            <li class="navbar__link subitems">Item</li>
+                            <li class="navbar__link subitems">Kit</li>
+                        </ul>
+                    <li class="navbar__link subitems">Warehouse</li>
+                </ul>
+        </li>
+        <li class="navbar__link">
+            Inventory
+            <span class="navbar__icon chevron-down">
+                <i-feather class="chevron-down" name="chevron-down"></i-feather>
+            </span>
+        </li>
+        <li class="navbar__link">Customers</li>
+        <li class="navbar__link">Payments</li>
+        <li class="navbar__link">Search</li>
+        <li class="navbar__link">Avatar (User Name)</li>
+    </ul>
+</nav>
