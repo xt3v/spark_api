@@ -7,9 +7,10 @@ import { RouterModule } from '@angular/router';
 /** Custom modules */
 import { ModalModule } from './modal/modal.module';
 import { IconsModule } from './icons/icons.module';
+import { CardComponent } from './card/card.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [CardComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -18,6 +19,6 @@ import { IconsModule } from './icons/icons.module';
     ModalModule,
     IconsModule,
   ],
-  exports: [FormsModule, ReactiveFormsModule, ModalModule, IconsModule],
+  exports: [FormsModule, ReactiveFormsModule, ModalModule, IconsModule, CardComponent],
 })
 export class SharedModule {}
