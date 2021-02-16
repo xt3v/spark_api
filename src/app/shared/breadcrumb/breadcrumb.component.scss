@@ -9,6 +9,7 @@
     font-weight: bold;
     line-height: 2.5rem;
     margin: 0;
+    padding: .75rem 0;
 
     a,
     span {
@@ -24,7 +25,7 @@
         position: relative;
         list-style: none;
         margin: .5rem;
-        padding-right: 1rem;
+        padding-right: 2rem;
 
         &:after {
             content: "\003E";
@@ -34,6 +35,10 @@
             height: 1rem;
             left: 100%;
             transform: translateX(-100%);
+        }
+
+        &:not(:first-child) {
+            padding-left: 1rem;
         }
 
         &:first-child {
