@@ -7,17 +7,27 @@
     width: auto;
     border-radius: .5rem;
 
-    &__title {
+    &__header {
         position: relative;
         @include typography(h5);
         color: $color_title;
-        padding: 1rem 3rem;
+        padding: 2.5rem 9.5rem;
+        height: 7.2rem;
+
         &:after {
             content: "";
             position: absolute;
             left: 0;
             right: 0;
+            bottom: 0;
             border-bottom: 1px solid $color_navbar_border;
+        }
+
+        &-title {
+            font-size: inherit;
+            line-height: inherit;
+            font-weight: bold;
+            margin-bottom: 0;
         }
     }
 

@@ -1,9 +1,10 @@
 .footer {
-  position: relative;
+  position: sticky;
   height: $footer-height;
   display: flex;
   align-items: center;
   justify-content: center;
+  top: 100%;
 
   &__title {
     position: relative;

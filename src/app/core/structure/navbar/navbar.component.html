@@ -34,6 +34,16 @@
         <li class="navbar__link">Customers</li>
         <li class="navbar__link">Payments</li>
         <li class="navbar__link">Search</li>
-        <li class="navbar__link">Avatar (User Name)</li>
+        <li class="navbar__link has--dropdown" (click)="toggleMouseOverSubElement()" [ngClass]="{'is--hovered': hoveredSubElement}">
+            Avatar (User Name)
+            <span class="navbar__icon chevron-down">
+                <i-feather class="chevron-down" name="chevron-down"></i-feather>
+            </span>
+            <ul class="navbar__link--subitems">
+                <li class="navbar__link subitems">
+                    <span (click)="signOut()">Sign Out</span>
+                </li>
+            </ul>
+        </li>
     </ul>
 </nav>

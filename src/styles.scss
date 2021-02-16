@@ -91,6 +91,9 @@ html {
     a {
         text-decoration: none;
     }
+    ul,ol,dl {
+      margin-bottom: 0;
+    }
 }
 article,
 aside,
@@ -401,7 +404,7 @@ template {
   &-content {
     position: relative;
     width: 100%;
-    height: calc(100% - #{$footer-height});
+    // height: calc(100% - #{$footer-height});
     background-size: 100%;
     margin-top: 2.5rem;
     padding: 0 9rem;
