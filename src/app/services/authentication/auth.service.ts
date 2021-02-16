@@ -182,4 +182,9 @@ export class AuthService {
     this._cookieService.delete('rememberMe');
     this._route.navigate(['/signin']);
   }
+
+  toggleShowPassword(type: any) {
+    type === 'password' ? type = 'text' : type = 'password';
+    return type;
+  }
 }

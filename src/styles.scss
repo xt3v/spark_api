@@ -385,7 +385,7 @@ template {
     position: relative;
     padding-left: 1rem;
     transition: padding-left .18s ease-out;
-    &.has--loader {
+    &.has--loading {
       &:before {
         content: "";
         @include loading(small);

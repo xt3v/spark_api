@@ -32,6 +32,7 @@
             />
             <div *ngIf="submitted && f.email.errors" class="form-invalid-feedback"  [ngClass]="{'form.is-invalid': submitted && f.email.errors}">
               <div *ngIf="f.email.errors.required">Email address is required</div>
+              <div *ngIf="f.email.errors.pattern || f.email.errors.email">Enter a valid email</div>
             </div>
           </div>
           <button [attr.disabled]="loading ? true: null" type="submit" class="btn btn-lg btn-block btn-primary mb-3 lift">

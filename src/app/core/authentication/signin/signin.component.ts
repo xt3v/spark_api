@@ -14,6 +14,8 @@ export class SigninComponent implements OnInit {
 
   public submitted: Boolean = false;
   public loading: Boolean = false;
+  public passwordType: String = 'password';
+  public togglePasswordShow: Boolean = true;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -23,8 +25,8 @@ export class SigninComponent implements OnInit {
 
   ngOnInit(): void {
     this.signinForm = this.formBuilder.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required],
+      username: ['', [Validators.required, Validators.email, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
+    password: ['', Validators.required],
       remember_me: [],
     });
   }
@@ -60,6 +62,11 @@ export class SigninComponent implements OnInit {
             : 'Oops! You caught us doing some house keeping. Try again after a few minutes. Kindly contact your administrator if issue persists!'
       }
     );
+  }
+
+  toggleShowPassword() {
+    this.togglePasswordShow = !this.togglePasswordShow;
+    this.passwordType = this._authService.toggleShowPassword(this.passwordType);
   }
 
 }

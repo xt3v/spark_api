@@ -24,20 +24,26 @@
                     <input
                     aria_label="password" 
                     id="password" formControlName="password"
-                    type="password"
+                    type={{passwordType}}
                     class="form-control form-control-appended"
                     placeholder="Enter your password"
                     [ngClass]="{ 'form.is-invalid': submitted && f.password.errors }"
                     />
+                    <div *ngIf="submitted && f.password.errors" class="form-invalid-feedback">
+                      <div *ngIf="f.password.errors.required">Password is required</div>
+                      <div *ngIf="f.password.errors.minlength">Password must be at least 8 characters</div>
+                      <div *ngIf="f.password.hasError('hasNumber')">Password must have at least 1 number</div>
+                      <div *ngIf="f.password.hasError('hasCapitalCase')">Password must have at least 1 capital case</div>
+                      <div *ngIf="f.password.hasError('hasSmallCase')">Password must have at least 1 small case</div>
+                      <div *ngIf="f.password.hasError('hasSpecialCharacters')">Password must have at least 1 special character</div>
+                  </div>
                     <!-- Icon -->
-                    <div class="form-control-icon">
-                    <span class="">
-                        <i-feather class="icons" name="eye"></i-feather>
-                    </span>
+                    <div (click)="toggleShowPassword()" class="form-control-icon password" [ngClass]="{'is--hidden': submitted && f.password.errors}">
+                      <span class="">
+                        <i-feather *ngIf="togglePasswordShow" class="icons" name="eye"></i-feather>
+                        <i-feather *ngIf="!togglePasswordShow" class="icons" name="eye-off"></i-feather>
+                      </span>
                     </div>
-                </div>
-                <div *ngIf="submitted && f.password.errors" class="form-invalid-feedback">
-                    <div *ngIf="f.password.errors.required">Password is required</div>
                 </div>
             </div>
             <div class="form-group">
@@ -46,16 +52,17 @@
                     <input
                     aria_label="confirm password" 
                     id="confirm_password" formControlName="confirm_password"
-                    type="password"
+                    type={{passwordType}}
                     class="form-control form-control-appended"
                     placeholder="Enter your password"
                     [ngClass]="{ 'form.is-invalid': submitted && f.confirm_password.errors }"
                     />
                     <!-- Icon -->
-                    <div class="form-control-icon">
-                    <span class="">
-                        <i-feather class="icons" name="eye"></i-feather>
-                    </span>
+                    <div (click)="toggleShowPassword()" class="form-control-icon password" [ngClass]="{'is--hidden': submitted && f.password.errors}">
+                      <span class="">
+                        <i-feather *ngIf="togglePasswordShow" class="icons" name="eye"></i-feather>
+                        <i-feather *ngIf="!togglePasswordShow" class="icons" name="eye-off"></i-feather>
+                      </span>
                     </div>
                 </div>
                 <div *ngIf="submitted && f.confirm_password.errors" class="form-invalid-feedback">

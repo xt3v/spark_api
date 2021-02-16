@@ -14,6 +14,8 @@ export class ResetComponent implements OnInit {
   public loading: boolean = false;
   public error: boolean = false;
   public errorMessage!: string;
+  public passwordType: String = 'password';
+  public togglePasswordShow: Boolean = true;
 
   constructor(
     private _authService:AuthService,
@@ -22,7 +24,7 @@ export class ResetComponent implements OnInit {
 
   ngOnInit(): void {
     this.resetPasswordForm = this.formBuilder.group({
-      email: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
       password: ['', 
         [
           Validators.required, 
@@ -76,6 +78,11 @@ export class ResetComponent implements OnInit {
         this.errorMessage = error.detail;
       }
     })
+  }
+
+  toggleShowPassword() {
+    this.togglePasswordShow = !this.togglePasswordShow;
+    this.passwordType = this._authService.toggleShowPassword(this.passwordType);
   }
 
 }

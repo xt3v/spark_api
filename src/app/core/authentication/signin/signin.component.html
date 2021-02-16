@@ -31,6 +31,7 @@
           />
           <div *ngIf="submitted && f.username.errors" class="form-invalid-feedback"  [ngClass]="{'form.is-invalid': submitted && f.username.errors}">
             <div *ngIf="f.username.errors.required">Email address is required</div>
+            <div *ngIf="f.username.errors.pattern || f.username.errors.email">Enter a valid email</div>
           </div>
         </div>
         <div class="form-group">
@@ -45,22 +46,24 @@
           <!-- Input group -->
           <div class="form__password">
             <input
-              aria_label="password" id="password" formControlName="password"
-              type="password"
+              aria_label="password" 
+              id="password" 
+              formControlName="password"
+              type={{passwordType}}
               class="form-control form-control-appended"
               placeholder="Enter your password"
-              [ngClass]="{ 'form.is-invalid': submitted && f.password.errors }"
+              [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
             />
+            <div *ngIf="submitted && f.password.errors" class="form-invalid-feedback" [ngClass]="{'form.is-invalid': submitted && f.password.errors}">
+                <div *ngIf="f.password.errors.required">Password is required</div>
+            </div>
             <!-- Icon -->
-            <div class="form-control-icon">
+            <div (click)="toggleShowPassword()" class="form-control-icon password" [ngClass]="{'is--hidden': submitted && f.password.errors}">
               <span class="">
-                <i-feather class="icons" name="eye"></i-feather>
+                <i-feather *ngIf="togglePasswordShow" class="icons" name="eye"></i-feather>
+                <i-feather *ngIf="!togglePasswordShow" class="icons" name="eye-off"></i-feather>
               </span>
             </div>
-
-          </div>
-          <div *ngIf="submitted && f.password.errors" class="form-invalid-feedback">
-              <div *ngIf="f.password.errors.required">Password is required</div>
           </div>
         </div>
         <div class="form-group form-check">
