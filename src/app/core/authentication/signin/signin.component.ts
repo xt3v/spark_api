@@ -40,6 +40,7 @@ export class SigninComponent implements OnInit {
   signIn() {
     this.submitted = true;
     this.hasError = false;
+    this.error = '';
 
     if (this.signinForm.invalid) {
       return;
@@ -61,10 +62,9 @@ export class SigninComponent implements OnInit {
         console.log('SIGNIN ERROR', error)
 
           error === 'Invalid credentials given.'
-            ? 'Wrong Username/Password Combination'
-            : 'Oops! You caught us doing some house keeping. Try again after a few minutes. Kindly contact your administrator if issue persists!';
-        
-        this.error = error
+            ? this.error = 'Wrong Username/Password Combination'
+            : this.error = 'Oops! You caught us doing some house keeping. Try again after a few minutes. Kindly contact your administrator if issue persists!';
+      
       }
     );
   }
