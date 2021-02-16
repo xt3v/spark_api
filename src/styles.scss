@@ -397,6 +397,16 @@ template {
     }
   }
 }
+.main {
+  &-content {
+    position: relative;
+    width: 100%;
+    height: calc(100% - #{$footer-height});
+    background-size: 100%;
+    margin-top: $navbar_height/2;
+    padding: 0 8.5rem;
+  }
+}
 /*****************************/
 /********** addons ***********/
 /*****************************/

@@ -8,6 +8,7 @@
 //   3. Card
 //   4. Progress bar
 //   5. Footer
+//   6. Header
 
 // 1. Global
 // ---------
@@ -73,3 +74,8 @@ $progress-radius: $global-radius;
 // 5. Footer
 // -----------------
 $footer-height: 5rem;
+
+//6. Navbar
+$navbar_height: 8.4rem;
+$navbar_box_shadow: 0 .3rem .6rem rgba($color_black, .29);
+
