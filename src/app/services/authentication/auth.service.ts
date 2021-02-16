@@ -45,7 +45,7 @@ export class AuthService {
   hasWebDashboardAccess(): boolean {
     return (
       //this.getUserProfile().role == 'S' ||
-      this.getUserProfile().role == 'A' && this.getUserProfile().role !== null
+      this.getUserProfile().role == 'A' || this.getUserProfile().role == 'N' && this.getUserProfile().role !== null
         ? true
         : false
     );
