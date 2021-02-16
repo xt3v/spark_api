@@ -8,9 +8,10 @@ import { RouterModule } from '@angular/router';
 import { ModalModule } from './modal/modal.module';
 import { IconsModule } from './icons/icons.module';
 import { CardComponent } from './card/card.component';
+import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 
 @NgModule({
-  declarations: [CardComponent],
+  declarations: [CardComponent, BreadcrumbComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -19,6 +20,6 @@ import { CardComponent } from './card/card.component';
     ModalModule,
     IconsModule,
   ],
-  exports: [FormsModule, ReactiveFormsModule, ModalModule, IconsModule, CardComponent],
+  exports: [FormsModule, ReactiveFormsModule, ModalModule, IconsModule, CardComponent, BreadcrumbComponent],
 })
 export class SharedModule {}

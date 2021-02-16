@@ -1,0 +1,51 @@
+@import "../../styles/mixins/typography";
+@import "../../styles/vars";
+
+.breadcrumb {
+    $color_breadcrumbs: #8B8888;
+    $color_breadcrumb_chevron_right: $color_title;
+    background: none;
+    @include typography;
+    font-weight: bold;
+    line-height: 2.5rem;
+    margin: 0;
+
+    a,
+    span {
+        color: $color_breadcrumbs;
+
+        &:hover {
+            color: dimgrey;
+            text-decoration: none;
+        }
+    }
+
+    li {
+        position: relative;
+        list-style: none;
+        margin: .5rem;
+        padding-right: 1rem;
+
+        &:after {
+            content: "\003E";
+            position: absolute;
+            color: $color_breadcrumb_chevron_right;
+            width: .5rem;
+            height: 1rem;
+            left: 100%;
+            transform: translateX(-100%);
+        }
+
+        &:first-child {
+            color: $color_title;
+        }
+
+        &:last-child {
+            margin-right: 2rem;
+            &:after {
+                display: none;
+            }
+        }
+    }
+
+}
