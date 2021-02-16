@@ -27,9 +27,4 @@ export class NavbarComponent implements OnInit {
   toggleMouseOverSubsubElement() {
     this.hoveredSubsubElement = !this.hoveredSubsubElement;
   }
-
-  navigateToUrl(url:String) {
-    this._route.navigate([`'/${url}'`]);
-  }
-
 }

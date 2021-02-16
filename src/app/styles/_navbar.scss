@@ -90,6 +90,8 @@
             }
         }
         &--subitems {
+            display: flex;
+            flex-direction: column;
             position: absolute;
             top: $navbar_height/2 + .75rem;
             width: 100%;
