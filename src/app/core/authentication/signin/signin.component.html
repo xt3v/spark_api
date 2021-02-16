@@ -16,6 +16,8 @@
         <h1>Sign In</h1>
         <p>Gain access to your Dashboard</p>
       </span>
+      <!-- TODO -> add error message to alerts component -->
+      <span *ngIf="hasError">{{error}}</span>
       <form class="authentication__form" [formGroup]="signinForm" (ngSubmit)="signIn()">
         <div class="form-group">
           <label for="signin-email">Email Address</label>

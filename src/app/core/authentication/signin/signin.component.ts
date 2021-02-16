@@ -16,6 +16,8 @@ export class SigninComponent implements OnInit {
   public loading: Boolean = false;
   public passwordType: String = 'password';
   public togglePasswordShow: Boolean = true;
+  public hasError: Boolean = false;
+  public error: String = '';
 
   constructor(
     private formBuilder: FormBuilder,
@@ -37,6 +39,7 @@ export class SigninComponent implements OnInit {
   }
   signIn() {
     this.submitted = true;
+    this.hasError = false;
 
     if (this.signinForm.invalid) {
       return;
@@ -54,12 +57,14 @@ export class SigninComponent implements OnInit {
       (error) => {
         this.loading = false;
         this.submitted = false;
-
+        this.hasError = true;
         console.log('SIGNIN ERROR', error)
 
           error === 'Invalid credentials given.'
             ? 'Wrong Username/Password Combination'
-            : 'Oops! You caught us doing some house keeping. Try again after a few minutes. Kindly contact your administrator if issue persists!'
+            : 'Oops! You caught us doing some house keeping. Try again after a few minutes. Kindly contact your administrator if issue persists!';
+        
+        this.error = error
       }
     );
   }
