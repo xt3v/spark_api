@@ -104,6 +104,7 @@
 
         .form-text,
         label,
+        textarea,
         input {
             @include typography;
             color: $color_title;
@@ -175,6 +176,10 @@
             margin-top: 0.25rem;
             @include typography;
             color: $color_warning;
+
+            &.is--invalid {
+                display: block;
+            }
         }
         &-tooltip {
             position: absolute;

@@ -7,11 +7,14 @@ import { RouterModule } from '@angular/router';
 /** Custom modules */
 import { ModalModule } from './modal/modal.module';
 import { IconsModule } from './icons/icons.module';
-import { CardComponent } from './card/card.component';
+import { DynamicFormsModule } from './dynamic-forms/dynamic-forms.module';
+
+/** Components */
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 
+
 @NgModule({
-  declarations: [CardComponent, BreadcrumbComponent],
+  declarations: [BreadcrumbComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -19,7 +22,8 @@ import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
     RouterModule,
     ModalModule,
     IconsModule,
+    DynamicFormsModule
   ],
-  exports: [FormsModule, ReactiveFormsModule, ModalModule, IconsModule, CardComponent, BreadcrumbComponent],
+  exports: [FormsModule, ReactiveFormsModule, ModalModule, IconsModule, BreadcrumbComponent, DynamicFormsModule],
 })
 export class SharedModule {}

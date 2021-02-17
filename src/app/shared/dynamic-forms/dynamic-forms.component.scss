@@ -1,0 +1,33 @@
+@import "../../styles/mixins/button";
+@import "../../styles/vars";
+@import "../../styles/mixins/typography";
+
+.spark-dynamic-forms { 
+    &__button-wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        margin-top: 4rem;
+    }
+
+    &__clear {
+        @include button($size: small);
+        margin-right: 3rem;
+    }   
+
+    &__submit {
+        @include button($color:primary, $size: small);
+        padding: 1rem 2.5rem;
+    }
+
+    &__bulk {
+        &-wrapper {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 1rem;
+        }
+        &-btn {
+            @include button($size: small);
+        }
+    }
+}

@@ -1,0 +1,24 @@
+ <div [formGroup]="form">
+    <label [attr.for]="item.key">{{item.label}}</label>
+
+    <div [ngSwitch]="item.controlType">
+        <input *ngSwitchCase="'text'" class="form-control" [ngClass]="{ 'is-invalid': f.touched && f.errors }" [placeholder]="item.placeholder" [attr.aria-label]="item.ariaLabel" [formControlName]="item.key" [id]="item.key" [type]="item.type">
+
+        <textarea *ngSwitchCase="'textarea'" class="form-control" [placeholder]="item.placeholder" [attr.aria-label]="item.ariaLabel" [rows]="item.rows" [cols]="item.cols" [formControlName]="item.key" [id]="item.key"></textarea>
+
+        <select *ngSwitchCase="'dropdown'" class="form-control" [attr.aria-label]="item.ariaLabel" [formControlName]="item.key" [id]="item.key">
+            <option *ngFor="let opt of item.options" [value]="opt.key">
+                {{opt.value}}
+            </option>
+        </select>
+    </div>
+
+    <!-- <div *ngIf="!isValid" class="form-invalid-feedback">
+        {{item.label}} is required
+    </div> -->
+    <!-- TODO :-> Add more validation occurrences -->
+    <div class="form-invalid-feedback" *ngIf="f.touched && f.errors" [ngClass]="{'is--invalid': f.errors}">
+        <div *ngIf="f.errors.required">{{item.label}} is required</div>
+        <div *ngIf="f.errors.pattern || f.errors.email">Enter a valid email</div>
+    </div>
+</div>
