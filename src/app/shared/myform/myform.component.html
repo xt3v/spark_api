@@ -1,0 +1,31 @@
+<form [formGroup]="formGroup" (ngSubmit)="dataReceived()">
+    <div *ngFor="let item of formGroupOrder;let i=index;">
+        <div class="row">
+            <div *ngFor="let field of item;let j=index;" class="col-sm-{{12/item.length}}">
+                <app-myinput [formErrors]="formErrors" [data]="getDescriptionObject(field)" [form]="formGroup"
+                    formControName="{{field}}">
+                </app-myinput>
+            </div>
+        </div>
+    </div>
+
+    <span *ngFor="let error of detailErrors" class="text-danger">
+        {{error}} <br>
+    </span>
+
+    <!-- <div class="row">
+        <div class="col-sm-6">
+            <app-myinput [form]="formGroup" formControName="name"></app-myinput>
+        </div>
+        <div class="col-sm-6">
+            <app-myinput [form]="formGroup" formControName="description"></app-myinput>
+
+        </div>
+
+    </div> -->
+
+
+    <br>
+    <button [disabled]="!formGroup.valid" type="submit" class="btn btn-primary">
+        {{isLoading?'Loading...':submitButtonText}} </button>
+</form>

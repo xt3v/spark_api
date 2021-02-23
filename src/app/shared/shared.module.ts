@@ -11,6 +11,7 @@ import { DynamicFormsModule } from './dynamic-forms/dynamic-forms.module';
 
 /** Components */
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
+import { MyformModule } from './myform/myform.module';
 
 
 @NgModule({
@@ -22,8 +23,8 @@ import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
     RouterModule,
     ModalModule,
     IconsModule,
-    DynamicFormsModule
+    DynamicFormsModule, MyformModule
   ],
-  exports: [FormsModule, ReactiveFormsModule, ModalModule, IconsModule, BreadcrumbComponent, DynamicFormsModule],
+  exports: [FormsModule, MyformModule, ReactiveFormsModule, ModalModule, IconsModule, BreadcrumbComponent, DynamicFormsModule],
 })
-export class SharedModule {}
+export class SharedModule { }

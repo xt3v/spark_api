@@ -7,23 +7,25 @@
             </span>
             Dashboard
         </li>
-        <li class="navbar__link has--dropdown" (click)="toggleMouseOverSubElement()" [ngClass]="{'is--hovered': hoveredSubElement}">
+        <li class="navbar__link has--dropdown" (click)="toggleMouseOverSubElement()"
+            [ngClass]="{'is--hovered': hoveredSubElement}">
             Administration
-                <span class="navbar__icon chevron-down">
-                    <i-feather class="chevron-down" name="chevron-down"></i-feather>
-                </span>
+            <span class="navbar__icon chevron-down">
+                <i-feather class="chevron-down" name="chevron-down"></i-feather>
+            </span>
+            <ul class="navbar__link--subitems">
+                <li class="navbar__link subitems">User Management</li>
+                <li class="navbar__link subitems">Suppliers</li>
+                <li class="navbar__link subitems">Products</li>
+                <li class="navbar__link subitems has--dropdown" (mouseover)="toggleMouseOverSubsubElement()"
+                    [ngClass]="{'is--hovered': hoveredSubsubElement}">Configurations</li>
                 <ul class="navbar__link--subitems">
-                    <li class="navbar__link subitems">User Management</li>
-                    <li class="navbar__link subitems">Suppliers</li>
-                    <li class="navbar__link subitems">Products</li>
-                    <li class="navbar__link subitems has--dropdown" (mouseover)="toggleMouseOverSubsubElement()" [ngClass]="{'is--hovered': hoveredSubsubElement}">Configurations</li>
-                        <ul class="navbar__link--subitems">
-                            <a [routerLink]="['/configs/item-type']" class="navbar__link subitems">Item Type</a>
-                            <a href="#" class="navbar__link subitems">Item</a>
-                            <a href="#" class="navbar__link subitems">Kit</a>
-                        </ul>
-                    <li class="navbar__link subitems">Warehouse</li>
+                    <a [routerLink]="['/configs/item-type']" class="navbar__link subitems">Item Type</a>
+                    <a [routerLink]="['/configs/item-config']" href="#" class="navbar__link subitems">Item</a>
+                    <a [routerLink]="['/configs/box-config']" class="navbar__link subitems">Box</a>
                 </ul>
+                <li class="navbar__link subitems">Warehouse</li>
+            </ul>
         </li>
         <li class="navbar__link">
             Inventory
@@ -34,7 +36,8 @@
         <li class="navbar__link">Customers</li>
         <li class="navbar__link">Payments</li>
         <li class="navbar__link">Search</li>
-        <li class="navbar__link has--dropdown" (click)="toggleMouseOverSubElement()" [ngClass]="{'is--hovered': hoveredSubElement}">
+        <li class="navbar__link has--dropdown" (click)="toggleMouseOverSubElement()"
+            [ngClass]="{'is--hovered': hoveredSubElement}">
             Avatar (User Name)
             <span class="navbar__icon chevron-down">
                 <i-feather class="chevron-down" name="chevron-down"></i-feather>

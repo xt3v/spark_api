@@ -1,0 +1,39 @@
+<div class="mb-3" [formGroup]="form">
+    <label [for]="formControName" class="form-label">{{displayControlName}}</label>
+    <div [ngSwitch]="formControlType">
+        <div *ngSwitchCase="'choice'">
+            <select class="form-control" [attr.aria-label]="formControName" [formControlName]="formControName"
+                [id]="formControName">
+                <option *ngIf="isLoading" disabled value="">Fetching ...</option>
+                <option *ngIf="!isLoading" disabled value="">Select {{displayControlName}}</option>
+                <option *ngFor="let opt of choices" [value]="opt.value">
+                    {{opt.display_name}}
+                </option>
+            </select>
+        </div>
+
+        <div *ngSwitchCase="'multiplechoice'">
+            <select multiple class="form-control" [attr.aria-label]="formControName" [formControlName]="formControName"
+                [id]="formControName">
+                <option *ngIf="isLoading" disabled value="">Fetching ...</option>
+                <option *ngIf="!isLoading" disabled value="">Select {{displayControlName}}</option>
+                <option *ngFor="let opt of choices" [value]="opt.value">
+                    {{opt.display_name}}
+                </option>
+            </select>
+        </div>
+
+        <textarea *ngSwitchCase="'textArea'" class="form-control" [attr.aria-label]="formControName" rows="5"
+            [formControlName]="formControName" [id]="formControName"></textarea>
+
+
+        <div *ngSwitchDefault>
+            <input [formControlName]="formControName" [type]="formControlType" class="form-control"
+                [id]="formControName" (blur)="sortValidationErrors()">
+        </div>
+    </div>
+
+    <span *ngFor="let error of errors" class="text-danger">
+        {{error}} <br>
+    </span>
+</div>
