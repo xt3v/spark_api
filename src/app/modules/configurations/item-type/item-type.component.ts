@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { FormItemService } from '../../../services/forms/form-item.service'
-import { FormBase } from '../../../core/models/form-base';
-import { Observable } from 'rxjs';
-import { ItemTypeConfigfields } from './options'
+import { FormItemService } from '../../../services/forms/form-item.service';
+import { ItemTypeConfigfields } from './options';
 
 @Component({
   selector: 'app-item-type',
@@ -14,7 +12,7 @@ import { ItemTypeConfigfields } from './options'
 export class ItemTypeComponent implements OnInit {
   // formItems$: Observable<FormBase<any>[]>;
   formItems: any = ItemTypeConfigfields
-  url: string = "https://api.spark.sisitech.dev/api/v1/item-type-configs/"
+  url: string = "item-type-configs/"
 
   formGroupOrder = [
     ['name'],

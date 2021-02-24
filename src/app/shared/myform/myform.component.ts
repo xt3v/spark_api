@@ -3,7 +3,10 @@ import { MY_EXAMPLE_OPTIONS_DATA } from './myfields';
 import { MyInputModel, InputType } from './myinput/model';
 import { FormBuilder, FormGroup, FormControl, AbstractControl, Validators } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
+const endpoint = environment.APIEndpoint;
+const endpointV1 = environment.APIv1Endpoint;
 @Component({
   selector: 'app-myform',
   templateUrl: './myform.component.html',
@@ -91,7 +94,7 @@ export class MyformComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    this.url = `${endpointV1}${this.url}`
   }
   showLoader(status: boolean) {
     this.isLoading = status
