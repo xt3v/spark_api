@@ -1,7 +1,7 @@
 
 import { parses, renders, endpointV1 } from "../../../services/constants/form-options-configs";
 
-const warehouseFields: any = {
+const storeFields: any = {
     "name": "List Create Stores Api",
     "description": "",
     renders,
@@ -70,5 +70,5 @@ const warehouseFields: any = {
 }
 
 export {
-    warehouseFields
+    storeFields
 }

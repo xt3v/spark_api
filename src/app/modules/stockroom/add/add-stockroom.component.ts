@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { storeFields } from './options';
+import { storeFields } from '../../warehouse/add/options';
 
 @Component({
-  selector: 'app-add-warehouse',
-  templateUrl: './add-warehouse.component.html',
-  styleUrls: ['./add-warehouse.component.scss']
+  selector: 'app-add-stockroom',
+  templateUrl: './add-stockroom.component.html',
+  styleUrls: ['./add-stockroom.component.scss']
 })
-export class AddWarehouseComponent implements OnInit {
-
+export class AddStockroomComponent implements OnInit {
   formItems: any = storeFields;
   url: string = "stores/"
   formGroupOrder = [
@@ -15,12 +14,14 @@ export class AddWarehouseComponent implements OnInit {
   ]
 
   extraParams = {
-    type: "WH"
+    type: "SR"
   }
+
   constructor() { }
 
   ngOnInit(): void {
   }
+
   onValidatedData(data: any) {
     console.log(data)
   }

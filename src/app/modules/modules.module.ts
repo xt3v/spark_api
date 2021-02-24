@@ -3,12 +3,16 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { ModulesRoutes } from './modules-routing.module';
-
-import { DashboardComponent } from './dashboard/dashboard.component';
 import { SharedModule } from '../shared/shared.module';
 import { CoreModule } from '../core/core.module';
+
+import { ModulesRoutes } from './modules-routing.module';
+
 import { WarehouseModule } from './warehouse/warehouse.module';
+import { StockroomModule } from './stockroom/stockroom.module';
+
+import { DashboardComponent } from './dashboard/dashboard.component';
+
 
 @NgModule({
   declarations: [DashboardComponent],
@@ -19,7 +23,8 @@ import { WarehouseModule } from './warehouse/warehouse.module';
     ReactiveFormsModule,
     SharedModule,
     CoreModule,
-    WarehouseModule
+    WarehouseModule,
+    StockroomModule
   ],
 })
 export class ModulesModule {}
