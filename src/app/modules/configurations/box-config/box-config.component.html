@@ -1,5 +1,5 @@
 <div class="col-sm-12">
-    <app-myform (onValidatedData)="onValidatedData($event)" [isValidationOnly]=true [formItems]="formItems" [url]="url"
+    <app-myform (onValidatedData)="onValidatedData($event)" [isValidationOnly]=false [formItems]="formItems" [url]="url"
         (onPostedData)="onPostedData($event)" submitButtonText="Box Config" [formGroupOrder]="formGroupOrder"
         [extraParams]="extraParams" [cardTitle]="'Kit / Box Configuration'">
     </app-myform>
