@@ -25,6 +25,9 @@ export class MyformComponent implements OnInit {
   @Input()
   formItems: any
 
+  @Input()
+  extraParams: any = {}
+
   @Output()
   onValidatedData = new EventEmitter<any>();
 
@@ -137,10 +140,10 @@ export class MyformComponent implements OnInit {
   dataReceived() {
     this.detailErrors = []
     if (this.formGroup.valid) {
+      const data = { ...this.formGroup.value, ...this.extraParams }
       if (this.isValidationOnly) {
-        this.onValidatedData.emit(this.formGroup.value)
+        this.onValidatedData.emit(data)
       } else {
-        const data = this.formGroup.value
         this.sendDataHttp(data)
       }
     } else {

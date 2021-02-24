@@ -14,6 +14,9 @@ export class BoxConfigComponent implements OnInit {
     ['description'],
     ['items']
   ]
+  extraParams = {
+    field: "dadm"
+  }
   constructor() { }
 
   ngOnInit(): void {
