@@ -38,10 +38,14 @@ export class MyformComponent implements OnInit {
 
   @Input()
   formGroupOrder!: Array<Array<string>>;
+
+  @Input() loading: boolean = false;
+  @Input() cardTitle: string = 'Form Title';
+
   initial: boolean = false
   formErrors: any = {}
   detailErrors: any = []
-  isLoading: boolean = false
+  isLoading: boolean = false;
   constructor(private fb: FormBuilder,
     private http: HttpClient) {
 
@@ -140,6 +144,14 @@ export class MyformComponent implements OnInit {
 
   getControl(name: string): AbstractControl {
     return this.formGroup.get(name) || new FormControl()
+  }
+
+  resetForm() {
+    this.formGroup.reset();
+  }
+
+  bulkOptions() {
+
   }
 
 }

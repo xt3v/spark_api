@@ -7,11 +7,10 @@ import { RouterModule } from '@angular/router';
 /** Custom modules */
 import { ModalModule } from './modal/modal.module';
 import { IconsModule } from './icons/icons.module';
-import { DynamicFormsModule } from './dynamic-forms/dynamic-forms.module';
+import { MyformModule } from './myform/myform.module';
 
 /** Components */
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
-import { MyformModule } from './myform/myform.module';
 
 
 @NgModule({
@@ -23,8 +22,8 @@ import { MyformModule } from './myform/myform.module';
     RouterModule,
     ModalModule,
     IconsModule,
-    DynamicFormsModule, MyformModule
+    MyformModule
   ],
-  exports: [FormsModule, MyformModule, ReactiveFormsModule, ModalModule, IconsModule, BreadcrumbComponent, DynamicFormsModule],
+  exports: [FormsModule, MyformModule, ReactiveFormsModule, ModalModule, IconsModule, BreadcrumbComponent],
 })
 export class SharedModule { }
