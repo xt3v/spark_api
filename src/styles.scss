@@ -402,16 +402,7 @@ template {
 }
 .main {
   &-content {
-    position: relative;
-    width: 100%;
-    // height: calc(100% - #{$footer-height});
-    background-size: 100%;
     margin-top: 2.5rem;
-    padding: 0 9rem;
-
-    &__wrapper {
-      // margin-top: 7rem;
-    }
   }
 }
 /*****************************/

@@ -1,46 +1,50 @@
-<div class="spark-dynamic-forms__bulk-wrapper">
-    <!-- TODO -> call a module for the bulk upload processes -->
-    <button type="button" (click)="bulkOptions()" class="btn btn btn-sm mb-3 lift spark-dynamic-forms__bulk-btn">Bulk
-        Actions</button>
-</div>
-<app-card [title]="formAction+' '+cardTitle">
-    <span *ngFor="let error of detailErrors" class="text-danger">
-        {{error}} <br>
-    </span>
-    <form [formGroup]="formGroup" (ngSubmit)="dataReceived()">
-        <div *ngFor="let item of formGroupOrder;let i=index;">
-            <div class="row">
-                <div *ngFor="let field of item;let j=index;" class="col-sm-{{12/item.length}}">
-                    <app-myinput [formErrors]="formErrors" [data]="getDescriptionObject(field)" [form]="formGroup"
-                        formControName="{{field}}">
-                    </app-myinput>
+<div class="container">
+    <div class="row spark-dynamic-forms__bulk-wrapper">
+        <!-- TODO -> call a module for the bulk upload processes -->
+        <button type="button" (click)="bulkOptions()" class="btn btn btn-sm mb-3 lift spark-dynamic-forms__bulk-btn">Bulk
+            Actions</button>
+    </div>
+    <div class="">
+        <app-card [title]="formAction+' '+cardTitle">
+            <span *ngFor="let error of detailErrors" class="text-danger">
+                {{error}} <br>
+            </span>
+            <form [formGroup]="formGroup" (ngSubmit)="dataReceived()">
+                <div *ngFor="let item of formGroupOrder;let i=index;">
+                    <div class="row">
+                        <div *ngFor="let field of item;let j=index;" class="col-sm-{{12/item.length}}">
+                            <app-myinput [formErrors]="formErrors" [data]="getDescriptionObject(field)" [form]="formGroup"
+                                formControName="{{field}}">
+                            </app-myinput>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
-
-        <!-- <div class="row">
-            <div class="col-sm-6">
-                <app-myinput [form]="formGroup" formControName="name"></app-myinput>
-            </div>
-            <div class="col-sm-6">
-                <app-myinput [form]="formGroup" formControName="description"></app-myinput>
-    
-            </div>
-    
-        </div> -->
-
-
-        <br>
-        <div class="form-row spark-dynamic-forms__button-wrapper">
-            <button type="button" (click)="resetForm()"
-                class="btn btn btn-sm mb-3 lift spark-dynamic-forms__clear">Clear</button>
-            <button [disabled]="!formGroup.valid" type="submit"
-                class="btn btn-primary mb-3 lift spark-dynamic-forms__submit">
-                <span class="spark-text has--loading" [ngClass]="{'has--loading': loading}">
-                    {{isLoading?'Loading...': formAction+' '+submitButtonText}}
-                </span>
-            </button>
-        </div>
-
-    </form>
-</app-card>
+        
+                <!-- <div class="row">
+                    <div class="col-sm-6">
+                        <app-myinput [form]="formGroup" formControName="name"></app-myinput>
+                    </div>
+                    <div class="col-sm-6">
+                        <app-myinput [form]="formGroup" formControName="description"></app-myinput>
+            
+                    </div>
+            
+                </div> -->
+        
+        
+                <br>
+                <div class="form-row spark-dynamic-forms__button-wrapper">
+                    <button type="button" (click)="resetForm()"
+                        class="btn btn btn-sm mb-3 lift spark-dynamic-forms__clear">Clear</button>
+                    <button [disabled]="!formGroup.valid" type="submit"
+                        class="btn btn-primary mb-3 lift spark-dynamic-forms__submit">
+                        <span class="spark-text has--loading" [ngClass]="{'has--loading': loading}">
+                            {{isLoading?'Loading...': formAction+' '+submitButtonText}}
+                        </span>
+                    </button>
+                </div>
+        
+            </form>
+        </app-card>
+    </div>
+</div>
