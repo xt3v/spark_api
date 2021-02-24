@@ -12,8 +12,8 @@ export class ItemConfigComponent implements OnInit {
 
   formGroupOrder = [
     ['name'],
+    ['type', 'has_serial'],
     ['description'],
-    ['type']
   ]
   constructor() { }
 

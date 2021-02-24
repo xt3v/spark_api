@@ -55,13 +55,13 @@ const ItemConfigfields: any = {
                 "type": "boolean",
                 "required": false,
                 "read_only": false,
-                "label": "Has serial"
+                "label": "Has serial No.?"
             },
             "type": {
                 "type": "field",
                 "required": true,
                 "read_only": false,
-                "label": "Type",
+                "label": "Item Type",
                 "display_name": "name",
                 "url": "https://api.spark.sisitech.dev/api/v1/item-type-configs/"
             }
