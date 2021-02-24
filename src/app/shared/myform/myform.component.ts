@@ -4,6 +4,7 @@ import { MyInputModel, InputType } from './myinput/model';
 import { FormBuilder, FormGroup, FormControl, AbstractControl, Validators } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { FormItemService } from 'src/app/services/forms/form-item.service';
 
 const endpoint = environment.APIEndpoint;
 const endpointV1 = environment.APIv1Endpoint;
@@ -49,8 +50,11 @@ export class MyformComponent implements OnInit {
   formErrors: any = {}
   detailErrors: any = []
   isLoading: boolean = false;
-  constructor(private fb: FormBuilder,
-    private http: HttpClient) {
+  constructor(
+    private fb: FormBuilder,
+    private http: HttpClient,
+    private _formService: FormItemService
+    ) {
 
   }
   ngOnChanges() {
@@ -121,15 +125,19 @@ export class MyformComponent implements OnInit {
 
   sendDataHttp(data: any) {
     this.showLoader(true)
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      Authorization: 'Bearer micha'
-    })
-    this.formErrors = []
-    this.http.post<any>(this.url, data, { headers: headers }).subscribe(res => {
+    // const headers = new HttpHeaders({
+    //   'Content-Type': 'application/json',
+    //   Authorization: 'Bearer micha'
+    // })
+    this.formErrors = [];
+    const post_data = {
+      url: this.url,
+      formData: data
+    }
+    this._formService.postForm(post_data).subscribe(res => {
       this.onPostedData.emit(res)
       this.showLoader(false)
-
+      this.resetForm();
     }, error => {
       this.showLoader(false)
       const status = error.status
