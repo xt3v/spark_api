@@ -1,7 +1,8 @@
+
 import { parses, renders, endpointV1 } from "../../../services/constants/form-options-configs";
 
-const ItemConfigfields: any = {
-    "name": "List Create Item Configs Api",
+const storeFields: any = {
+    "name": "List Create Stores Api",
     "description": "",
     renders,
     parses,
@@ -12,12 +13,6 @@ const ItemConfigfields: any = {
                 "required": false,
                 "read_only": true,
                 "label": "ID"
-            },
-            "type_name": {
-                "type": "string",
-                "required": false,
-                "read_only": true,
-                "label": "Type name"
             },
             "created": {
                 "type": "datetime",
@@ -36,33 +31,44 @@ const ItemConfigfields: any = {
                 "required": true,
                 "read_only": false,
                 "label": "Name",
-                "max_length": 50
-            },
-            "description": {
-                "type": "string",
-                "required": true,
-                "read_only": false,
-                "label": "Description",
-                "max_length": 400
-            },
-            "has_serial": {
-                "type": "boolean",
-                "required": false,
-                "read_only": false,
-                "label": "Has serial No.?"
+                "max_length": 45
             },
             "type": {
+                "type": "choice",
+                "required": true,
+                "read_only": false,
+                "label": "Type",
+                "choices": [
+                    {
+                        "value": "WH",
+                        "display_name": "Warehouse"
+                    },
+                    {
+                        "value": "SR",
+                        "display_name": "Stock Room"
+                    }
+                ]
+            },
+            "location": {
                 "type": "field",
                 "required": true,
                 "read_only": false,
-                "label": "Item Type",
+                "label": "Location / Region",
                 "display_name": "name",
-                "url": `${endpointV1}item-type-configs/`
+                "url": `${endpointV1}locations/`
+            },
+            "manager": {
+                "type": "field",
+                "required": true,
+                "read_only": false,
+                "label": "Manager",
+                "display_name": "full_name",
+                "url": `${endpointV1}users/`
             }
         }
     }
 }
 
 export {
-    ItemConfigfields
+    storeFields
 }

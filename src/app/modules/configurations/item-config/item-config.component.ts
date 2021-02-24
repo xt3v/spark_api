@@ -8,7 +8,7 @@ import { ItemConfigfields } from './options';
 })
 export class ItemConfigComponent implements OnInit {
   formItems: any = ItemConfigfields
-  url: string = "https://api.spark.sisitech.dev/api/v1/item-configs/"
+  url: string = "item-configs/"
 
   formGroupOrder = [
     ['name'],

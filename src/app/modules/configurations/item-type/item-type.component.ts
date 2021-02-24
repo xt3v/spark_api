@@ -16,6 +16,7 @@ export class ItemTypeComponent implements OnInit {
     ['description']
   ]
 
+
   constructor(
   ) {
   }

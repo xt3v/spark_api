@@ -8,7 +8,7 @@ import { BoxConfigfields } from './options';
 })
 export class BoxConfigComponent implements OnInit {
   formItems: any = BoxConfigfields
-  url: string = "https://api.spark.sisitech.dev/api/v1/box-configs/"
+  url: string = "box-configs/"
   formGroupOrder = [
     ['name'],
     ['description'],

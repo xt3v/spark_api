@@ -4,8 +4,9 @@ import { MyInputModel, InputType } from './myinput/model';
 import { FormBuilder, FormGroup, FormControl, AbstractControl, Validators } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { FormItemService } from 'src/app/services/forms/form-item.service';
 
+import { from } from 'rxjs';
+import { FormItemService } from 'src/app/services/forms/form-item.service';
 const endpoint = environment.APIEndpoint;
 const endpointV1 = environment.APIv1Endpoint;
 @Component({
@@ -24,6 +25,9 @@ export class MyformComponent implements OnInit {
   @Input()
   formItems: any
 
+  @Input()
+  extraParams: any = {}
+
   @Output()
   onValidatedData = new EventEmitter<any>();
 
@@ -38,7 +42,19 @@ export class MyformComponent implements OnInit {
 
   @Input()
   url: string = ""
+  _instance: any
+  instanceChanged = false
+  isNew: boolean = true
+  @Input()
+  set instance(value: any) {
+    this._instance = value
+    this.instanceChanged = true
+    console.log("Daam setting the instance")
+  }
 
+  get instance() {
+    return this._instance
+  }
 
   @Input()
   formGroupOrder!: Array<Array<string>>;
@@ -54,7 +70,8 @@ export class MyformComponent implements OnInit {
     private fb: FormBuilder,
     private http: HttpClient,
     private _formService: FormItemService
-    ) {
+
+  ) {
 
   }
   ngOnChanges() {
@@ -69,8 +86,9 @@ export class MyformComponent implements OnInit {
         if (field.read_only || !possibleFields.includes(key)) {
           continue
         }
+        const defaultField = field.type == "boolean" ? false : ""
         this.formGroup.addControl(
-          key, new FormControl('', [
+          key, new FormControl(defaultField, [
           ])
         )
         const fieldcontrol = this.formGroup.controls[key]
@@ -85,6 +103,20 @@ export class MyformComponent implements OnInit {
           fieldcontrol.setValidators(validators)
         }
 
+      }
+    }
+    this.checkInstanceChangesUpdateForm()
+
+  }
+  checkInstanceChangesUpdateForm() {
+    if (this.instanceChanged) {
+      this.instanceChanged = false
+      if (this.instance) {
+        this.formGroup.patchValue(
+          this.instance
+        )
+        this.isNew = this.instance.id == null
+        this.formGroup.markAllAsTouched()
       }
     }
   }
@@ -108,10 +140,10 @@ export class MyformComponent implements OnInit {
   dataReceived() {
     this.detailErrors = []
     if (this.formGroup.valid) {
+      const data = { ...this.formGroup.value, ...this.extraParams }
       if (this.isValidationOnly) {
-        this.onValidatedData.emit(this.formGroup.value)
+        this.onValidatedData.emit(data)
       } else {
-        const data = this.formGroup.value
         this.sendDataHttp(data)
       }
     } else {
@@ -122,19 +154,19 @@ export class MyformComponent implements OnInit {
     return this.formGroup.valid
   }
 
+  get formAction() {
+    return this.isNew ? 'Add' : 'Update'
+  }
 
   sendDataHttp(data: any) {
     this.showLoader(true)
-    // const headers = new HttpHeaders({
-    //   'Content-Type': 'application/json',
-    //   Authorization: 'Bearer micha'
-    // })
     this.formErrors = [];
     const post_data = {
-      url: this.url,
+      url: this.isNew ? this.url : `${this.url}${this.instance.id}`,
       formData: data
     }
-    this._formService.postForm(post_data).subscribe(res => {
+
+    this._formService.postForm(this.isNew, post_data).subscribe(res => {
       this.onPostedData.emit(res)
       this.showLoader(false)
       this.resetForm();

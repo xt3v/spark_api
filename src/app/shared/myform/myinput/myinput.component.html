@@ -1,8 +1,8 @@
-<div class="mb-3" [formGroup]="form">
+<div class="form-group" [formGroup]="form">
     <label [for]="formControName" class="form-label">{{displayControlName}}</label>
     <div [ngSwitch]="formControlType">
         <div *ngSwitchCase="'choice'">
-            <select class="form-control" [attr.aria-label]="formControName" [formControlName]="formControName"
+            <select class="form-control form-control-lg" [attr.aria-label]="formControName" [formControlName]="formControName"
                 [id]="formControName">
                 <option *ngIf="isLoading" disabled value="">Fetching ...</option>
                 <option *ngIf="!isLoading" disabled value="">Select {{displayControlName}}</option>
@@ -13,7 +13,7 @@
         </div>
 
         <div *ngSwitchCase="'multiplechoice'">
-            <select multiple class="form-control" [attr.aria-label]="formControName" [formControlName]="formControName"
+            <select multiple class="form-control form-control-lg" [attr.aria-label]="formControName" [formControlName]="formControName"
                 [id]="formControName">
                 <option *ngIf="isLoading" disabled value="">Fetching ...</option>
                 <option *ngIf="!isLoading" disabled value="">Select {{displayControlName}}</option>
@@ -23,12 +23,20 @@
             </select>
         </div>
 
-        <textarea *ngSwitchCase="'textArea'" class="form-control" [attr.aria-label]="formControName" rows="5"
+        <div *ngSwitchCase="'boolean'" class="form-check">
+            <input [formControlName]="formControName" class="form-check-input" type="checkbox" value=""
+                [id]="formControName">
+            <!-- <label class="form-check-label" [for]="formControName">
+                {{displayControlName}}
+            </label> -->
+        </div>
+
+        <textarea *ngSwitchCase="'textArea'" class="form-control form-control-lg" [attr.aria-label]="formControName" rows="5"
             [formControlName]="formControName" [id]="formControName"></textarea>
 
 
         <div *ngSwitchDefault>
-            <input [formControlName]="formControName" [type]="formControlType" class="form-control"
+            <input [formControlName]="formControName" [type]="formControlType" class="form-control form-control-lg"
                 [id]="formControName" (blur)="sortValidationErrors()">
         </div>
     </div>
