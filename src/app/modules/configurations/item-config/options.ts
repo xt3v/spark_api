@@ -1,16 +1,10 @@
+import { parses, renders, endpointV1 } from "../../../services/constants/form-options-configs";
 
 const ItemConfigfields: any = {
     "name": "List Create Item Configs Api",
     "description": "",
-    "renders": [
-        "application/json",
-        "text/html"
-    ],
-    "parses": [
-        "application/json",
-        "application/x-www-form-urlencoded",
-        "multipart/form-data"
-    ],
+    renders,
+    parses,
     "actions": {
         "POST": {
             "id": {
@@ -63,7 +57,7 @@ const ItemConfigfields: any = {
                 "read_only": false,
                 "label": "Item Type",
                 "display_name": "name",
-                "url": "https://api.spark.sisitech.dev/api/v1/item-type-configs/"
+                "url": `${endpointV1}item-type-configs/`
             }
         }
     }

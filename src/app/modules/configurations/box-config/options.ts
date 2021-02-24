@@ -1,16 +1,19 @@
+import { parses, renders, endpointV1 } from "../../../services/constants/form-options-configs";
 
 const BoxConfigfields: any = {
     "name": "List Create Box Configs Api",
     "description": "",
-    "renders": [
-        "application/json",
-        "text/html"
-    ],
-    "parses": [
-        "application/json",
-        "application/x-www-form-urlencoded",
-        "multipart/form-data"
-    ],
+    renders,
+    parses,
+    // "renders": [
+    //     "application/json",
+    //     "text/html"
+    // ],
+    // "parses": [
+    //     "application/json",
+    //     "application/x-www-form-urlencoded",
+    //     "multipart/form-data"
+    // ],
     "actions": {
         "POST": {
             "id": {
@@ -115,7 +118,7 @@ const BoxConfigfields: any = {
                 "label": "Items",
                 "display_name": "name",
                 "multiple": true,
-                "url": "https://api.spark.sisitech.dev/api/v1/item-configs/"
+                "url": `${endpointV1}item-configs/`
             }
         }
     }
