@@ -17,7 +17,7 @@ export class Interceptor implements HttpInterceptor {
     private _route: Router,
     private _errorService: ErrorsService,
     private _storageService: StorageService
-  ) {}
+  ) { }
 
   intercept(
     request: HttpRequest<any>,
@@ -28,7 +28,7 @@ export class Interceptor implements HttpInterceptor {
 
     const token =
       tokenItems !== null || tokenItems !== {} ? tokenItems.token : null;
-
+    console.log("Intercepiting...")
     if (token !== null && typeof token !== 'object') {
       let contentType = 'application/json';
       if (request.body instanceof FormData) {
@@ -82,10 +82,7 @@ export class Interceptor implements HttpInterceptor {
 
         switch (error.status) {
           case 400:
-            errorStatus = error.status;
-            errorStatusText = `Oops! Seems this page was not found`;
-            // this._errorService.addErrors([errorStatusText]);
-            break;
+            return next.handle(request)
           case 401:
             errorStatus = error.status;
             errorStatusText = 'Oops! You are unauthorized to view this page';
