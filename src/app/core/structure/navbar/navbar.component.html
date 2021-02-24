@@ -1,6 +1,8 @@
 <nav class="navbar">
     <ul class="navbar__items">
-        <li class="navbar__link">Logo</li>
+        <li class="navbar__link">
+            <img class="navbar__logo" src="../../../../assets/img/logo/spark-logo-trans-bg.png">
+        </li>
         <li class="navbar__link">
             <span class="navbar__icon grid">
                 <i-feather class="grid" name="grid"></i-feather>
@@ -35,7 +37,6 @@
         </li>
         <li class="navbar__link">Customers</li>
         <li class="navbar__link">Payments</li>
-        <li class="navbar__link">Search</li>
         <li class="navbar__link has--dropdown" (click)="toggleMouseOverSubElement()"
             [ngClass]="{'is--hovered': hoveredSubElement}">
             Avatar (User Name)
