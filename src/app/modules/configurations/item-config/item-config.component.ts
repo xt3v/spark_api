@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemConfigfields } from './options';
+import { ActivatedRoute, Router, RouterState } from '@angular/router';
 
 @Component({
   selector: 'app-item-config',
@@ -9,20 +10,29 @@ import { ItemConfigfields } from './options';
 export class ItemConfigComponent implements OnInit {
   formItems: any = ItemConfigfields
   url: string = "item-configs/"
-
+  instance: any
   formGroupOrder = [
     ['name'],
     ['type', 'has_serial'],
     ['description'],
   ]
-  constructor() { }
+  constructor(private route: ActivatedRoute, ) {
+
+    this.route.queryParams.subscribe(params => {
+      if (params.hasOwnProperty("id")) {
+        this.instance = params
+      }
+    });
+  }
 
   ngOnInit(): void {
+
   }
   onValidatedData(data: any) {
   }
   onPostedData(data: any) {
     console.log(data)
   }
+
 
 }
