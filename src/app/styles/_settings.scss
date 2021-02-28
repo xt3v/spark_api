@@ -31,6 +31,21 @@ $global-radius: 0;
 $global-text-direction: ltr;
 $primary-color: $color_primary;
 
+@font-face {
+  font-family: "Avenir-Heavy";
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.animaapp.com/Avenir-Heavy") format("truetype");
+}
+
+@font-face {
+  font-family: "Museo-Sans";
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.animaapp.com/MuseoSans-700") format("opentype");
+}
+
+
 // 2. Breakpoints
 // --------------
 

@@ -11,7 +11,9 @@ export class AddWarehouseComponent implements OnInit {
   formItems: any = storeFields;
   url: string = "stores/"
   formGroupOrder = [
-    ['name', 'location', 'manager'],
+    ['name'],
+    ['location'],
+    ['manager'],
   ]
 
   extraParams = {

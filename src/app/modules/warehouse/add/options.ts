@@ -53,8 +53,8 @@ const storeFields: any = {
                 "type": "field",
                 "required": true,
                 "read_only": false,
-                "label": "Location / Region",
-                "display_name": "name",
+                "label": "Location / Region / Province",
+                "display_name": "id",
                 "url": `${endpointV1}locations/`
             },
             "manager": {
