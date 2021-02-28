@@ -9,10 +9,13 @@ import { ItemTypeComponent } from './item-type/item-type.component';
 import { ConfigRoutes } from './configs-routing.module';
 import { ItemConfigComponent } from './item-config/item-config.component';
 import { BoxConfigComponent } from './box-config/box-config.component';
+import { ItemListComponent } from './item-list/item-list.component';
 
 
 @NgModule({
-  declarations: [ItemTypeComponent, ItemConfigComponent, BoxConfigComponent],
+  declarations: [ItemTypeComponent,
+    ItemConfigComponent, BoxConfigComponent,
+    ItemListComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(ConfigRoutes),

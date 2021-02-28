@@ -1,0 +1,29 @@
+<table class="table">
+  <thead class="thead-light">
+    <th *ngIf="showNumbering">#</th>
+    <th *ngFor="let title of tableHeaders;let i = index">
+      <app-mytd [columnConfig]="title" [isHeaderCell]=true></app-mytd>
+    </th>
+  </thead>
+
+  <tbody *ngIf="results.length && !loading">
+
+    <tr *ngFor="let row of results;let j=index; ">
+      <th *ngIf="showNumbering">{{(j+1)+(page_size*(page-1))}}</th>
+      <td *ngFor="let header of tableHeaders ; let j = index;">
+        <app-mytd [columnConfig]="header" [rowData]="row"></app-mytd>
+      </td>
+    </tr>
+  </tbody>
+  <tbody *ngIf="loading">
+    <tr *ngFor="let dum of dummyData">
+      <th *ngIf="showNumbering"></th>
+      <td *ngFor="let dum of tableHeaders">
+        <span class="linear-background"></span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<app-mypagination [selectedPage]="page" [pageSize]="page_size" (onPageSelect)="onPageSelect($event)"
+  [resultsMeta]="resultsMeta" *ngIf="!loading"></app-mypagination>
