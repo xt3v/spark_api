@@ -49,7 +49,6 @@ export class MyformComponent implements OnInit {
   set instance(value: any) {
     this._instance = value
     this.instanceChanged = true
-    console.log("Daam setting the instance")
   }
 
   get instance() {
@@ -169,7 +168,9 @@ export class MyformComponent implements OnInit {
     this._formService.postForm(this.isNew, post_data).subscribe(res => {
       this.onPostedData.emit(res)
       this.showLoader(false)
-      this.resetForm();
+      if (this.isNew) {
+        this.resetForm();
+      }
     }, error => {
       this.showLoader(false)
       const status = error.status

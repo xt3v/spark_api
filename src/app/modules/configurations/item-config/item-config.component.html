@@ -1,9 +1,9 @@
 <div class="row">
     <div class="col-sm-12">
         <app-myform (onValidatedData)="onValidatedData($event)" [isValidationOnly]=false [formItems]="formItems"
-            [url]="url" [cardTitle]="'Add Item Configuration'" [submitButtonText]="'Item Configuration'"
-            (onPostedData)="onPostedData($event)" submitButtonText="Create Item Config"
-            [formGroupOrder]="formGroupOrder" [cardTitle]="'Item Configuration'">
+            [url]="url" [instance]="instance" [cardTitle]="'Add Item Configuration'"
+            [submitButtonText]="'Item Configuration'" (onPostedData)="onPostedData($event)"
+            submitButtonText="Create Item Config" [formGroupOrder]="formGroupOrder" [cardTitle]="'Item Configuration'">
         </app-myform>
     </div>
 

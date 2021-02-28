@@ -1,0 +1,19 @@
+<div *ngIf="!isActions" [ngSwitch]="valueType">
+    <div *ngSwitchCase="'array'">
+        <ul>
+            <li *ngFor="let item of displayValue">{{item}}</li>
+        </ul>
+    </div>
+    <div *ngSwitchCase="'boolean'">
+        <input type="checkbox" [checked]="displayValue" onclick="return false;">
+    </div>
+    <div *ngSwitchDefault>{{displayValue}}</div>
+</div>
+<div class="row" *ngIf="isActions">
+    <div class="col-sm-{{displayValue/2}}" *ngFor="let val of displayValue">
+        <button (click)="emitAction(val)" type="button" class="btn btn-primary btn-sm">
+            {{val}}
+        </button>
+        &nbsp;
+    </div>
+</div>
