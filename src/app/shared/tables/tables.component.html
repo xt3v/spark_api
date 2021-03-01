@@ -1,3 +1,6 @@
+
+<div class="container">
+
 <table class="table">
   <thead class="thead-light">
     <th *ngIf="showNumbering">#</th>
@@ -10,20 +13,39 @@
 
     <tr *ngFor="let row of results;let j=index; ">
       <th *ngIf="showNumbering">{{(j+1)+(page_size*(page-1))}}</th>
-      <td *ngFor="let header of tableHeaders ; let j = index;">
+      <td *ngFor="let header of tableHeaders; let j = index;">
         <app-mytd [columnConfig]="header" [rowData]="row"></app-mytd>
       </td>
     </tr>
   </tbody>
   <tbody *ngIf="loading">
     <tr *ngFor="let dum of dummyData">
-      <th *ngIf="showNumbering"></th>
+      <th *ngIf="showNumbering"><span class="linear-background"></span></th>
       <td *ngFor="let dum of tableHeaders">
         <span class="linear-background"></span>
       </td>
     </tr>
   </tbody>
+  <tbody *ngIf="results.length < 1 && !loading">
+    <tr>No data available</tr>
+  </tbody>
 </table>
 
 <app-mypagination [selectedPage]="page" [pageSize]="page_size" (onPageSelect)="onPageSelect($event)"
   [resultsMeta]="resultsMeta" *ngIf="!loading"></app-mypagination>
+
+
+    <div class="row">
+        <form [formGroup]="searchForm">
+            <input name="searchTableInput" aria-label="Table list" formControlName="search" (ngModelChange)="liveTableSearch($event)" type="text" placeholder="{{!loading ? 'Search' : 'Searching...'}}" />
+            <button type="button" (click)="clearLiveTableSearch()" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-remove"></i>Clear</button>
+        </form>
+    </div>
+    <br>
+
+    <!-- <div class="row">
+        <app-mytablefilter [filterOptions]="tableFilters" (onFilterSelect)="onFilterSelected($event)"></app-mytablefilter>
+    </div> -->
+    
+</div>
+  

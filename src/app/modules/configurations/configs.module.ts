@@ -10,12 +10,17 @@ import { ConfigRoutes } from './configs-routing.module';
 import { ItemConfigComponent } from './item-config/item-config.component';
 import { BoxConfigComponent } from './box-config/box-config.component';
 import { ItemListComponent } from './item-list/item-list.component';
+import { ItemTypeListComponent } from './item-type/list/item-type-list.component';
 
 
 @NgModule({
-  declarations: [ItemTypeComponent,
-    ItemConfigComponent, BoxConfigComponent,
-    ItemListComponent],
+  declarations: [
+    ItemTypeComponent,
+    ItemConfigComponent, 
+    BoxConfigComponent,
+    ItemListComponent,
+    ItemTypeListComponent
+  ],
   imports: [
     CommonModule,
     RouterModule.forChild(ConfigRoutes),

@@ -18,6 +18,7 @@ export class MytdComponent implements OnInit {
   isHeaderCell: boolean = false
 
 
+
   constructor() { }
 
   ngOnInit(): void {

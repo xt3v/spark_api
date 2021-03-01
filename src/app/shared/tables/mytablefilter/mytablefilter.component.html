@@ -1,0 +1,14 @@
+<ng-multiselect-dropdown
+  class="table-filter"
+  [placeholder]="'Filter Records'"
+  [settings]="dropdownSettings"
+  [data]="dropdownList"
+  [(ngModel)]="selectedItems"
+  (onSelect)="onItemSelect($event)"
+  (onSelectAll)="onSelectAll($event)"
+>
+</ng-multiselect-dropdown>
+<br>
+<button (click)="getFilterSelections()" type="button" class="btn btn-primary btn-sm">
+    Filter Options
+</button>
