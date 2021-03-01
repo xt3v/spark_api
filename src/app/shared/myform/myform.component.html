@@ -5,12 +5,12 @@
             class="btn btn btn-sm mb-3 lift spark-dynamic-forms__bulk-btn">Bulk
             Actions</button>
     </div>
-    <div class="">
+    <form class="" [formGroup]="formGroup" (ngSubmit)="dataReceived()">
         <app-card [title]="formAction+' '+cardTitle">
             <span *ngFor="let error of detailErrors" class="text-danger">
                 {{error}} <br>
             </span>
-            <form [formGroup]="formGroup" (ngSubmit)="dataReceived()">
+            <div>
                 <div *ngFor="let item of formGroupOrder;let i=index;">
                     <div class="row">
                         <div *ngFor="let field of item;let j=index;" class="col-sm-{{12/item.length}}">
@@ -32,7 +32,7 @@
             
                 </div> -->
                 <br>
-            </form>
+            </div>
         </app-card>
         <div class="spark-dynamic-forms__button-wrapper">
             <button type="button" (click)="resetForm()"
@@ -44,5 +44,5 @@
                 </span>
             </button>
         </div>
-    </div>
+    </form>
 </div>

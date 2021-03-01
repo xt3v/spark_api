@@ -11,13 +11,12 @@ export class ItemListComponent implements OnInit {
 
   headers = [
     "Name",
-    "Type Name",
+    "type_name",
     "description",
-    "Has Serial",
     {
       name: 'actions Edit / Delete',
       type: "actions",
-      source: "",
+      source: "",// Field
       data: [
         "edit"
       ]

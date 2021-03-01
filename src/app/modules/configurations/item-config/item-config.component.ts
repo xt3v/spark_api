@@ -21,6 +21,7 @@ export class ItemConfigComponent implements OnInit {
     this.route.queryParams.subscribe(params => {
       if (params.hasOwnProperty("id")) {
         this.instance = params
+        console.log(this.instance)
       }
     });
   }
