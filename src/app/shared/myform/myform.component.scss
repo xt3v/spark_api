@@ -9,18 +9,22 @@
         flex-direction: row;
         justify-content: flex-end;
         margin-top: 4rem;
+        margin-left: 0 !important;
     }
 
     &__clear {
         @include button($size: small);
         font-family: "Avenir-Heavy", Helvetica, Arial, serif;
         margin-right: 3rem;
+        padding-left: 20px;
+        padding-right: 20px;
     }   
 
     &__submit {
         @include button($color:primary, $size: small);
         font-family: "Avenir-Heavy", Helvetica, Arial, serif;
-        padding: 1rem 2.5rem;
+        padding-left: 20px;
+        padding-right: 20px;
     }
 
     &__bulk {
@@ -32,6 +36,7 @@
         &-btn {
             @include button($size: small);
             font-family: "Avenir-Heavy", Helvetica, Arial, serif;
+            margin-bottom: 15px !important;
 
         }
     }
