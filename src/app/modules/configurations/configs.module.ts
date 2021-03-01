@@ -11,6 +11,7 @@ import { ItemConfigComponent } from './item-config/item-config.component';
 import { BoxConfigComponent } from './box-config/box-config.component';
 import { ItemListComponent } from './item-list/item-list.component';
 import { ItemTypeListComponent } from './item-type/list/item-type-list.component';
+import { BoxConfigListComponent } from './box-config/list/box-config-list.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { ItemTypeListComponent } from './item-type/list/item-type-list.component
     ItemConfigComponent, 
     BoxConfigComponent,
     ItemListComponent,
-    ItemTypeListComponent
+    ItemTypeListComponent,
+    BoxConfigListComponent
   ],
   imports: [
     CommonModule,

@@ -6,11 +6,12 @@ import { RouterModule } from '@angular/router';
 import { AddStockroomComponent } from './add/add-stockroom.component';
 import { StockroomRoutes } from './stockroom-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { StockroomListComponent } from './list/stockroom-list.component';
 
 
 
 @NgModule({
-  declarations: [AddStockroomComponent],
+  declarations: [AddStockroomComponent, StockroomListComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(StockroomRoutes),
