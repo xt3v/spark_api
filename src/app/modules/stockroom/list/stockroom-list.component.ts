@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { endpointV1 } from "../../../services/constants/form-options-configs";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-stockroom-list',
@@ -8,7 +8,9 @@ import { endpointV1 } from "../../../services/constants/form-options-configs";
 })
 export class StockroomListComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private _router: Router
+  ) { }
 
   url = "stores/?type=SR&"
 
@@ -20,12 +22,11 @@ export class StockroomListComponent implements OnInit {
     },
     {
       name: 'Region/ Location',
-      source: "location",
-      display_name: "name",
+      source: "location_details.name",
     },
     {
       name: 'Stockroom Manager',
-      source: "users",
+      source: "manager_details.full_name",
     },
     {
       name: 'Actions',
@@ -46,6 +47,13 @@ export class StockroomListComponent implements OnInit {
     console.log(action)
     if (action.name === 'delete') {
       
+    }
+    switch (action.name) {
+      case "edit":
+        this._router.navigate(['/stockroom/add'], { queryParams: action.data });
+        break;
+      default:
+        break;
     }
   }
 

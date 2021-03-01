@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { storeFields } from '../../warehouse/add/options';
 
 @Component({
@@ -17,7 +18,18 @@ export class AddStockroomComponent implements OnInit {
     type: "SR"
   }
 
-  constructor() { }
+  instance: any;
+
+  constructor(
+    private _activatedRoute: ActivatedRoute
+  ) {
+    this._activatedRoute.queryParams.subscribe(params => {
+      if (params.hasOwnProperty("id")) {
+        this.instance = params
+        console.log(this.instance)
+      }
+    });
+   }
 
   ngOnInit(): void {
   }

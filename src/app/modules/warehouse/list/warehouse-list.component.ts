@@ -19,12 +19,11 @@ export class WarehouseListComponent implements OnInit {
     },
     {
       name: 'Region/ Location',
-      source: "location",
-      display_name: "name",
+      source: "location_details.name",
     },
     {
       name: 'Warehouse Manager',
-      source: "users",
+      source: "manager_details.full_name",
     },
     {
       name: 'Actions',
