@@ -22,6 +22,7 @@ export class ItemListComponent implements OnInit {
       ]
     },
   ];
+  tableFilters = ["Name"];
   constructor(private _router: Router,
     private route: ActivatedRoute,
   ) {

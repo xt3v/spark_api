@@ -2,7 +2,7 @@ import { Routes } from '@angular/router';
 import { ItemTypeComponent } from './item-type/item-type.component';
 import { ItemConfigComponent } from './item-config/item-config.component';
 import { BoxConfigComponent } from './box-config/box-config.component';
-import { ItemListComponent } from './item-list/item-list.component';
+import { ItemListComponent } from './item-config/list/item-list.component';
 import { ItemTypeListComponent } from './item-type/list/item-type-list.component';
 import { BoxConfigListComponent } from './box-config/list/box-config-list.component';
 

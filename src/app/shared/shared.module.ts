@@ -12,10 +12,11 @@ import { MyformModule } from './myform/myform.module';
 /** Components */
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { TablesModule } from './tables/tables.module';
+import { AddButtonComponent } from './add-button/add-button.component';
 
 
 @NgModule({
-  declarations: [BreadcrumbComponent],
+  declarations: [BreadcrumbComponent, AddButtonComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -26,8 +27,15 @@ import { TablesModule } from './tables/tables.module';
     MyformModule,
     TablesModule
   ],
-  exports: [FormsModule, MyformModule, ReactiveFormsModule, ModalModule, IconsModule,
+  exports: [
+    FormsModule, 
+    MyformModule, 
+    ReactiveFormsModule, 
+    ModalModule, 
+    IconsModule,
     TablesModule,
-    BreadcrumbComponent],
+    BreadcrumbComponent,
+    AddButtonComponent
+  ],
 })
 export class SharedModule { }
