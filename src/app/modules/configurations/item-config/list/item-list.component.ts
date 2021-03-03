@@ -1,12 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { tableHandleActionsMixin } from 'src/app/core/mixins/table-handle-actions-mixin';
+import { TablesComponent } from 'src/app/shared/tables/tables.component';
 
+
+const TableHandleActionsMixin = tableHandleActionsMixin(TablesComponent);
 @Component({
   selector: 'app-item-list',
   templateUrl: './item-list.component.html',
   styleUrls: ['./item-list.component.scss']
 })
-export class ItemListComponent implements OnInit {
+export class ItemListComponent extends TableHandleActionsMixin implements OnInit {
   url = "item-configs"
 
   headers = [
@@ -18,15 +22,16 @@ export class ItemListComponent implements OnInit {
       type: "actions",
       source: "",// Field
       data: [
-        "edit"
+        "edit", "delete"
       ]
     },
   ];
   tableFilters = ["Name"];
-  constructor(private _router: Router,
-    private route: ActivatedRoute,
+  constructor(
+    private _router: Router,
+    // private route: ActivatedRoute,
   ) {
-
+    super();
   }
 
   ngOnInit(): void {
@@ -35,14 +40,7 @@ export class ItemListComponent implements OnInit {
 
 
   handleActions(action: any) {
-    // console.log(action)
-    switch (action.name) {
-      case "edit":
-        this._router.navigate(['/configs/item-config'], { queryParams: action.data });
-        break;
-      default:
-        break;
-    }
+    this.handleTableActions(action, '/configs/item-config');
   }
 
 }

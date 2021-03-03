@@ -1,16 +1,22 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { tableHandleActionsMixin } from 'src/app/core/mixins/table-handle-actions-mixin';
+import { TablesComponent } from 'src/app/shared/tables/tables.component';
 
+
+const TableHandleActionsMixin = tableHandleActionsMixin(TablesComponent);
 @Component({
   selector: 'app-stockroom-list',
   templateUrl: './stockroom-list.component.html',
   styleUrls: ['./stockroom-list.component.scss']
 })
-export class StockroomListComponent implements OnInit {
+export class StockroomListComponent extends TableHandleActionsMixin implements OnInit {
 
   constructor(
     private _router: Router
-  ) { }
+  ) { 
+    super();
+  }
 
   url = "stores/?type=SR&"
 
@@ -44,17 +50,7 @@ export class StockroomListComponent implements OnInit {
   }
 
   handleActions(action: any) {
-    console.log(action)
-    if (action.name === 'delete') {
-      
-    }
-    switch (action.name) {
-      case "edit":
-        this._router.navigate(['/stockroom/add'], { queryParams: action.data });
-        break;
-      default:
-        break;
-    }
+      this.handleTableActions(action, '/stockroom/add');
   }
 
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemTypeConfigfields } from './options';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-item-type',
@@ -10,7 +11,8 @@ export class ItemTypeComponent implements OnInit {
   // formItems$: Observable<FormBase<any>[]>;
   formItems: any = ItemTypeConfigfields
   url: string = "item-type-configs/"
-
+  instance: any;
+  
   formGroupOrder = [
     ['name'],
     ['description']
@@ -18,7 +20,14 @@ export class ItemTypeComponent implements OnInit {
 
 
   constructor(
+    private route: ActivatedRoute,
   ) {
+    this.route.queryParams.subscribe(params => {
+      if (params.hasOwnProperty("id")) {
+        this.instance = params
+        console.log(this.instance)
+      }
+    });
   }
 
   onPostedData(data: any) {

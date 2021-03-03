@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { storeFields } from './options';
 
 @Component({
@@ -9,7 +10,9 @@ import { storeFields } from './options';
 export class AddWarehouseComponent implements OnInit {
 
   formItems: any = storeFields;
-  url: string = "stores/"
+  url: string = "stores/";
+  instance:any;
+
   formGroupOrder = [
     ['name'],
     ['location'],
@@ -19,7 +22,16 @@ export class AddWarehouseComponent implements OnInit {
   extraParams = {
     type: "WH"
   }
-  constructor() { }
+  constructor(
+    private _activatedRoute: ActivatedRoute
+  ) {
+    this._activatedRoute.queryParams.subscribe(params => {
+      if (params.hasOwnProperty("id")) {
+        this.instance = params
+        console.log(this.instance)
+      }
+    });
+   }
 
   ngOnInit(): void {
   }

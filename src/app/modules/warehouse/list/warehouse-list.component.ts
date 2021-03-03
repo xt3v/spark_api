@@ -1,13 +1,22 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { tableHandleActionsMixin } from 'src/app/core/mixins/table-handle-actions-mixin';
+import { TablesComponent } from 'src/app/shared/tables/tables.component';
 
+
+const TableHandleActionsMixin = tableHandleActionsMixin(TablesComponent);
 @Component({
   selector: 'app-warehouse-list',
   templateUrl: './warehouse-list.component.html',
   styleUrls: ['./warehouse-list.component.scss']
 })
-export class WarehouseListComponent implements OnInit {
+export class WarehouseListComponent extends TableHandleActionsMixin implements OnInit {
 
-  constructor() { }
+  constructor(
+    private _router: Router
+  ) { 
+    super();
+  }
 
   url = "stores/?type=WH&"
 
@@ -41,10 +50,7 @@ export class WarehouseListComponent implements OnInit {
   }
 
   handleActions(action: any) {
-    console.log(action)
-    if (action.name === 'delete') {
-      
-    }
-  }
+    this.handleTableActions(action, '/warehouse/add');
+}
 
 }

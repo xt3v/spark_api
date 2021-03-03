@@ -1,13 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { tableHandleActionsMixin } from 'src/app/core/mixins/table-handle-actions-mixin';
+import { TablesComponent } from 'src/app/shared/tables/tables.component';
 
+
+const TableHandleActionsMixin = tableHandleActionsMixin(TablesComponent);
 @Component({
   selector: 'app-item-type-list',
   templateUrl: './item-type-list.component.html',
   styleUrls: ['./item-type-list.component.scss']
 })
-export class ItemTypeListComponent implements OnInit {
-
-  constructor() { }
+export class ItemTypeListComponent extends TableHandleActionsMixin implements OnInit {
   url = "item-type-configs"
 
   headers = [
@@ -24,15 +27,19 @@ export class ItemTypeListComponent implements OnInit {
   ];
 
   tableFilters = ["Name"]
+  
+  constructor(
+    private _router: Router,
+  ) { 
+    super();
+  }
+  
 
   ngOnInit(): void {
   }
 
   handleActions(action: any) {
-    console.log(action)
-    if (action.name === 'delete') {
-      
-    }
+      this.handleTableActions(action, '/configs/item-type');
   }
 
 }

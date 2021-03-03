@@ -1,13 +1,21 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { tableHandleActionsMixin } from 'src/app/core/mixins/table-handle-actions-mixin';
+import { TablesComponent } from 'src/app/shared/tables/tables.component';
 
+const TableHandleActionsMixin = tableHandleActionsMixin(TablesComponent);
 @Component({
   selector: 'app-box-config-list',
   templateUrl: './box-config-list.component.html',
   styleUrls: ['./box-config-list.component.scss']
 })
-export class BoxConfigListComponent implements OnInit {
+export class BoxConfigListComponent extends TableHandleActionsMixin implements OnInit {
 
-  constructor() { }
+  constructor(
+    private _router: Router,
+  ) { 
+    super();
+  }
   url = "box-configs"
 
   headers = [
@@ -33,9 +41,6 @@ export class BoxConfigListComponent implements OnInit {
   }
 
   handleActions(action: any) {
-    console.log(action)
-    if (action.name === 'delete') {
-      
-    }
-  }
+    this.handleTableActions(action, '/configs/box-config');
+}
 }
