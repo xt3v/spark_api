@@ -1,5 +1,16 @@
 
 <div class="container">
+  <div class="row">
+    <form [formGroup]="searchForm">
+        <input name="searchTableInput" aria-label="Table list" formControlName="search" (ngModelChange)="liveTableSearch($event)" type="text" placeholder="{{!loading ? 'Search' : 'Searching...'}}" />
+        <button type="button" (click)="clearLiveTableSearch()" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-remove"></i>Clear</button>
+    </form>
+</div>
+<br>
+
+<!-- <div class="row">
+    <app-mytablefilter [filterOptions]="tableFilters" (onFilterSelect)="onFilterSelected($event)"></app-mytablefilter>
+</div> -->
 
 <table class="table">
   <thead class="thead-light">
@@ -33,19 +44,6 @@
 
 <app-mypagination [selectedPage]="page" [pageSize]="page_size" (onPageSelect)="onPageSelect($event)"
   [resultsMeta]="resultsMeta" *ngIf="!loading"></app-mypagination>
-
-
-    <div class="row">
-        <form [formGroup]="searchForm">
-            <input name="searchTableInput" aria-label="Table list" formControlName="search" (ngModelChange)="liveTableSearch($event)" type="text" placeholder="{{!loading ? 'Search' : 'Searching...'}}" />
-            <button type="button" (click)="clearLiveTableSearch()" class="btn btn-primary btn-sm"><i class="glyphicon glyphicon-remove"></i>Clear</button>
-        </form>
-    </div>
-    <br>
-
-    <!-- <div class="row">
-        <app-mytablefilter [filterOptions]="tableFilters" (onFilterSelect)="onFilterSelected($event)"></app-mytablefilter>
-    </div> -->
     
 </div>
   

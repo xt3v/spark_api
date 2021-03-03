@@ -9,7 +9,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
   selector: 'app-tables',
   templateUrl: './tables.component.html',
   styleUrls: ['./tables.component.scss'],
-  providers: [TablesService]
+  // providers: [TablesService]
 })
 export class TablesComponent implements OnInit {
   public searchForm!: FormGroup;

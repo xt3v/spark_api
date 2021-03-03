@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
-import { TablesService } from '../tables.service';
+import { TablesService } from './../tables.service';
 
 @Component({
   selector: 'app-mycelldisplay',

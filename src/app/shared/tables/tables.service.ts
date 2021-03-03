@@ -2,16 +2,13 @@ import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
-const endpointV1 = 'https://api.spark.sisitech.dev/api/v1/';
-const headers = {
-  'Content-Type': 'application/json',
-  Accept: 'application/json',
-  Authorization: `Bearer micha`,
-}
+const endpointV1 = environment.APIv1Endpoint;
 
-@Injectable({ providedIn: 'root' })
+@Injectable({
+  providedIn: 'root'
+})
 export class TablesService {
 
   actionsEvent$: EventEmitter<any> = new EventEmitter()
@@ -20,12 +17,12 @@ export class TablesService {
 
   }
 
-  getList(typeUrl: string, page_size: number, page: number, filters: Array<any>, searchInput:string,): Observable<any> {
+  getList(typeUrl: string, page_size: number, page: number, filters: Array<any>, searchInput:string): Observable<any> {
     
     const filterOpt = typeof filters !== 'undefined' && filters.length ? this.getFilters(filters) : '';
     const searchName  = typeof searchInput !== undefined && searchInput !== null ? searchInput : null;
 
-    return this._http.get<any>(endpointV1 + `${typeUrl}/?page_size=${page_size}&page=${page}&${filterOpt}=true&name=${searchName}`, { headers: headers });
+    return this._http.get<any>(endpointV1 + `${typeUrl}/?page_size=${page_size}&page=${page}&${filterOpt}=true&name=${searchName}`);
   }
 
   // getListWithFilters(typeUrl: string, page_size: number, page: number, filters: Array<any>) : Observable<any> {
@@ -60,7 +57,6 @@ export class TablesService {
   }
 
   delete(item: any, typeUrl:string): Observable<any>  {
-    return this._http.delete<any>(endpointV1 + `${typeUrl}/${item.id}`, { headers: headers });
+    return this._http.delete<any>(endpointV1 + `${typeUrl}/${item.id}`);
   }
-
 }

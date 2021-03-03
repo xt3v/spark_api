@@ -28,7 +28,9 @@ export class Interceptor implements HttpInterceptor {
 
     const token =
       tokenItems !== null || tokenItems !== {} ? tokenItems.token : null;
-    console.log("Intercepiting...")
+    
+      console.log("Intercepiting...", token);
+
     if (token !== null && typeof token !== 'object') {
       let contentType = 'application/json';
       if (request.body instanceof FormData) {

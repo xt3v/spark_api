@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
+//import { HttpClientModule } from '@angular/common/http';
+
 import { TablesComponent } from './tables.component';
 import { MytdComponent } from './mytd/mytd.component';
 import { MycelldisplayComponent } from './mycelldisplay/mycelldisplay.component';
@@ -22,7 +24,8 @@ import { MytablefilterComponent } from './mytablefilter/mytablefilter.component'
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    NgMultiSelectDropDownModule
+    NgMultiSelectDropDownModule,
+    // HttpClientModule
   ],
   exports: [
     TablesComponent,
