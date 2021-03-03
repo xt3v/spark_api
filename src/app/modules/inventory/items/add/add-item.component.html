@@ -1,1 +1,5 @@
-<p>add-item works!</p>
+<app-myform (onValidatedData)="onValidatedData($event)" [isValidationOnly]=false [formItems]="formItems"
+[url]="url" (onPostedData)="onPostedData($event)" submitButtonText="Item"
+[instance]="instance"
+[formGroupOrder]="formGroupOrder" [cardTitle]="'Item'">
+</app-myform>
