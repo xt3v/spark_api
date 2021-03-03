@@ -25,5 +25,12 @@ export const ModulesRoutes: Routes = [
         loadChildren: () =>
           import(`./stockroom/stockroom.module`).then((m) => m.StockroomModule),
           canActivate: [AuthGuard]
-    }
+    },
+    {
+      path: 'inventory',
+      data: { breadcrumb: 'Inventory'},
+      loadChildren: () =>
+        import(`./inventory/inventory.module`).then((m) => m.InventoryModule),
+        canActivate: [AuthGuard]
+  }
 ]

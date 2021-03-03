@@ -7,7 +7,7 @@ import { ItemTypeListComponent } from './item-type/list/item-type-list.component
 import { BoxConfigListComponent } from './box-config/list/box-config-list.component';
 
 export const ConfigRoutes: Routes = [
-    { path: '', redirectTo: 'item-type', pathMatch: 'full' },
+    { path: '', redirectTo: 'list-item-type', pathMatch: 'full' },
     { path: 'item-type', component: ItemTypeComponent, data: { breadcrumb: 'Add Item Types' } },
     { path: 'list-item-type', component: ItemTypeListComponent, data: {breadcrumb: 'List Item Types'}},
     { path: 'item-config', component: ItemConfigComponent, data: { breadcrumb: 'Add Item Configuration' } },
