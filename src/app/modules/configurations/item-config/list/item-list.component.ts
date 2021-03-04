@@ -15,10 +15,10 @@ export class ItemListComponent extends TableHandleActionsMixin implements OnInit
 
   headers = [
     "Name",
-    "type_name",
-    "description",
+    "Type",
+    "Description",
     {
-      name: 'actions Edit / Delete',
+      name: 'Actions',
       type: "actions",
       source: "",// Field
       data: [

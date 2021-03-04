@@ -1,0 +1,28 @@
+@import "../../styles/mixins/button";
+@import "../../styles/vars";
+@import "../../styles/mixins/typography";
+@import "../../styles/settings";
+
+.spark-dynamic-forms { 
+    &__button-wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        margin-top: 4rem;
+        margin-left: 0 !important;
+    }
+
+    &__bulk {
+        &-wrapper {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 1rem;
+        }
+        &-btn {
+            @include button($color:primary,$size: small);
+            font-family: "Avenir-Heavy", Helvetica, Arial, serif;
+            margin-bottom: 15px !important;
+
+        }
+    }
+}

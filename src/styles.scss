@@ -405,6 +405,16 @@ template {
     margin-top: 2.5rem;
   }
 }
+
+.page-item.active .page-link {
+  background-color: #036fb6 !important;
+  border-color:#036fb6 !important;
+  color: white !important;
+}
+
+.page-link {
+  color: #036fb6 !important;
+}
 /*****************************/
 /********** addons ***********/
 /*****************************/
