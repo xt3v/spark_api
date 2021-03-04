@@ -20,14 +20,13 @@
         <form class="authentication__form" [formGroup]="resetPasswordForm" (ngSubmit)="resetPassword()">
             <div class="form-group">
                 <div class="form__password">
-                    <label for="password">Password</label>
+                    <label class="form-label" for="password">Password</label>
                     <input
                     aria_label="password" 
                     id="password" formControlName="password"
                     type={{passwordType}}
                     class="form-control form-control-appended"
                     placeholder="Enter your password"
-                    [ngClass]="{ 'form.is-invalid': submitted && f.password.errors }"
                     />
                     <div *ngIf="submitted && f.password.errors" class="form-invalid-feedback">
                       <div *ngIf="f.password.errors.required">Password is required</div>
@@ -40,28 +39,27 @@
                     <!-- Icon -->
                     <div (click)="toggleShowPassword()" class="form-control-icon password" [ngClass]="{'is--hidden': submitted && f.password.errors}">
                       <span class="">
-                        <i-feather *ngIf="togglePasswordShow" class="icons" name="eye"></i-feather>
-                        <i-feather *ngIf="!togglePasswordShow" class="icons" name="eye-off"></i-feather>
+                        <i class="fa fa-eye" *ngIf="togglePasswordShow"></i>
+                        <i class="fa fa-eye-slash" *ngIf="!togglePasswordShow"></i>
                       </span>
                     </div>
                 </div>
             </div>
             <div class="form-group">
                 <div class="form__password">
-                    <label for="confirm_password">Confirm Password</label>
+                    <label class="form-label" for="confirm_password">Confirm Password</label>
                     <input
                     aria_label="confirm password" 
                     id="confirm_password" formControlName="confirm_password"
                     type={{passwordType}}
                     class="form-control form-control-appended"
                     placeholder="Enter your password"
-                    [ngClass]="{ 'form.is-invalid': submitted && f.confirm_password.errors }"
                     />
                     <!-- Icon -->
                     <div (click)="toggleShowPassword()" class="form-control-icon password" [ngClass]="{'is--hidden': submitted && f.password.errors}">
                       <span class="">
-                        <i-feather *ngIf="togglePasswordShow" class="icons" name="eye"></i-feather>
-                        <i-feather *ngIf="!togglePasswordShow" class="icons" name="eye-off"></i-feather>
+                        <i class="fa fa-eye" *ngIf="togglePasswordShow"></i>
+                        <i class="fa fa-eye-slash" *ngIf="!togglePasswordShow"></i>
                       </span>
                     </div>
                 </div>

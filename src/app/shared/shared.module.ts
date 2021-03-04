@@ -6,7 +6,6 @@ import { RouterModule } from '@angular/router';
 
 /** Custom modules */
 import { ModalModule } from './modal/modal.module';
-import { IconsModule } from './icons/icons.module';
 import { MyformModule } from './myform/myform.module';
 
 /** Components */
@@ -23,7 +22,6 @@ import { AddButtonComponent } from './add-button/add-button.component';
     ReactiveFormsModule,
     RouterModule,
     ModalModule,
-    IconsModule,
     MyformModule,
     TablesModule
   ],
@@ -32,7 +30,6 @@ import { AddButtonComponent } from './add-button/add-button.component';
     MyformModule, 
     ReactiveFormsModule, 
     ModalModule, 
-    IconsModule,
     TablesModule,
     BreadcrumbComponent,
     AddButtonComponent

@@ -2,8 +2,10 @@
 @import "../../styles/vars";
 @import "../../styles/settings";
 
+$card-header-color: #f5f5f5;
+$color-borders: rgba(0, 0, 0, 0.125);
 .card {
-    background-color: #f5f5f5;
+    background-color: $card-header-color;
     height: auto;
     width: auto;
     border-radius: .5rem;
@@ -21,7 +23,13 @@
             left: 0;
             right: 0;
             bottom: 0;
-            border-bottom: 1px solid $color_navbar_border;
+            border-bottom: 1px solid $color-borders;
+        }
+
+        &.has--dropdown {
+            &:after {
+                display: none;
+            }
         }
 
         &-title {
@@ -37,5 +45,52 @@
         position: relative;
         // padding: 1rem 3rem;
         padding: 3.2rem 9.5rem; //check the dynamic form padding if changed
+    }
+}
+
+.nav {
+    &-tabs {
+        
+        border-bottom: transparent;
+
+        &:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            border-bottom: 1px solid $color-borders;
+        }
+    }
+    &-item {
+        height: 4.7rem;
+    }
+    &-link {
+        height: 100%;
+        background: transparent;
+        color: $color_title;
+        border-color: $color-borders;
+        border-radius: .5rem;
+        font-size: 1.4rem;
+        text-align: center;
+        padding-top: 1rem;
+
+        a {
+            color: inherit;
+        }
+
+        &.active {
+            background-color: transparent;
+            border-color: $color-borders;
+            border-bottom: none;
+        }
+
+        &:not(.active) {
+            border: none;
+            &:hover {
+                border: none;
+                background: transparent;
+            }
+        }
     }
 }
