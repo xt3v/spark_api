@@ -383,6 +383,24 @@ template {
   @include button();
 }
 
+.ng-invalid .ng-touched{
+  border: 0.1em solid red;
+}
+
+.ng-touched .ng-valid {
+  border: 0.1em solid green;
+}
+
+.form-label {
+  font-family: "Avenir-Heavy", Helvetica, Arial, serif;
+  font-size: 14px;
+}
+
+.opt-value {
+  font-family: "Museo-Sans", Helvetica, Arial, serif;
+  font-size: 13px;
+}
+
 .spark {
   &-text {
     position: relative;
@@ -428,5 +446,4 @@ template {
 
 @import 'app/styles/_authentication.scss';
 @import 'app/styles/footer';
-@import 'app/styles/forms';
 @import 'app/styles/navbar';
