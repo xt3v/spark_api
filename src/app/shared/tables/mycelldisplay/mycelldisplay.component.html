@@ -9,7 +9,7 @@
     </div>
     <div *ngSwitchDefault>{{displayValue}}</div>
 </div>
-<div class="row" *ngIf="isActions">
+<div class="row ml-2" *ngIf="isActions">
     <div class="col-sm-{{displayValue/2}}" *ngFor="let val of displayValue" [ngSwitch]="val">
         <i (click)="emitAction(val)" *ngSwitchCase="'edit'" class="fa fa-edit" aria-hidden="true"
             style="color: #DD9008;"></i> &nbsp;
