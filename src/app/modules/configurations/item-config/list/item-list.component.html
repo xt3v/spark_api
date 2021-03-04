@@ -1,6 +1,7 @@
 <div class="row">
-    <div class="col-sm-9">
+    <div class="col-sm-12">
         <app-add-button [url]="'/configs/item-config'"></app-add-button>
     </div>
 </div>
-<app-tables [listTypeUrl]="url" (actionsEvent)="handleActions($event)" [headers]="headers" [tableFilters]="tableFilters"></app-tables>
+<app-tables [listTypeUrl]="url" (actionsEvent)="handleActions($event)" [headers]="headers"
+    [tableFilters]="tableFilters"></app-tables>
