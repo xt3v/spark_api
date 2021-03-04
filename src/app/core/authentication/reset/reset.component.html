@@ -40,8 +40,8 @@
                     <!-- Icon -->
                     <div (click)="toggleShowPassword()" class="form-control-icon password" [ngClass]="{'is--hidden': submitted && f.password.errors}">
                       <span class="">
-                        <i-feather *ngIf="togglePasswordShow" class="icons" name="eye"></i-feather>
-                        <i-feather *ngIf="!togglePasswordShow" class="icons" name="eye-off"></i-feather>
+                        <i class="fa fa-eye" *ngIf="togglePasswordShow"></i>
+                        <i class="fa fa-eye-off" *ngIf="!togglePasswordShow"></i>
                       </span>
                     </div>
                 </div>
@@ -60,8 +60,8 @@
                     <!-- Icon -->
                     <div (click)="toggleShowPassword()" class="form-control-icon password" [ngClass]="{'is--hidden': submitted && f.password.errors}">
                       <span class="">
-                        <i-feather *ngIf="togglePasswordShow" class="icons" name="eye"></i-feather>
-                        <i-feather *ngIf="!togglePasswordShow" class="icons" name="eye-off"></i-feather>
+                        <i class="fa fa-eye" *ngIf="togglePasswordShow"></i>
+                        <i class="fa fa-eye-off" *ngIf="!togglePasswordShow"></i>
                       </span>
                     </div>
                 </div>
