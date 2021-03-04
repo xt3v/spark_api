@@ -33,7 +33,10 @@
 
         <textarea *ngSwitchCase="'textArea'" class="form-control form-control-lg opt-value"
             [attr.aria-label]="formControName" rows="5" [formControlName]="formControName"
-            [id]="formControName"></textarea>
+            [id]="formControName">
+        </textarea>
+        <!-- TODO -->
+        <!-- <div *ngIf="formControlType === 'textArea' && formControName === 'serial'">2 serial numbers</div> -->
 
 
         <div *ngSwitchDefault>

@@ -1,5 +1,14 @@
-<app-myform (onValidatedData)="onValidatedData($event)" [isValidationOnly]=false [formItems]="formItems"
-[url]="url" (onPostedData)="onPostedData($event)" submitButtonText="Item"
-[instance]="instance"
-[formGroupOrder]="formGroupOrder" [cardTitle]="'Item'">
-</app-myform>
+<span *ngFor="let tab of tabs; let i = index;">
+    <app-myform 
+    *ngIf="tab.active" 
+    (onValidatedData)="onValidatedData($event)" 
+    [isValidationOnly]=false 
+    [formItems]="tab.form_items"
+    [url]="url" (onPostedData)="onPostedData($event)" submitButtonText="Item"
+    [instance]="instance"
+    [tabbedItems]="tabs"
+    [tabbed]="true"
+    [formGroupOrder]="tab.form_group_order"
+    [cardTitle]="tab.label">
+    </app-myform>
+</span>

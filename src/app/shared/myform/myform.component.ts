@@ -41,6 +41,11 @@ export class MyformComponent implements OnInit {
   isValidationOnly: boolean = false
 
   @Input()
+  tabbedItems: any = [];
+  @Input()
+  tabbed: boolean = false;
+
+  @Input()
   url: string = ""
   _instance: any
   instanceChanged = false
@@ -197,5 +202,10 @@ export class MyformComponent implements OnInit {
   bulkOptions() {
 
   }
+
+  // onSelectedTab(tab: string) {
+  //   console.log("THE TAB IN MYFORM", tab);
+  //   this.onSelectTab.emit(tab)
+  // }
 
 }
