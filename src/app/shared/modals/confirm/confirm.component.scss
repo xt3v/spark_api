@@ -1,0 +1,32 @@
+.confirm {
+    &__modal {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .close {
+            align-self: flex-end;
+        }
+    }
+
+    &__message {
+        color: #727272;
+    }
+
+    &__buttons {
+        padding-top: 2rem;
+        color: #f5f5f5;
+        .cancel {
+            background-color: #E2E2E2;
+            border-color: #E2E2E2;
+            color: #000;
+        }
+        .confirm {
+            margin-left: 1rem;
+            background-color: #036fb6;
+            color: inherit;
+            border-color: #036fb6;
+        }
+    }
+}

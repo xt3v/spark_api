@@ -42,5 +42,5 @@ export class BoxConfigListComponent extends TableHandleActionsMixin implements O
 
   handleActions(action: any) {
     this.handleTableActions(action, '/configs/box-config');
-}
+  }
 }
