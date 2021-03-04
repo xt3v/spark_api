@@ -1,7 +1,6 @@
 @mixin button($size:null, $color:null, $outline:null) {
     display: inline-block;
     width: auto;
-    max-width: 100%;
     font-weight: bold;
     line-height: 3.5rem;
     text-transform: capitalize;

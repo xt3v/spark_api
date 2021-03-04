@@ -1,11 +1,22 @@
 <div class="container">
   <div class="row">
-    <form [formGroup]="searchForm">
-      <input name="searchTableInput" aria-label="Table list" formControlName="search"
-        (ngModelChange)="liveTableSearch($event)" type="text" placeholder="{{!loading ? 'Search' : 'Searching...'}}" />
-      <button type="button" (click)="clearLiveTableSearch()" class="btn btn-primary btn-sm"><i
-          class="glyphicon glyphicon-remove"></i>Clear</button>
-    </form>
+    <div class="col-12 search-section spark-dynamic-forms__bulk-wrapper mb-0">
+      <form [formGroup]="searchForm">
+        <div class="row">
+          <div class="col-6 mt-4">
+            <input name="searchTableInput" class="search-box pl-3" aria-label="Table list" formControlName="search"
+              (ngModelChange)="liveTableSearch($event)" type="text"
+              placeholder="{{!loading ? 'Search item' : 'Searching...'}}" />
+          </div>
+
+          <div class="col-6">
+            <button type="button" (click)="clearLiveTableSearch()"
+              class="btn btn-primary btn-sm spark-dynamic-forms__bulk-btn btn-search-clear"><i
+                class="glyphicon glyphicon-remove"></i>Search</button>
+          </div>
+        </div>
+      </form>
+    </div>
   </div>
   <br>
 

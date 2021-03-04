@@ -1,3 +1,8 @@
+@import "../../styles/mixins/button";
+@import "../../styles/vars";
+@import "../../styles/mixins/typography";
+@import "../../styles/settings";
+
 .linear {
     &-background {
         position: relative;
@@ -22,6 +27,10 @@
     100% {
         background-position: 46px 0;
     }
+}
+
+table {
+    margin-left: -15px;
 }
 
 thead {
@@ -52,3 +61,53 @@ tr {
     font-size: 13px;
     color: rgba(112, 112, 112, 1);
  }
+
+ .search-section {
+     height: 45px;
+     background-color: rgba(112, 112, 112, 0.2);
+ }
+
+ .search-box {
+    font-family: "MuseoSans-500", Helvetica, Arial, serif;
+    font-size: 13px;
+    font-weight: 400;
+    height: 35px;
+    border: none;
+    border-radius: 5px;
+    width: 300px;
+ }
+
+ .btn-search-clear {
+     height: 35px;
+     line-height: 0px !important;
+     margin-left: 70%;
+     margin-top: 15px;
+ }
+
+ .spark-dynamic-forms { 
+
+    &__button-wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        margin-top: 4rem;
+        margin-left: 0 !important;
+    }
+
+    
+    &__bulk {
+        &-wrapper {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        &-btn {
+            @include button($color:primary,$size: small);
+            font-family: "Avenir-Heavy", Helvetica, Arial, serif;
+            margin-bottom: 15px !important;
+
+        }
+    }
+}
