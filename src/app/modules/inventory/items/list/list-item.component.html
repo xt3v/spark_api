@@ -1,1 +1,10 @@
-<p>list-item works!</p>
+<div class="row">
+    <div class="col-sm-12">
+        <app-add-button [url]="'/stockroom/add'"></app-add-button>
+    </div>
+</div>
+<app-tables [listTypeUrl]="url" (actionsEvent)="handleActions($event)" [headers]="headers"
+    [tableFilters]="tableFilters">
+</app-tables>
+
+<app-confirm-dialog></app-confirm-dialog>
