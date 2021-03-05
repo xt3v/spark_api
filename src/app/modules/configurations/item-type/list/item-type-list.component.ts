@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { tableHandleActionsMixin } from 'src/app/core/mixins/table-handle-actions-mixin';
 import { TablesComponent } from 'src/app/shared/tables/tables.component';
+import { ModalsService } from "src/app/shared/modals/modals.service";
+import { TablesService } from 'src/app/shared/tables/tables.service';
 
 
 const TableHandleActionsMixin = tableHandleActionsMixin(TablesComponent);
@@ -30,6 +32,8 @@ export class ItemTypeListComponent extends TableHandleActionsMixin implements On
   
   constructor(
     private _router: Router,
+    private _modalService:ModalsService,
+    private _tableService:TablesService
   ) { 
     super();
   }
@@ -39,7 +43,7 @@ export class ItemTypeListComponent extends TableHandleActionsMixin implements On
   }
 
   handleActions(action: any) {
-      this.handleTableActions(action, '/configs/item-type');
+      this.handleTableActions(action, '/configs/item-type', this.url);
   }
 
 }

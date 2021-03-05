@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { tableHandleActionsMixin } from 'src/app/core/mixins/table-handle-actions-mixin';
 import { TablesComponent } from 'src/app/shared/tables/tables.component';
 
+import { ModalsService } from "src/app/shared/modals/modals.service";
+import { TablesService } from 'src/app/shared/tables/tables.service';
 
 const TableHandleActionsMixin = tableHandleActionsMixin(TablesComponent);
 @Component({
@@ -13,12 +15,15 @@ const TableHandleActionsMixin = tableHandleActionsMixin(TablesComponent);
 export class WarehouseListComponent extends TableHandleActionsMixin implements OnInit {
 
   constructor(
-    private _router: Router
+    private _router: Router,
+    private _modalService:ModalsService,
+    private _tableService:TablesService
   ) { 
     super();
   }
 
-  url = "stores/?type=WH&"
+  url = "stores/?type=WH&";
+  apiUrl = "stores";
 
   headers = [
     "Name",
@@ -50,7 +55,19 @@ export class WarehouseListComponent extends TableHandleActionsMixin implements O
   }
 
   handleActions(action: any) {
-    this.handleTableActions(action, '/warehouse/add');
-}
+    this.handleTableActions(action, '/warehouse/add', this.apiUrl);
+  }
+
+  // revealConfirmDialog() {
+  //   this._modalService.confirm(
+  //     "Are you sure you want to delete?",
+  //     function() {
+  //       console.log('CLICKED OKAY');
+  //     },
+  //     function() {
+  //       console.log('CLICKED CANCEL');
+  //     }
+  //   )
+  // }
 
 }

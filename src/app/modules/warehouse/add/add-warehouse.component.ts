@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ModalsService } from 'src/app/shared/modals/modals.service';
 import { storeFields } from './options';
 
 @Component({
@@ -23,7 +24,8 @@ export class AddWarehouseComponent implements OnInit {
     type: "WH"
   }
   constructor(
-    private _activatedRoute: ActivatedRoute
+    private _activatedRoute: ActivatedRoute,
+    private _modalService: ModalsService
   ) {
     this._activatedRoute.queryParams.subscribe(params => {
       if (params.hasOwnProperty("id")) {

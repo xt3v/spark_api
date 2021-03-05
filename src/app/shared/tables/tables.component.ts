@@ -1,9 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { storeFields } from './configs';
-import { debounceTime, filter, switchMap, take } from 'rxjs/operators';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { debounceTime, switchMap, take } from 'rxjs/operators';
 
 import { TablesService } from './tables.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-tables',
@@ -51,12 +50,13 @@ export class TablesComponent implements OnInit {
   results: any[] = []
   resultsMeta: any;
   actionsSubscription: any;
-
+  deleteSubscription: any;
+  
   liveSearchData: string = '';
 
   constructor(
     private _tableService: TablesService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
   ) {
   }
 
@@ -67,15 +67,30 @@ export class TablesComponent implements OnInit {
     });
     this.getTableData();
     this.actionsSubscription = this._tableService.actionsEvent$.subscribe(event => {
-      // console.log(event)
       this.actionsEvent.emit(event)
-    })
+    });
+
+    this.deleteSubscription = this._tableService.deletedItem$.subscribe(item => {
+      console.log('THE DELETED ITEM', item);
+      const ind = this.results.indexOf(item);
+      this.results.splice(ind, 1);
+      this.resultsMeta.count = this.results.length;
+    });
   }
 
   ngOnDestroy() {
-    if (this.actionsSubscription) {
-      this.actionsSubscription.unsubscribe()
-    }
+    const subscriptions = [this.actionsSubscription, this.deleteSubscription];
+    subscriptions.forEach(subs => {
+      if (subs) {
+        subs.unsubscribe();
+      }
+    })
+    // if (this.actionsSubscription) {
+    //   this.actionsSubscription.unsubscribe();
+    // }
+    // if(this.deleteSubscription) {
+    //   this.deleteSubscription.unsubscribe();
+    // }
   }
 
 

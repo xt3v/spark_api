@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { tableHandleActionsMixin } from 'src/app/core/mixins/table-handle-actions-mixin';
 import { TablesComponent } from 'src/app/shared/tables/tables.component';
-
+import { ModalsService } from "src/app/shared/modals/modals.service";
+import { TablesService } from 'src/app/shared/tables/tables.service';
 
 const TableHandleActionsMixin = tableHandleActionsMixin(TablesComponent);
 @Component({
@@ -13,12 +14,15 @@ const TableHandleActionsMixin = tableHandleActionsMixin(TablesComponent);
 export class StockroomListComponent extends TableHandleActionsMixin implements OnInit {
 
   constructor(
-    private _router: Router
+    private _router: Router,
+    private _modalService:ModalsService,
+    private _tableService:TablesService
   ) { 
     super();
   }
 
   url = "stores/?type=SR&"
+  apiUrl = "stores";
 
   headers = [
     "Name",
@@ -50,7 +54,7 @@ export class StockroomListComponent extends TableHandleActionsMixin implements O
   }
 
   handleActions(action: any) {
-      this.handleTableActions(action, '/stockroom/add');
+      this.handleTableActions(action, '/stockroom/add', this.apiUrl);
   }
 
 }

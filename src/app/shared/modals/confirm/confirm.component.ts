@@ -9,7 +9,8 @@ import { ModalsComponent } from '../basic/modals.component';
 export class ConfirmComponent extends ModalsComponent implements OnInit {
   @Input() message: string = 'Are you sure you want to delete?';
 
-  constructor() { 
+  constructor(
+  ) { 
     super();
   }
 

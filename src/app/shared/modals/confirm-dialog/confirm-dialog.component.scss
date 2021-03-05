@@ -1,6 +1,11 @@
 .show {
     display: block !important;
 }
+.modal-backdrop.show {
+    display: block !important;
+    opacity: .5;
+}
+
 .confirm {
     &__modal {
         display: flex;
