@@ -1,9 +1,25 @@
 <div class="container">
     <div class="spark-dynamic-forms__bulk-wrapper">
         <!-- TODO -> call a module for the bulk upload processes -->
-        <button type="button" (click)="bulkOptions()"
-            class="btn btn btn-sm mb-3 lift spark-dynamic-forms__bulk-btn">Bulk
-            Actions</button>
+        <button type="button" data-toggle="modal" data-target="#bulkModal"
+            class="btn btn btn-sm mb-3 lift spark-dynamic-forms__bulk-btn">
+            Bulk Actions
+        </button>
+        <app-modals [title]="cardTitle+' Bulk Create'" [hasFooter]="false" [modalId]="'bulkModal'">
+            <div class="bulk__wrapper">
+                <div class="bulk__content">
+                    Excel/ CSV are the only acceptable formats
+                </div>
+                <div class="bulk__button-wrapper">
+                    <button class="btn btn btn-sm mb-3 spark-dynamic-forms__bulk-btn">
+                        Download Template
+                    </button>
+                    <button class="btn btn btn-sm mb-3 spark-dynamic-forms__bulk-btn-upload" (click)="bulkOptions()">
+                        Upload File
+                    </button>
+                </div>
+            </div>
+        </app-modals>
     </div>
     <form class="" [formGroup]="formGroup" (ngSubmit)="dataReceived()">
         <app-card *ngIf="!tabbed" [title]="formAction+' '+cardTitle">

@@ -5,7 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 /** Custom modules */
-import { ModalModule } from './modal/modal.module';
+import { ModalsModule } from './modals/modals.module';
 import { MyformModule } from './myform/myform.module';
 
 /** Components */
@@ -21,7 +21,7 @@ import { AddButtonComponent } from './add-button/add-button.component';
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
-    ModalModule,
+    ModalsModule,
     MyformModule,
     TablesModule
   ],
@@ -29,7 +29,7 @@ import { AddButtonComponent } from './add-button/add-button.component';
     FormsModule, 
     MyformModule, 
     ReactiveFormsModule, 
-    ModalModule, 
+    ModalsModule, 
     TablesModule,
     BreadcrumbComponent,
     AddButtonComponent

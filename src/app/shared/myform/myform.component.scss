@@ -37,7 +37,31 @@
             @include button($size: small);
             font-family: "Avenir-Heavy", Helvetica, Arial, serif;
             margin-bottom: 15px !important;
-
         }
+        &-btn-upload {
+            @include button($color:primary, $size: small);
+            font-family: "Avenir-Heavy", Helvetica, Arial, serif;
+            margin-bottom: 15px !important;
+            margin-left: 2rem;
+        }
+    }
+}
+
+.bulk {
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 3rem auto;
+    }
+    &__button-wrapper,
+    &__content {
+        font-size: 1.6rem;
+    }
+
+    &__button-wrapper {
+        padding-top: 2rem;
+        margin-left: -3.5rem;
     }
 }

@@ -1,0 +1,16 @@
+<div *ngIf="confirm_message" class="modal fade" tabindex="-1" role="dialog" [ngClass]="{'show': confirm_message }">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+        <div class="modal-body">
+            <div class="confirm__modal">
+                <button type="button" class="close" (click)="confirm_message.cancel()">&times;</button>
+                <span *ngIf="confirm_message.type == 'prompt'" class="confirm__message">{{confirm_message.text}}</span>
+                <div class="confirm__buttons">
+                    <button type="button" *ngIf="hasCancelButton" class="btn btn-secondary cancel" (click)="confirm_message.cancel()">Cancel</button>
+                    <button type="button" class="btn btn-secondary confirm" (click)="confirm_message.ok()">{{okButton}}</button>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>

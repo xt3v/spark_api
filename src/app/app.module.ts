@@ -16,8 +16,8 @@ import { SharedModule } from './shared/shared.module';
 import { AppComponent } from './app.component';
 import { AuthenticationComponent } from './core/authentication/authentication.component';
 import { ModulesComponent } from './modules/modules.component';
-import { PromptComponent } from './shared/modal/prompt/prompt.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+// import { PromptComponent } from './shared/modal/prompt/prompt.component';
+// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [AppComponent, AuthenticationComponent, ModulesComponent],
@@ -27,7 +27,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CoreModule,
     SharedModule,
     HttpClientModule,
-    NgbModule,
+    // NgbModule,
 
   ],
   providers: [
@@ -38,6 +38,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     },
   ],
   bootstrap: [AppComponent],
-  entryComponents: [PromptComponent],
+  entryComponents: [/*PromptComponent*/],
 })
 export class AppModule { }
