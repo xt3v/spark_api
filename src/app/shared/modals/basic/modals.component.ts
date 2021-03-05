@@ -10,6 +10,7 @@ export class ModalsComponent implements OnInit {
   @Input() modalId: string = '';
   @Input() title: string = 'Title';
   @Input() confirmBtnName: string = 'Confirm';
+  @Input() hasFooter: boolean = true;
 
   @Output() confirmBtn: EventEmitter<any> = new EventEmitter();
 

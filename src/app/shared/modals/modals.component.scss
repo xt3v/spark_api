@@ -1,0 +1,45 @@
+.modal {
+    &-title {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: #535252;
+        width: 100%;
+        text-align: center;
+    }
+    &-body {
+        overflow: hidden;
+    }
+    .close {
+        font-size: 2rem;
+    }
+    &-content {
+        border-radius: .8rem;
+    }
+    &-footer {
+        justify-content: center;
+        button {
+            font-size: 1.6rem;
+        }
+    }
+}
+
+.confirm {
+    &__buttons {
+        font-size: 1.4rem;
+        padding-top: 2rem;
+        color: #f5f5f5;
+        .cancel {
+            background-color: #E2E2E2;
+            border-color: #E2E2E2;
+            color: #000;
+            font-size: inherit;
+        }
+        .confirm {
+            margin-left: 1rem;
+            background-color: #036fb6;
+            color: inherit;
+            border-color: #036fb6;
+            font-size: inherit;
+        }
+    }
+}

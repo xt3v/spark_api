@@ -400,6 +400,9 @@ template {
   font-family: "Museo-Sans", Helvetica, Arial, serif;
   font-size: 13px;
 }
+.modal-content {
+  border-radius: .8rem;
+}
 
 .spark {
   &-text {

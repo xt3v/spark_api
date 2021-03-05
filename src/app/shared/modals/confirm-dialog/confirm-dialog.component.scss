@@ -5,7 +5,9 @@
     display: block !important;
     opacity: .5;
 }
-
+.modal-content {
+    border-radius: .8rem !important;
+}
 .confirm {
     &__modal {
         display: flex;

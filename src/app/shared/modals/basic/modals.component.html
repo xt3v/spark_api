@@ -14,9 +14,11 @@
         </div>
         
         <!-- Modal footer -->
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="confirm()">{{confirmBtnName}}</button>
+        <div *ngIf="hasFooter" class="modal-footer">
+          <div class="confirm__buttons">
+            <button type="button" class="btn btn-secondary cancel" data-dismiss="modal">Cancel</button>
+            <button type="button" class="btn btn-secondary confirm" data-dismiss="modal" (click)="confirm()">{{confirmBtnName}}</button>
+          </div>
         </div>
         
       </div>
