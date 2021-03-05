@@ -2,6 +2,7 @@
     <div class="card__header has--dropdown">
         <ul class="nav nav-tabs">
             <li *ngFor="let item of tabbedItems; let i = index" class="nav-item">
+                <span class="nav-transparent" [ngClass]="{'active': item.active }"></span>
                 <a href="#{{item.prop}}" data-toggle="tab" class="nav-link" (click)="selectedTab(item.prop)" [ngClass]="{'active': item.active }">
                     {{item.label | titlecase}}
                 </a>
