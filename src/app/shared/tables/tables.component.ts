@@ -72,9 +72,13 @@ export class TablesComponent implements OnInit {
 
     this.deleteSubscription = this._tableService.deletedItem$.subscribe(item => {
       console.log('THE DELETED ITEM', item);
-      const ind = this.results.indexOf(item);
-      this.results.splice(ind, 1);
-      this.resultsMeta.count = this.results.length;
+      if (this.resultsMeta.count > this.page_size && this.resultsMeta.count !== this.page_size) {
+        this.getTableData();
+      } else {
+        const ind = this.results.indexOf(item);
+        this.results.splice(ind, 1);
+        this.resultsMeta.count = this.results.length;
+      }
     });
   }
 
