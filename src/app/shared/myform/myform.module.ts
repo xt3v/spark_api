@@ -8,6 +8,7 @@ import { MyinputComponent } from './myinput/myinput.component';
 import { CardComponent } from '../card/card.component';
 import { CardDropdownComponent } from '../card/card-dropdown/card-dropdown.component';
 import { ModalsModule } from '../modals/modals.module';
+import { MultiSelectModule } from '../ng-multi-select/multi-select.module';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ModalsModule } from '../modals/modals.module';
     CommonModule,
     ReactiveFormsModule,
     HttpClientModule,
-    ModalsModule
+    ModalsModule,
+    MultiSelectModule
   ],
   exports: [
     MyformComponent,
