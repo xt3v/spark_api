@@ -1,0 +1,32 @@
+.list-group-title {
+    font-size: 15px !important;
+    font-family: "Museo-Sans", Helvetica, Arial, serif !important; 
+}
+
+.list-group-item {
+    font-family: "MuseoSans-500", Helvetica, Arial, serif;
+    font-size: 12px;
+    font-weight: 500;
+    background-color: #F5F5F5;
+    text-align: left;
+    color: #535252;
+    padding-left: 40px;
+    height: 50px;
+    border-bottom: 2px solid rgb(210, 208, 204);
+    cursor: pointer;
+}
+
+.list-group-item-last {
+    border-bottom: 1px solid rgb(210, 208, 204);;
+}
+
+.right-icon-config {
+    padding-right: 10px;
+    font-size: 10px;
+    color: #535252;
+    opacity: 0.4;
+}
+
+.list-group-item:hover {
+    z-index: 0;
+}
