@@ -21,6 +21,8 @@ export class TablesComponent implements OnInit {
   
   @Input() filterFormItems: any;
 
+  @Input() hasSideMenu: boolean = false;
+
   @Input()
   listTypeUrl!: string;
 

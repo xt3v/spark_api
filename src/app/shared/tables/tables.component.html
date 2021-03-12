@@ -1,13 +1,13 @@
 
 <div class="row">
-  <div class="col-sm-3">
+  <!-- <div *ngIf="!hasSideMenu" class="col-sm-3">
     <app-dropdown-filters [url]="listTypeUrl" [filterUrl]="listTypeUrl"  [formItems]="filterFormItems" [formGroupOrder]="tableFilters"></app-dropdown-filters>
-  </div>
+  </div> -->
 
-  <div class="col-sm-9">
+  <!-- <div class="col-sm-9"> -->
     <div class="container">
       <div class="row">
-        <app-filters [url]="listTypeUrl" [formItems]="filterFormItems" [formGroupOrder]="tableFilters" [isInDropdown]="false"></app-filters>
+        <app-filters *ngIf="hasSideMenu" [url]="listTypeUrl" [formItems]="filterFormItems" [formGroupOrder]="tableFilters" [isInDropdown]="false"></app-filters>
         <div class="col-12 search-section spark-dynamic-forms__bulk-wrapper mb-0">
           <form [formGroup]="searchForm">
             <div class="row">
@@ -68,6 +68,6 @@
       <app-mypagination [selectedPage]="page" [pageSize]="page_size" (onPageSelect)="onPageSelect($event)"
         [resultsMeta]="resultsMeta" *ngIf="!loading"></app-mypagination>
     </div>
-  </div>
+  <!-- </div> -->
 
 </div>
