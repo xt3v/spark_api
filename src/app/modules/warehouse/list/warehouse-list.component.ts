@@ -5,6 +5,7 @@ import { TablesComponent } from 'src/app/shared/tables/tables.component';
 
 import { ModalsService } from "src/app/shared/modals/modals.service";
 import { TablesService } from 'src/app/shared/tables/tables.service';
+import { storeFields } from '../add/options';
 
 const TableHandleActionsMixin = tableHandleActionsMixin(TablesComponent);
 @Component({
@@ -13,6 +14,12 @@ const TableHandleActionsMixin = tableHandleActionsMixin(TablesComponent);
   styleUrls: ['./warehouse-list.component.scss']
 })
 export class WarehouseListComponent extends TableHandleActionsMixin implements OnInit {
+
+  formItems: any = storeFields;
+  tableFiltersDropdown = [
+    ["manager"],
+    ["location"],
+  ];
 
   constructor(
     private _router: Router,

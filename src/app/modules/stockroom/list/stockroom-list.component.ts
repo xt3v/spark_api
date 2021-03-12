@@ -4,6 +4,7 @@ import { tableHandleActionsMixin } from 'src/app/core/mixins/table-handle-action
 import { TablesComponent } from 'src/app/shared/tables/tables.component';
 import { ModalsService } from "src/app/shared/modals/modals.service";
 import { TablesService } from 'src/app/shared/tables/tables.service';
+import { storeFields } from '../../warehouse/add/options';
 
 const TableHandleActionsMixin = tableHandleActionsMixin(TablesComponent);
 @Component({
@@ -12,7 +13,11 @@ const TableHandleActionsMixin = tableHandleActionsMixin(TablesComponent);
   styleUrls: ['./stockroom-list.component.scss']
 })
 export class StockroomListComponent extends TableHandleActionsMixin implements OnInit {
-
+  formItems: any = storeFields;
+  tableFiltersDropdown = [
+    ["manager"],
+    ["location"],
+  ];
   constructor(
     private _router: Router,
     private _modalService:ModalsService,
