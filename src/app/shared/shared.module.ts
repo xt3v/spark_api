@@ -12,6 +12,7 @@ import { MyformModule } from './myform/myform.module';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { TablesModule } from './tables/tables.module';
 import { AddButtonComponent } from './add-button/add-button.component';
+import { FiltersModule } from './filters/filters.module';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { AddButtonComponent } from './add-button/add-button.component';
     RouterModule,
     ModalsModule,
     MyformModule,
-    TablesModule
+    TablesModule,
+    FiltersModule
   ],
   exports: [
     FormsModule, 
@@ -31,6 +33,7 @@ import { AddButtonComponent } from './add-button/add-button.component';
     ReactiveFormsModule, 
     ModalsModule, 
     TablesModule,
+    FiltersModule,
     BreadcrumbComponent,
     AddButtonComponent
   ],

@@ -3,11 +3,13 @@
     <!-- <app-side-bar></app-side-bar> -->
     <app-navbar></app-navbar>
     <!-- Main Content Wrapper -->
-    <div class="container main-content">
-      <div class="row">
-        <app-breadcrumb></app-breadcrumb>
+    <div class="container-fluid main-content">
+      <div class="container-xl container-md container-sm">
+        <div class="row">
+          <app-breadcrumb></app-breadcrumb>
+        </div>
+        <router-outlet></router-outlet>
       </div>
-      <router-outlet></router-outlet>
     </div>
     <app-footer></app-footer>
 </ng-container>

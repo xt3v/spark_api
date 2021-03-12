@@ -10,6 +10,12 @@ import { MytdComponent } from './mytd/mytd.component';
 import { MycelldisplayComponent } from './mycelldisplay/mycelldisplay.component';
 import { MypaginationComponent } from './mypagination/mypagination.component';
 import { MytablefilterComponent } from './mytablefilter/mytablefilter.component';
+import { CollapsibleFiltersComponent } from '../filters/collapsible-filters/collapsible-filters.component';
+import { DropdownFiltersComponent } from '../filters/dropdown-filters/dropdown-filters.component';
+import { MyformComponent } from '../myform/myform.component';
+import { MyinputComponent } from '../myform/myinput/myinput.component';
+import { FiltersModule } from '../filters/filters.module';
+import { CardComponent } from '../card/card.component';
 
 
 @NgModule({
@@ -25,6 +31,7 @@ import { MytablefilterComponent } from './mytablefilter/mytablefilter.component'
     FormsModule,
     ReactiveFormsModule,
     NgMultiSelectDropDownModule,
+    FiltersModule
     // HttpClientModule
   ],
   exports: [

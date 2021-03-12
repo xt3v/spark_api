@@ -430,6 +430,12 @@ template {
 .page-link {
   color: #036fb6 !important;
 }
+
+.container {
+  &-xl {
+    max-width: 1400px !important;
+  }
+}
 /*****************************/
 /********** addons ***********/
 /*****************************/
