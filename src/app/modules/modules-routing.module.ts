@@ -6,6 +6,13 @@ export const ModulesRoutes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: DashboardComponent, data: { breadcrumb: 'Home' } },
   {
+    path: 'accounts',
+    data: { breadcrumb: 'accounts' },
+    loadChildren: () =>
+      import(`./accounts/accounts.module`).then((m) => m.AccountsModule),
+    canActivate: [AuthGuard]
+  },
+  {
     path: 'suppliers',
     data: { breadcrumb: 'suppliers' },
     loadChildren: () =>
