@@ -11,7 +11,7 @@ import { optionsField } from '../options';
 export class AddComponent implements OnInit {
 
   formItems: any = optionsField
-  url: string = 'suppliers'
+  url: string = 'suppliers/'
   instance: any
 
   formGroupOrder = [
