@@ -121,12 +121,14 @@ export class AddItemComponent implements OnInit {
 
   //POST or PUT item
   submitItem() {
-    //delete serial field if untouched
+    //delete fields not needed in serialized/non-serialized
     if (this.check_box == true) {
-
+      delete this.add_item_form.value.box;
       if (this.instance.serial == this.add_item_form.value.serial) {
         delete this.add_item_form.value.serial;
       }
+    } else {
+        delete this.add_item_form.value.serial;
     }
     console.log(this.add_item_form.value);
     let data = {
