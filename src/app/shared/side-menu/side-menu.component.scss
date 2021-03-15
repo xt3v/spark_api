@@ -32,6 +32,11 @@
     font-size: 10px;
     color: #535252;
     opacity: 0.4;
+
+    &[data-active=true]{
+        color: #ffffff;
+        opacity: 1;
+    }
 }
 
 .list-group-item:hover {
