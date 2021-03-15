@@ -1,73 +1,74 @@
-
 <div class="row">
   <!-- <div *ngIf="!hasSideMenu" class="col-sm-3">
     <app-dropdown-filters [url]="listTypeUrl" [filterUrl]="listTypeUrl"  [formItems]="filterFormItems" [formGroupOrder]="tableFilters"></app-dropdown-filters>
   </div> -->
 
   <!-- <div class="col-sm-9"> -->
-    <div class="container">
-      <div class="row">
-        <app-filters *ngIf="hasSideMenu" [url]="listTypeUrl" [formItems]="filterFormItems" [formGroupOrder]="tableFilters" [isInDropdown]="false"></app-filters>
-        <div class="col-12 search-section spark-dynamic-forms__bulk-wrapper mb-0">
-          <form [formGroup]="searchForm">
-            <div class="row">
-              <div *ngIf="hasSideMenu" class="col-4 mt-4">
-                <app-collapsible-filters [url]="listTypeUrl" [filterUrl]="listTypeUrl"  [formItems]="filterFormItems" [formGroupOrder]="tableFilters"></app-collapsible-filters>
-              </div>
-              <div class="col-{{!hasSideMenu ? 6 : 4}} mt-4">
-                <input name="searchTableInput" class="search-box pl-3" aria-label="Table list" formControlName="search"
-                  (ngModelChange)="liveTableSearch($event)" type="text"
-                  placeholder="{{!loading ? 'Search item' : 'Searching...'}}" />
-              </div>
-  
-              <div class="col-{{!hasSideMenu ? 6 : 4}}">
-                <button type="button" (click)="clearLiveTableSearch()"
-                  class="btn btn-primary btn-sm spark-dynamic-forms__bulk-btn btn-search-clear"><i
-                    class="glyphicon glyphicon-remove"></i>Clear</button>
-              </div>
+  <div class="container table-wrapper">
+    <div class="row">
+      <app-filters *ngIf="hasSideMenu" [url]="listTypeUrl" [formItems]="filterFormItems" [formGroupOrder]="tableFilters"
+        [isInDropdown]="false"></app-filters>
+      <div class="col-12 search-section spark-dynamic-forms__bulk-wrapper mb-0">
+        <form [formGroup]="searchForm">
+          <div class="row">
+            <div *ngIf="hasSideMenu" class="col-4 mt-4">
+              <app-collapsible-filters [url]="listTypeUrl" [filterUrl]="listTypeUrl" [formItems]="filterFormItems"
+                [formGroupOrder]="tableFilters"></app-collapsible-filters>
             </div>
-          </form>
-        </div>
+            <div class="col-{{!hasSideMenu ? 6 : 4}} mt-4">
+              <input name="searchTableInput" class="search-box pl-3" aria-label="Table list" formControlName="search"
+                (ngModelChange)="liveTableSearch($event)" type="text"
+                placeholder="{{!loading ? 'Search item' : 'Searching...'}}" />
+            </div>
+
+            <div class="col-{{!hasSideMenu ? 6 : 4}}">
+              <button type="button" (click)="clearLiveTableSearch()"
+                class="btn btn-primary btn-sm spark-dynamic-forms__bulk-btn btn-search-clear"><i
+                  class="glyphicon glyphicon-remove"></i>Clear</button>
+            </div>
+          </div>
+        </form>
       </div>
-      <br>
-  
-      <!-- <div class="row">
+    </div>
+    <br>
+
+    <!-- <div class="row">
         <app-mytablefilter [filterOptions]="tableFilters" (onFilterSelect)="onFilterSelected($event)"></app-mytablefilter>
     </div> -->
-  
-      <table class="table">
-        <thead>
-          <th *ngIf="showNumbering">#</th>
-          <th *ngFor="let title of tableHeaders;let i = index">
-            <app-mytd [columnConfig]="title" [isHeaderCell]=true></app-mytd>
-          </th>
-        </thead>
-  
-        <tbody *ngIf="results.length && !loading">
-  
-          <tr *ngFor="let row of results;let j=index; ">
-            <th *ngIf="showNumbering">{{(j+1)+(page_size*(page-1))}}</th>
-            <td *ngFor="let header of tableHeaders; let j = index;">
-              <app-mytd [columnConfig]="header" [rowData]="row"></app-mytd>
-            </td>
-          </tr>
-        </tbody>
-        <tbody *ngIf="loading">
-          <tr *ngFor="let dum of dummyData">
-            <th *ngIf="showNumbering"><span class="linear-background"></span></th>
-            <td *ngFor="let dum of tableHeaders">
-              <span class="linear-background"></span>
-            </td>
-          </tr>
-        </tbody>
-        <tbody *ngIf="results.length < 1 && !loading">
-          <td class="pt-4">No data available</td>
-        </tbody>
-      </table>
-  
-      <app-mypagination [selectedPage]="page" [pageSize]="page_size" (onPageSelect)="onPageSelect($event)"
-        [resultsMeta]="resultsMeta" *ngIf="!loading"></app-mypagination>
-    </div>
+
+    <table class="table">
+      <thead>
+        <th *ngIf="showNumbering">#</th>
+        <th *ngFor="let title of tableHeaders;let i = index">
+          <app-mytd [columnConfig]="title" [isHeaderCell]=true></app-mytd>
+        </th>
+      </thead>
+
+      <tbody *ngIf="results.length && !loading">
+
+        <tr *ngFor="let row of results;let j=index; ">
+          <th *ngIf="showNumbering">{{(j+1)+(page_size*(page-1))}}</th>
+          <td *ngFor="let header of tableHeaders; let j = index;">
+            <app-mytd [columnConfig]="header" [rowData]="row"></app-mytd>
+          </td>
+        </tr>
+      </tbody>
+      <tbody *ngIf="loading">
+        <tr *ngFor="let dum of dummyData">
+          <th *ngIf="showNumbering"><span class="linear-background"></span></th>
+          <td *ngFor="let dum of tableHeaders">
+            <span class="linear-background"></span>
+          </td>
+        </tr>
+      </tbody>
+      <tbody *ngIf="results.length < 1 && !loading">
+        <td class="pt-4">No data available</td>
+      </tbody>
+    </table>
+
+    <app-mypagination [selectedPage]="page" [pageSize]="page_size" (onPageSelect)="onPageSelect($event)"
+      [resultsMeta]="resultsMeta" *ngIf="!loading"></app-mypagination>
+  </div>
   <!-- </div> -->
 
 </div>

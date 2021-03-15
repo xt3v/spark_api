@@ -31,6 +31,7 @@
 
 table {
     margin-left: -15px;
+    width: 95%;
 }
 
 thead {
@@ -79,9 +80,10 @@ tr {
  }
 
  .btn-search-clear {
+     width: 70% !important;
      height: 35px;
      line-height: 0px !important;
-     margin-left: 70%;
+     margin-left: 90px;
      margin-top: 15px;
  }
 
@@ -102,6 +104,7 @@ tr {
             justify-content: flex-end;
             align-items: center;
             margin-bottom: 1rem;
+            max-width: 95%;
         }
 
         &-btn {
@@ -111,4 +114,8 @@ tr {
 
         }
     }
+}
+
+.table-wrapper {
+    width: 95%;
 }
