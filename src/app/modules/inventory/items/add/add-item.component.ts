@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FormItemService } from 'src/app/services/forms/form-item.service';
-import { SerializedItemfields, NotSerializedItemfields } from './options';
-import { FormBase, DropdownItem, TextItem } from '../../../../core/models/form-base';
+// import { SerializedItemfields, NotSerializedItemfields } from './options';
+// import { FormBase, DropdownItem, TextItem } from '../../../../core/models/form-base';
+
+import { IntegerValidator } from '../../../../core/helpers/integer-validator';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { endpointV1 } from "../../../../services/constants/form-options-configs";
 
@@ -35,7 +37,7 @@ export class AddItemComponent implements OnInit {
     const item_config = new FormControl('', Validators.required);
     const store = new FormControl('', Validators.required);
     const purchase_order = new FormControl('', Validators.required);
-    const box = new FormControl('');
+    const item_count = new FormControl('')
     const serial = new FormControl('');
 
     this.add_item_form = new FormGroup({
@@ -43,7 +45,7 @@ export class AddItemComponent implements OnInit {
       store: store,
       purchase_order: purchase_order,
       serial: serial,
-      box: box
+      item_count: item_count
     })
 
     this._activatedRoute.queryParams.subscribe(params => {
@@ -54,7 +56,7 @@ export class AddItemComponent implements OnInit {
       }
 
       //Show Serial textarea if edit 
-      if (params.hasOwnProperty("serial")){
+      if (params.hasOwnProperty("serial")) {
         this.check_box = true;
       }
     });
@@ -68,10 +70,10 @@ export class AddItemComponent implements OnInit {
   getDropdownValues() {
 
 
-    if(this.newEntry == false){
+    if (this.newEntry == false) {
       this.add_item_form.get('serial').setValue(this.instance.serial);
       this.add_item_form.get('purchase_order').setValue(this.instance.purchase_order);
-    
+
     }
     //Item config fetch dropdown values and set field value if an edit
     this._formService.getDropdownValues(`${endpointV1}item-configs`).subscribe(response => {
@@ -113,19 +115,24 @@ export class AddItemComponent implements OnInit {
       console.log(err);
     });
 
-    
+
   }
 
 
-  //POST or PATCH item
+  //POST or PUT item
   submitItem() {
-    //delete serial field if untouched
-    if(this.instance.serial == this.add_item_form.value.serial){
-      delete this.add_item_form.value.serial;
+    //delete fields not needed in serialized/non-serialized
+    if (this.check_box == true) {
+      delete this.add_item_form.value.box;
+      if (this.instance.serial == this.add_item_form.value.serial) {
+        delete this.add_item_form.value.serial;
+      }
+    } else {
+        delete this.add_item_form.value.serial;
     }
     console.log(this.add_item_form.value);
     let data = {
-      url: this.newEntry == true ? `${endpointV1}itemz/`: `${endpointV1}itemz/${this.instance.id}/`,
+      url: this.newEntry == true ? `${endpointV1}itemz/bulk` : `${endpointV1}itemz/${this.instance.id}/`,
       formData: this.add_item_form.value
     }
     console.log(data);
@@ -144,6 +151,6 @@ export class AddItemComponent implements OnInit {
   }
 
 
-  
+
 
 }

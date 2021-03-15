@@ -5,20 +5,18 @@ import { TablesComponent } from 'src/app/shared/tables/tables.component';
 
 import { ModalsService } from "src/app/shared/modals/modals.service";
 import { TablesService } from 'src/app/shared/tables/tables.service';
-import { storeFields } from '../add/options';
+import { optionsField } from '../options';
 
 const TableHandleActionsMixin = tableHandleActionsMixin(TablesComponent);
 @Component({
-  selector: 'app-warehouse-list',
-  templateUrl: './warehouse-list.component.html',
-  styleUrls: ['./warehouse-list.component.scss']
+  selector: 'app-list',
+  templateUrl: './list.component.html',
+  styleUrls: ['./list.component.scss']
 })
-export class WarehouseListComponent extends TableHandleActionsMixin implements OnInit {
-
-  formItems: any = storeFields;
+export class ListComponent extends TableHandleActionsMixin implements OnInit {
+  formItems: any = optionsField
   tableFiltersDropdown = [
-    ["manager"],
-    ["location"],
+    ["first_name"],
   ];
 
   constructor(
@@ -26,25 +24,36 @@ export class WarehouseListComponent extends TableHandleActionsMixin implements O
     private _modalService: ModalsService,
     private _tableService: TablesService
   ) {
-    super();
+    super()
   }
 
-  url = "stores/?type=WH&";
-  apiUrl = "stores";
+  url = "users";
+  apiUrl = "users";
 
   headers = [
-    "Name",
     {
-      name: 'Warehouse ID',
+      name: 'ID',
       source: "id",
     },
     {
-      name: 'Region/ Location',
-      source: "location_details.name",
+      name: 'Username',
+      source: "username",
     },
     {
-      name: 'Warehouse Manager',
-      source: "manager_details.full_name",
+      name: 'Name',
+      source: "full_name",
+    },
+    {
+      name: 'Role',
+      source: "role.choices.display_name",
+    },
+    {
+      name: 'Phone',
+      source: "phone",
+    },
+    {
+      name: 'Email Address',
+      source: "email",
     },
     {
       name: 'Actions',
@@ -56,13 +65,10 @@ export class WarehouseListComponent extends TableHandleActionsMixin implements O
     },
   ];
 
-  tableFilters = ["Name"]
-
   ngOnInit(): void {
   }
 
   handleActions(action: any) {
-    this.handleTableActions(action, '/warehouse/add', this.apiUrl);
+    this.handleTableActions(action, '/accounts/add', this.apiUrl);
   }
-
 }

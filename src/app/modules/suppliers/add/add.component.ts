@@ -1,45 +1,50 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ModalsService } from 'src/app/shared/modals/modals.service';
-import { storeFields } from './options';
+import { optionsField } from '../options';
 
 @Component({
-  selector: 'app-add-warehouse',
-  templateUrl: './add-warehouse.component.html',
-  styleUrls: ['./add-warehouse.component.scss']
+  selector: 'app-add',
+  templateUrl: './add.component.html',
+  styleUrls: ['./add.component.scss']
 })
-export class AddWarehouseComponent implements OnInit {
+export class AddComponent implements OnInit {
 
-  formItems: any = storeFields;
-  url: string = "stores/";
-  instance: any;
+  formItems: any = optionsField
+  url: string = 'suppliers/'
+  instance: any
 
   formGroupOrder = [
     ['name'],
-    ['location'],
-    ['manager'],
+    ['email'],
+    ['phone'],
+    ['contact_person'],
+    ['contact_phone']
   ]
 
   extraParams = {
-    type: "WH"
+    type: 'WH'
   }
+
   constructor(
     private _activatedRoute: ActivatedRoute,
     private _modalService: ModalsService
   ) {
-    this._activatedRoute.queryParams.subscribe(params => {
-      if (params.hasOwnProperty("id")) {
+    this._activatedRoute.queryParamMap.subscribe(params => {
+      if (params.hasOwnProperty('id')) {
         this.instance = params
         console.log(this.instance)
       }
-    });
+    })
   }
 
   ngOnInit(): void {
   }
+
   onValidatedData(data: any) {
     console.log(data)
   }
+
   onPostedData(data: any) {
     console.log(data)
   }

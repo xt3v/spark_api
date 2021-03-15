@@ -55,9 +55,9 @@
 
           <!-- Validation Errors -->
           <div
-            *ngIf="add_item_form.controls['store'].invalid && (add_item_form.controls['store'].dirty || add_item_form.controls['store'].touched)"
+            *ngIf="add_item_form.controls['store'].invalid && (add_item_form.controls['purchase_order'].dirty || add_item_form.controls['purchase_order'].touched)"
             class="alert">
-            <div *ngIf="add_item_form.controls['store'].errors.required">
+            <div *ngIf="add_item_form.controls['purchase_order'].errors.required">
               <span class="text-danger opt-value">
                 Field is required <br>
               </span>
@@ -77,19 +77,30 @@
                 [ngModelOptions]="{standalone: true}" />
             </div>
           </div>
-          <div class="col-md-4">
-            <!-- Purchase Order -->
+          <div class="col-md-4" *ngIf="check_box == false">
+            <!-- Item Count Field -->
             <!-- Field -->
-            <label for="item_name" class="form-label">Box</label>
-            <select class="form-control form-control-lg opt-value" formControlName="box" *ngIf="!box_loading">
-              <option>No Box selected</option>
-              <option *ngFor="let box_ of boxes" value="{{box_.id}}">{{box_.name}}</option>
-            </select>
+            <label for="item_name" class="form-label">Item Count</label>
+            <input type="number" class="form-control form-control-lg" formControlName="item_count"/>
 
-            <span class="linear-background" *ngIf="box_loading"></span>
+            <div
+            *ngIf="add_item_form.controls['item_count'].invalid && (add_item_form.controls['item_count'].dirty || add_item_form.controls['item_count'].touched)"
+            class="alert">
+            <div *ngIf="add_item_form.controls['item_count'].errors.required">
+              <span class="text-danger opt-value">
+                Field is required <br>
+              </span>
+            </div>
+            <div *ngIf="add_item_form.controls['item_count'].errors.required">
+              <span class="text-danger opt-value">
+                Field has to be a number <br>
+              </span>
+            </div>
+          </div>
+            
           </div>
         </div>
-        <div class="row" *ngIf='check_box == true'>
+        <div class="row" *ngIf="check_box == true">
 
           <div class="col-md-12">
             <label for="serials" class="form-label">Serial</label>
