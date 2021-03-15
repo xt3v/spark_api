@@ -4,6 +4,8 @@ import { tableHandleActionsMixin } from 'src/app/core/mixins/table-handle-action
 import { TablesComponent } from 'src/app/shared/tables/tables.component';
 import { ModalsService } from "src/app/shared/modals/modals.service";
 import { TablesService } from 'src/app/shared/tables/tables.service';
+import { ItemTypeConfigfields } from '../options';
+import { sideMenuOptions } from '../../sidemenu-configs';
 
 
 const TableHandleActionsMixin = tableHandleActionsMixin(TablesComponent);
@@ -28,7 +30,17 @@ export class ItemTypeListComponent extends TableHandleActionsMixin implements On
     },
   ];
 
-  tableFilters = ["Name"]
+  formItems: any = ItemTypeConfigfields;
+  tableFiltersDropdown = [
+    ["name"],
+  ];
+
+  tableFiltersCollapsible = [
+    ["name"]
+  ];
+  
+  sideMenuTitle = sideMenuOptions.sideMenuTitle;
+  sideMenuLists =sideMenuOptions.list;
   
   constructor(
     private _router: Router,

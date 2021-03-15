@@ -1,0 +1,5 @@
+<span *ngFor="let item of selectedFiltersOptions; let i = index">
+    <div class="filters__item">
+        {{item[0]}} <i (click)="removeFilter(i)" class="fa fa-times"></i>
+    </div>
+</span>

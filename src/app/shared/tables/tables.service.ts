@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { switchMap } from 'rxjs/operators';
+import { FiltersService } from '../filters/filters.service';
 
 const endpointV1 = environment.APIv1Endpoint;
 
@@ -16,17 +17,18 @@ export class TablesService {
   deletedItem$: EventEmitter<any> = new EventEmitter();
 
   constructor(
-    private _http: HttpClient
+    private _http: HttpClient,
+    private _filtersService: FiltersService
   ) {
 
   }
 
   getList(typeUrl: string, page_size: number, page: number, filters: Array<any>, searchInput:string): Observable<any> {
     
-    const filterOpt = typeof filters !== 'undefined' && filters.length ? this.getFilters(filters) : '';
+    //const filterOpt = typeof filters !== 'undefined' && filters.length ? this.getFilters(filters) : '';
     const searchName  = typeof searchInput !== undefined && searchInput !== null ? searchInput : null;
 
-    return this._http.get<any>(endpointV1 + `${typeUrl}/?page_size=${page_size}&page=${page}&${filterOpt}=true&name=${searchName}`);
+    return this._http.get<any>(endpointV1 + `${typeUrl}/?page_size=${page_size}&page=${page}&${filters}&name=${searchName}`);
   }
 
   emitAction(name: string, data: any) {
@@ -34,13 +36,14 @@ export class TablesService {
     this.actionsEvent$.emit({ name: name, data: data })
   }
 
-  getFilters(filters:any) {
-    let filterOpt: Array<any> = [];
-    filters.map((filter:any) => {
-      filterOpt.push(filter.item_prop);
-    });
-    return filterOpt.join("&");
-  }
+  //TO REMOVE
+  // getFilters(filters:any) {
+  //   let filterOpt: Array<any> = [];
+  //   filters.map((filter:any) => {
+  //     filterOpt.push(filter.item_prop);
+  //   });
+  //   return filterOpt.join("&");
+  // }
 
   delete(data: any, typeUrl:string)  {
     //TODO -> Send an alert if delete not possible

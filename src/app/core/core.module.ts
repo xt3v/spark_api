@@ -19,7 +19,7 @@ import { LockScreenComponent } from './authentication/lock-screen/lock-screen.co
     FooterComponent,
     HeaderComponent,
     NavbarComponent,
-    ErrorNotFoundComponent,
+    ErrorNotFoundComponent, 
     ForgotComponent,
     SignupComponent,
     SigninComponent,

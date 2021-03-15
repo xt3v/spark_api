@@ -1,0 +1,60 @@
+$card-header-color: #f5f5f5;
+.filters {
+    &__item {
+        position: relative;
+        text-transform: capitalize;
+        background: #007bff;
+        padding: 10px;
+        border-radius: 5px;
+        max-width: 120px;
+        text-align: center;
+        color: white;
+
+        i {
+            cursor: pointer;
+        }
+    }
+
+    &__button {
+        &-wrapper {
+            padding-top: 15px;
+            margin-left: 0;
+        }
+    }
+
+    &__collapsible {
+        &-wrapper {
+            display: flex;
+            flex-direction: row;
+
+            .filters__button-wrapper {
+                margin-left: 20px;
+            }
+        }
+    }
+}
+
+.dropdown{
+    &-toggle {
+
+    }
+    &-menu {
+        position: relative !important;
+        top: -59px !important;
+        left: -25px !important;
+        width: 100%;
+    }
+}
+
+.card {
+    background-color: $card-header-color;
+    height: auto;
+    width: auto;
+    border-radius: .5rem;
+    border-color: $card-header-color;
+
+    &__body {
+        position: relative;
+        padding: 2.8rem 2.6rem;
+    }
+}

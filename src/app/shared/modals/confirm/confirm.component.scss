@@ -1,6 +1,9 @@
 .show {
     display: block !important;
 }
+.modal-content {
+    border-radius: .8rem !important;
+}
 .confirm {
     &__modal {
         display: flex;
@@ -9,27 +12,32 @@
         justify-content: center;
 
         .close {
+            font-size: 1.6rem;
             align-self: flex-end;
         }
     }
 
     &__message {
+        font-size: 2rem;
         color: #727272;
     }
 
     &__buttons {
         padding-top: 2rem;
         color: #f5f5f5;
+        font-size: 1.4rem;
         .cancel {
             background-color: #E2E2E2;
             border-color: #E2E2E2;
             color: #000;
+            font-size: inherit;
         }
         .confirm {
             margin-left: 1rem;
             background-color: #036fb6;
             color: inherit;
             border-color: #036fb6;
+            font-size: inherit;
         }
     }
 }

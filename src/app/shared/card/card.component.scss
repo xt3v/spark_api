@@ -64,6 +64,23 @@ $color-borders: rgba(0, 0, 0, 0.125);
     }
     &-item {
         height: 4.7rem;
+        margin-top: .1rem;
+        position: relative;
+    }
+    &-transparent {
+        position: absolute;
+        width: 100%;
+        background-color: $card-header-color;
+        height: .4rem;
+        bottom: -.2rem;
+        z-index: 1;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity .18s ease-in;
+
+        &.active {
+            opacity: 1;
+        }
     }
     &-link {
         height: 100%;

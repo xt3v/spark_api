@@ -12,10 +12,12 @@ import { MyformModule } from './myform/myform.module';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 import { TablesModule } from './tables/tables.module';
 import { AddButtonComponent } from './add-button/add-button.component';
+import { FiltersModule } from './filters/filters.module';
+import { SideMenuComponent } from './side-menu/side-menu.component';
 
 
 @NgModule({
-  declarations: [BreadcrumbComponent, AddButtonComponent],
+  declarations: [BreadcrumbComponent, AddButtonComponent, SideMenuComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -23,7 +25,8 @@ import { AddButtonComponent } from './add-button/add-button.component';
     RouterModule,
     ModalsModule,
     MyformModule,
-    TablesModule
+    TablesModule,
+    FiltersModule
   ],
   exports: [
     FormsModule, 
@@ -31,8 +34,10 @@ import { AddButtonComponent } from './add-button/add-button.component';
     ReactiveFormsModule, 
     ModalsModule, 
     TablesModule,
+    FiltersModule,
     BreadcrumbComponent,
-    AddButtonComponent
+    AddButtonComponent,
+    SideMenuComponent
   ],
 })
 export class SharedModule { }

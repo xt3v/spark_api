@@ -383,13 +383,7 @@ template {
   @include button();
 }
 
-.ng-invalid .ng-touched{
-  border: 0.1em solid red;
-}
 
-.ng-touched .ng-valid {
-  border: 0.1em solid green;
-}
 
 .form-label {
   font-family: "Avenir-Heavy", Helvetica, Arial, serif;
@@ -399,6 +393,9 @@ template {
 .opt-value {
   font-family: "Museo-Sans", Helvetica, Arial, serif;
   font-size: 13px;
+}
+.modal-content {
+  border-radius: .8rem;
 }
 
 .spark {
@@ -432,6 +429,12 @@ template {
 
 .page-link {
   color: #036fb6 !important;
+}
+
+.container {
+  &-xl {
+    max-width: 1400px !important;
+  }
 }
 /*****************************/
 /********** addons ***********/

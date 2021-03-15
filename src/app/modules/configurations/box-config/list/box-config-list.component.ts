@@ -4,6 +4,8 @@ import { tableHandleActionsMixin } from 'src/app/core/mixins/table-handle-action
 import { TablesComponent } from 'src/app/shared/tables/tables.component';
 import { ModalsService } from "src/app/shared/modals/modals.service";
 import { TablesService } from 'src/app/shared/tables/tables.service';
+import { BoxConfigfields } from '../options';
+import { sideMenuOptions } from '../../sidemenu-configs';
 
 const TableHandleActionsMixin = tableHandleActionsMixin(TablesComponent);
 @Component({
@@ -13,11 +15,23 @@ const TableHandleActionsMixin = tableHandleActionsMixin(TablesComponent);
 })
 export class BoxConfigListComponent extends TableHandleActionsMixin implements OnInit {
 
+  formItems: any = BoxConfigfields;
+  tableFiltersDropdown = [
+    ["name"],
+    ["description"]
+  ];
+
+  tableFiltersCollapsible = [
+    ["name","description"]
+  ];
+  
+  sideMenuTitle = sideMenuOptions.sideMenuTitle;
+  sideMenuLists =sideMenuOptions.list;
   constructor(
     private _router: Router,
-    private _modalService:ModalsService,
-    private _tableService:TablesService
-  ) { 
+    private _modalService: ModalsService,
+    private _tableService: TablesService
+  ) {
     super();
   }
   url = "box-configs"
@@ -45,6 +59,11 @@ export class BoxConfigListComponent extends TableHandleActionsMixin implements O
   }
 
   handleActions(action: any) {
-    this.handleTableActions(action, '/configs/box-config', this.url);
+    if (action.name == "edit") {
+      this._router.navigate(['/configs/box-config'], { state: { data: action.data } });
+
+    } else {
+      this.handleTableActions(action, '/configs/box-config', this.url);
+    }
   }
 }

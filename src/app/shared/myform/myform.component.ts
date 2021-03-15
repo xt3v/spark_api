@@ -12,7 +12,7 @@ const endpointV1 = environment.APIv1Endpoint;
 @Component({
   selector: 'app-myform',
   templateUrl: './myform.component.html',
-  styleUrls: ['./myform.component.scss']
+  styleUrls: ['../myform/myform.component.scss']
 })
 export class MyformComponent implements OnInit {
 
@@ -112,12 +112,31 @@ export class MyformComponent implements OnInit {
     this.checkInstanceChangesUpdateForm()
 
   }
+
+  mapAllTheMultifieldEditSourceFields(): any {
+    var instance = { ...this.instance }// this.instance
+    if ("POST" in this.formItems.actions) {
+      const fields = this.formItems.actions.POST
+      for (var key in fields) {
+        const field = fields[key]
+        const type = field.type
+        if (type == "multifield") {
+          if ("edit_source_field" in field) {
+            const editSource = field.edit_source_field
+            instance[key] = instance[editSource]
+          }
+        }
+      }
+    }
+    return instance
+  }
   checkInstanceChangesUpdateForm() {
     if (this.instanceChanged) {
       this.instanceChanged = false
       if (this.instance) {
+        const inst = this.mapAllTheMultifieldEditSourceFields()
         this.formGroup.patchValue(
-          this.instance
+          inst
         )
         this.isNew = this.instance.id == null
         this.formGroup.markAllAsTouched()

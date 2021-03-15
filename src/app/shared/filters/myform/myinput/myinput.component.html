@@ -1,0 +1,51 @@
+<div class="form-group" [formGroup]="form">
+    <label [for]="formControName" class="form-label">{{displayControlName}}</label>
+    <div [ngSwitch]="formControlType">
+        <div *ngSwitchCase="'choice'">
+            <select class="form-control form-control-lg" [attr.aria-label]="formControName"
+                [formControlName]="formControName" [id]="formControName">
+                <option *ngIf="isLoading" disabled value="" class="opt-value">Fetching ...</option>
+                <option *ngIf="!isLoading" disabled value="" class="opt-value">Select {{displayControlName}}</option>
+                <option *ngFor="let opt of choices" [value]="opt.value" class="opt-value">
+                    {{opt.display_name}}
+                </option>
+            </select>
+        </div>
+
+        <div *ngSwitchCase="'multiplechoice'">
+            <select multiple class="form-control form-control-lg" [attr.aria-label]="formControName"
+                [formControlName]="formControName" [id]="formControName">
+                <option *ngIf="isLoading" disabled value="" class="opt-value">Fetching ...</option>
+                <option *ngIf="!isLoading" disabled value="" class="opt-value">Select {{displayControlName}}</option>
+                <option *ngFor="let opt of choices" [value]="opt.value" class="opt-value">
+                    {{opt.display_name}}
+                </option>
+            </select>
+        </div>
+
+        <div *ngSwitchCase="'boolean'" class="form-check form-control-lg">
+            <input [formControlName]="formControName" class="form-check-input opt-value" type="checkbox" value=""
+                [id]="formControName">
+            <!-- <label class="form-check-label" [for]="formControName">
+                {{displayControlName}}
+            </label> -->
+        </div>
+
+        <textarea *ngSwitchCase="'textArea'" class="form-control form-control-lg opt-value"
+            [attr.aria-label]="formControName" rows="5" [formControlName]="formControName"
+            [id]="formControName">
+        </textarea>
+        <!-- TODO -->
+        <!-- <div *ngIf="formControlType === 'textArea' && formControName === 'serial'">2 serial numbers</div> -->
+
+
+        <div *ngSwitchDefault>
+            <input [formControlName]="formControName" [type]="formControlType"
+                class="form-control form-control-lg opt-value" [id]="formControName" (blur)="sortValidationErrors()">
+        </div>
+    </div>
+
+    <span *ngFor="let error of errors" class="text-danger opt-value">
+        {{error}} <br>
+    </span>
+</div>

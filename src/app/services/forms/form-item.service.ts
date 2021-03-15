@@ -33,4 +33,9 @@ export class FormItemService {
     console.log('THE SELECTED TAB IN SERVICE', data);
     this.selectedTabChange.next(data);
   }
+
+  getDropdownValues(url:string){
+    
+    return this._http.get<any>(url);
+  }
 }

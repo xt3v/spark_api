@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { debounceTime, switchMap, take } from 'rxjs/operators';
+import { FiltersService } from '../filters/filters.service';
 
 import { TablesService } from './tables.service';
 
@@ -17,10 +18,15 @@ export class TablesComponent implements OnInit {
   _headers: Array<any> = [];
   selectedFilterOptions:Array<any> = [];
 
+  
+  @Input() filterFormItems: any;
+
+  @Input() hasSideMenu: boolean = false;
+
   @Input()
   listTypeUrl!: string;
 
-  @Input() tableFilters: Array<any> = []
+  @Input() tableFilters: Array<any> = [];
 
   @Input()
   page_size: number = 10
@@ -31,6 +37,7 @@ export class TablesComponent implements OnInit {
   @Output()
   actionsEvent: EventEmitter<any> = new EventEmitter()
 
+  selectedFiltersSubscriber:any;
 
   @Input()
   set headers(value) {
@@ -56,6 +63,7 @@ export class TablesComponent implements OnInit {
 
   constructor(
     private _tableService: TablesService,
+    private _filterService: FiltersService,
     private fb: FormBuilder,
   ) {
   }
@@ -72,25 +80,29 @@ export class TablesComponent implements OnInit {
 
     this.deleteSubscription = this._tableService.deletedItem$.subscribe(item => {
       console.log('THE DELETED ITEM', item);
-      const ind = this.results.indexOf(item);
-      this.results.splice(ind, 1);
-      this.resultsMeta.count = this.results.length;
+      if (this.resultsMeta.count > this.page_size && this.resultsMeta.count !== this.page_size) {
+        this.getTableData();
+      } else {
+        const ind = this.results.indexOf(item);
+        this.results.splice(ind, 1);
+        this.resultsMeta.count = this.results.length;
+      }
     });
+
+    this.selectedFiltersSubscriber = this._filterService.getFilters$.subscribe(data => {
+      console.log('IN TABLE SERVICE', data);
+      this.selectedFilterOptions = data;
+      this.getTableData();
+    })
   }
 
   ngOnDestroy() {
-    const subscriptions = [this.actionsSubscription, this.deleteSubscription];
+    const subscriptions = [this.actionsSubscription, this.deleteSubscription, this.selectedFiltersSubscriber];
     subscriptions.forEach(subs => {
       if (subs) {
         subs.unsubscribe();
       }
     })
-    // if (this.actionsSubscription) {
-    //   this.actionsSubscription.unsubscribe();
-    // }
-    // if(this.deleteSubscription) {
-    //   this.deleteSubscription.unsubscribe();
-    // }
   }
 
 
@@ -158,17 +170,17 @@ export class TablesComponent implements OnInit {
       });
   }
 
-  getTableDataWithFilters() {
-    this.getTableData();
-  }
+  // getTableDataWithFilters() {
+  //   this.getTableData();
+  // }
 
-  onFilterSelected(filters:Array<any>) {
-    filters.map(item => {
-      item.item_prop = item.item_text.toLowerCase().split(" ").join("_");
-    });
-    this.selectedFilterOptions = filters;
-    this.getTableDataWithFilters();
-  }
+  // onFilterSelected(filters:Array<any>) {
+  //   filters.map(item => {
+  //     item.item_prop = item.item_text.toLowerCase().split(" ").join("_");
+  //   });
+  //   this.selectedFilterOptions = filters;
+  //   this.getTableDataWithFilters();
+  // }
 
 
 

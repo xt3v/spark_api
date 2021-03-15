@@ -112,13 +112,18 @@ const BoxConfigfields: any = {
                 "max_length": 400
             },
             "items": {
-                "type": "field",
+                "type": "multifield",
                 "required": true,
                 "read_only": false,
                 "label": "Items",
                 "display_name": "name",
+                "value_field": "id",
+                "edit_source_field": "items_details",
                 "multiple": true,
-                "url": `${endpointV1}item-configs/`
+                "url": `item-configs/`,
+                "search_field": "name",
+                "edit_display_name": "item_name",
+                "res_value_field": "item_config"
             }
         }
     }

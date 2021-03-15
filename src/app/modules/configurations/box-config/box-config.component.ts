@@ -17,14 +17,9 @@ export class BoxConfigComponent implements OnInit {
     ['items']
   ]
   constructor(
-    private _activatedRoute:ActivatedRoute
-  ) { 
-    this._activatedRoute.queryParams.subscribe(params => {
-      if (params.hasOwnProperty("id")) {
-        this.instance = params
-        console.log(this.instance)
-      }
-    });
+
+  ) {
+    this.instance = history.state.data
   }
 
   ngOnInit(): void {
