@@ -10,7 +10,7 @@ import { AuthService } from 'src/app/services';
 export class NavbarComponent implements OnInit {
 
   constructor(
-    private _route:Router,
+    private _route: Router,
     private _authService: AuthService
   ) { }
 

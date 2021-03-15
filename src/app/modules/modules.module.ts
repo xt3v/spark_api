@@ -13,6 +13,7 @@ import { StockroomModule } from './stockroom/stockroom.module';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { InventoryModule } from './inventory/inventory.module';
+import { SuppliersModule } from './suppliers/suppliers.module';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { InventoryModule } from './inventory/inventory.module';
     CoreModule,
     WarehouseModule,
     StockroomModule,
-    InventoryModule
+    InventoryModule,
+    SuppliersModule
   ],
 })
-export class ModulesModule {}
+export class ModulesModule { }

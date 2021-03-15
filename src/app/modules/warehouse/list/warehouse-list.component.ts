@@ -23,9 +23,9 @@ export class WarehouseListComponent extends TableHandleActionsMixin implements O
 
   constructor(
     private _router: Router,
-    private _modalService:ModalsService,
-    private _tableService:TablesService
-  ) { 
+    private _modalService: ModalsService,
+    private _tableService: TablesService
+  ) {
     super();
   }
 
@@ -64,17 +64,5 @@ export class WarehouseListComponent extends TableHandleActionsMixin implements O
   handleActions(action: any) {
     this.handleTableActions(action, '/warehouse/add', this.apiUrl);
   }
-
-  // revealConfirmDialog() {
-  //   this._modalService.confirm(
-  //     "Are you sure you want to delete?",
-  //     function() {
-  //       console.log('CLICKED OKAY');
-  //     },
-  //     function() {
-  //       console.log('CLICKED CANCEL');
-  //     }
-  //   )
-  // }
 
 }

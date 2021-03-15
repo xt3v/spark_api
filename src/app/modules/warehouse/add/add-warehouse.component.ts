@@ -12,7 +12,7 @@ export class AddWarehouseComponent implements OnInit {
 
   formItems: any = storeFields;
   url: string = "stores/";
-  instance:any;
+  instance: any;
 
   formGroupOrder = [
     ['name'],
@@ -33,7 +33,7 @@ export class AddWarehouseComponent implements OnInit {
         console.log(this.instance)
       }
     });
-   }
+  }
 
   ngOnInit(): void {
   }
