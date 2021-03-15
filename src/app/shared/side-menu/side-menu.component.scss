@@ -17,7 +17,8 @@
     cursor: pointer;
 
     &[data-active=true]{
-        background-color: rgba(#036fb6, .5);
+        background-color: rgb(3, 111, 182);
+        color: #ffffff;
         pointer-events: none;
     }
 }
