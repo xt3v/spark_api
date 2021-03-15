@@ -5,20 +5,18 @@ import { TablesComponent } from 'src/app/shared/tables/tables.component';
 
 import { ModalsService } from "src/app/shared/modals/modals.service";
 import { TablesService } from 'src/app/shared/tables/tables.service';
-import { storeFields } from '../add/options';
+import { optionsField } from '../options';
 
 const TableHandleActionsMixin = tableHandleActionsMixin(TablesComponent);
 @Component({
-  selector: 'app-warehouse-list',
-  templateUrl: './warehouse-list.component.html',
-  styleUrls: ['./warehouse-list.component.scss']
+  selector: 'app-list',
+  templateUrl: './list.component.html',
+  styleUrls: ['./list.component.scss']
 })
-export class WarehouseListComponent extends TableHandleActionsMixin implements OnInit {
-
-  formItems: any = storeFields;
+export class ListComponent extends TableHandleActionsMixin implements OnInit {
+  formItems: any = optionsField
   tableFiltersDropdown = [
-    ["manager"],
-    ["location"],
+    ["name"],
   ];
 
   constructor(
@@ -26,25 +24,37 @@ export class WarehouseListComponent extends TableHandleActionsMixin implements O
     private _modalService: ModalsService,
     private _tableService: TablesService
   ) {
-    super();
+    super()
   }
 
-  url = "stores/?type=WH&";
-  apiUrl = "stores";
+  url = "suppliers";
+  apiUrl = "suppliers";
 
   headers = [
-    "Name",
+    // "Name",
     {
-      name: 'Warehouse ID',
+      name: 'Supplier ID',
       source: "id",
     },
     {
-      name: 'Region/ Location',
-      source: "location_details.name",
+      name: 'Name',
+      source: "name",
     },
     {
-      name: 'Warehouse Manager',
-      source: "manager_details.full_name",
+      name: 'Email Address',
+      source: "email",
+    },
+    {
+      name: 'Phone number',
+      source: "phone",
+    },
+    {
+      name: 'Contact person',
+      source: "contact_person",
+    },
+    {
+      name: 'Contact Person (phone)',
+      source: "contact_phone",
     },
     {
       name: 'Actions',
@@ -56,13 +66,12 @@ export class WarehouseListComponent extends TableHandleActionsMixin implements O
     },
   ];
 
-  tableFilters = ["Name"]
+  // tableFilters = ["Name"]
 
   ngOnInit(): void {
   }
 
   handleActions(action: any) {
-    this.handleTableActions(action, '/warehouse/add', this.apiUrl);
+    this.handleTableActions(action, '/suppliers/add', this.apiUrl);
   }
-
 }
