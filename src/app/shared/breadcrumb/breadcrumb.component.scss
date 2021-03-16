@@ -29,6 +29,7 @@
         list-style: none;
         margin: .5rem;
         padding-right: 2rem;
+        text-transform: capitalize;
 
         &:after {
             content: "\0387";
