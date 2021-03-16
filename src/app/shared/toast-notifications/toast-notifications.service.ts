@@ -11,8 +11,10 @@ export class ToastNotificationsService {
 
   show(text: string | TemplateRef<any>, options: any = {}) {
     this.toasts.push({ text, ...options });
+    console.log(this.toasts);
   }
   toastarray(){
+    // console.log
     return this.toasts;
   }
   remove(toast: any) {
