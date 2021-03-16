@@ -14,6 +14,7 @@ export interface IBreadCrumb {
 })
 export class BreadcrumbComponent implements OnInit, OnDestroy {
   public breadcrumbs: IBreadCrumb[];
+  private breadcrumbsObserver : any;
 
   constructor(
     private _route: Router,
@@ -23,18 +24,16 @@ export class BreadcrumbComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
-    this._route.events.pipe( 
+    this.breadcrumbsObserver = this._route.events.pipe( 
       filter((event: Event) => event instanceof NavigationEnd),
       distinctUntilChanged(),
-      first(),
     ).subscribe(() => {
       this.breadcrumbs = this.buildBreadCrumb(this._activatedRoute.root);
     })
   }
 
   ngOnDestroy(): void {
-    //Called once, before the instance is destroyed.
-    //Add 'implements OnDestroy' to the class.
+    this.breadcrumbsObserver.unsubscribe();
   }
 
   /**
