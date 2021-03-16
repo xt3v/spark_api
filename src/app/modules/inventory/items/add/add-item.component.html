@@ -1,6 +1,6 @@
 <div class="container">
   <form class="form-group" [formGroup]="add_item_form" (ngSubmit)="submitItem()">
-    <app-card>
+    <app-card [title]="page_title">
       <div class="row">
         <div class="col-md-4">
 
@@ -140,6 +140,10 @@
 
     </div>
   </form>
+
+<ngb-toast header="Notification header">
+  Content of the notification
+</ngb-toast>
 
 
 </div>

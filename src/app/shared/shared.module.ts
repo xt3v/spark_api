@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 /** Custom modules */
 import { ModalsModule } from './modals/modals.module';
 import { MyformModule } from './myform/myform.module';
+import { ToastNotificationsModule } from './toast-notifications/toast-notifications.module';
 
 /** Components */
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
@@ -26,7 +27,8 @@ import { SideMenuComponent } from './side-menu/side-menu.component';
     ModalsModule,
     MyformModule,
     TablesModule,
-    FiltersModule
+    FiltersModule,
+    ToastNotificationsModule
   ],
   exports: [
     FormsModule, 
@@ -35,6 +37,7 @@ import { SideMenuComponent } from './side-menu/side-menu.component';
     ModalsModule, 
     TablesModule,
     FiltersModule,
+    ToastNotificationsModule,
     BreadcrumbComponent,
     AddButtonComponent,
     SideMenuComponent

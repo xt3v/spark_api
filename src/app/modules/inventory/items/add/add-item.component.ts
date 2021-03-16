@@ -5,6 +5,7 @@ import { FormItemService } from 'src/app/services/forms/form-item.service';
 // import { FormBase, DropdownItem, TextItem } from '../../../../core/models/form-base';
 
 // import { IntegerValidator } from '../../../../core/helpers/integer-validator';
+import { ToastNotificationsService } from '../../../../shared/toast-notifications/toast-notifications.service';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { endpointV1 } from "../../../../services/constants/form-options-configs";
 
@@ -15,7 +16,7 @@ import { endpointV1 } from "../../../../services/constants/form-options-configs"
 })
 export class AddItemComponent implements OnInit {
 
-
+  page_title = 'Add Item'
   newEntry: boolean = true;
   add_item_form: any;
   items: any;
@@ -30,7 +31,8 @@ export class AddItemComponent implements OnInit {
 
   constructor(
     private _activatedRoute: ActivatedRoute,
-    private _formService: FormItemService
+    private _formService: FormItemService,
+    private toastService: ToastNotificationsService
   ) {
 
 
@@ -66,6 +68,18 @@ export class AddItemComponent implements OnInit {
 
     //initially populate dropdowns
     this.getDropdownValues();
+    this.showSuccess()
+  }
+
+  showSuccess() {
+    console.log("toast")
+    console.log(this.toastService.toastarray);
+    this.toastService.show('I am a success toast', {
+      classname: 'bg-success text-light',
+      delay: 2000 ,
+      autohide: true,
+      headertext: 'Toast Header'
+    });
   }
   getDropdownValues() {
     //Item config fetch dropdown values and set field value if an edit
