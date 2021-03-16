@@ -103,12 +103,12 @@
         <div class="row" *ngIf="check_box == true">
 
           <div class="col-md-12">
-            <label for="serials" class="form-label">Serial</label>
-            <textarea class="form-control form-control-lg opt-value" formControlName="serial">
+            <label for="serial_numbers" class="form-label">Serial</label>
+            <textarea class="form-control form-control-lg opt-value" formControlName="serial_numbers">
 
           </textarea>
             <div
-              *ngIf="(add_item_form.controls['serial'].dirty || add_item_form.controls['serial'].touched) && (check_box == true && add_item_form.value.serial == '')"
+              *ngIf="(add_item_form.controls['serial_numbers'].dirty || add_item_form.controls['serial_numbers'].touched) && (check_box == true && add_item_form.value.serial_numbers == '')"
               class="alert">
               <div>
                 <span class="text-danger opt-value">

@@ -4,7 +4,7 @@ import { FormItemService } from 'src/app/services/forms/form-item.service';
 // import { SerializedItemfields, NotSerializedItemfields } from './options';
 // import { FormBase, DropdownItem, TextItem } from '../../../../core/models/form-base';
 
-import { IntegerValidator } from '../../../../core/helpers/integer-validator';
+// import { IntegerValidator } from '../../../../core/helpers/integer-validator';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { endpointV1 } from "../../../../services/constants/form-options-configs";
 
@@ -25,7 +25,7 @@ export class AddItemComponent implements OnInit {
   item_loading: boolean = true;
   stock_loading: boolean = true;
   box_loading: boolean = true;
-  instance: any;
+  instance: any =  {};
 
 
   constructor(
@@ -38,13 +38,13 @@ export class AddItemComponent implements OnInit {
     const store = new FormControl('', Validators.required);
     const purchase_order = new FormControl('', Validators.required);
     const item_count = new FormControl('')
-    const serial = new FormControl('');
+    const serial_numbers = new FormControl('');
 
     this.add_item_form = new FormGroup({
       item_config: item_config,
       store: store,
       purchase_order: purchase_order,
-      serial: serial,
+      serial_numbers: serial_numbers,
       item_count: item_count
     })
 
@@ -68,13 +68,6 @@ export class AddItemComponent implements OnInit {
     this.getDropdownValues();
   }
   getDropdownValues() {
-
-
-    if (this.newEntry == false) {
-      this.add_item_form.get('serial').setValue(this.instance.serial);
-      this.add_item_form.get('purchase_order').setValue(this.instance.purchase_order);
-
-    }
     //Item config fetch dropdown values and set field value if an edit
     this._formService.getDropdownValues(`${endpointV1}item-configs`).subscribe(response => {
       this.item_loading = false;
@@ -97,23 +90,9 @@ export class AddItemComponent implements OnInit {
         this.add_item_form.get('store').setValue(this.instance.store)
       }
     }, err => {
+      this.item_loading = false;
     });
 
-
-    //Box config fetch dropdown values and set field value if an edit
-    this._formService.getDropdownValues(`${endpointV1}box-configs`).subscribe(response => {
-      this.box_loading = false;
-      this.boxes = response.results;
-      console.log(response);
-      if (this.newEntry == false) {
-
-        this.add_item_form.get('box').setValue(this.instance.box)
-      }
-      this.box_loading = false;
-    }, err => {
-      this.box_loading = false
-      console.log(err);
-    });
 
 
   }
@@ -123,14 +102,11 @@ export class AddItemComponent implements OnInit {
   submitItem() {
     //delete fields not needed in serialized/non-serialized
     if (this.check_box == true) {
-      delete this.add_item_form.value.box;
-      if (this.instance.serial == this.add_item_form.value.serial) {
-        delete this.add_item_form.value.serial;
-      }
+      delete this.add_item_form.value.item_count;
     } else {
-        delete this.add_item_form.value.serial;
+        delete this.add_item_form.value.serial_numbers;
     }
-    console.log(this.add_item_form.value);
+
     let data = {
       url: this.newEntry == true ? `${endpointV1}itemz/bulk` : `${endpointV1}itemz/${this.instance.id}/`,
       formData: this.add_item_form.value
