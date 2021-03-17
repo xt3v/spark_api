@@ -16,7 +16,7 @@ import { endpointV1 } from "../../../../services/constants/form-options-configs"
 })
 export class AddItemComponent implements OnInit {
 
-  page_title = 'Add Item'
+  page_title = 'Add Items'
   newEntry: boolean = true;
   add_item_form: any;
   items: any;
@@ -50,18 +50,18 @@ export class AddItemComponent implements OnInit {
       item_count: item_count
     })
 
-    this._activatedRoute.queryParams.subscribe(params => {
-      if (params.hasOwnProperty("id")) {
-        this.instance = params
-        this.newEntry = false;
-        console.log(this.instance)
-      }
+    // this._activatedRoute.queryParams.subscribe(params => {
+    //   if (params.hasOwnProperty("id")) {
+    //     this.instance = params
+    //     this.newEntry = false;
+    //     console.log(this.instance)
+    //   }
 
-      //Show Serial textarea if edit 
-      if (params.hasOwnProperty("serial")) {
-        this.check_box = true;
-      }
-    });
+    //   //Show Serial textarea if edit 
+    //   if (params.hasOwnProperty("serial")) {
+    //     this.check_box = true;
+    //   }
+    // });
   }
 
   ngOnInit() {
@@ -87,10 +87,7 @@ export class AddItemComponent implements OnInit {
       this.item_loading = false;
       this.items = response.results;
       console.log(response);
-      if (this.newEntry == false) {
-
-        this.add_item_form.get('item_config').setValue(this.instance.item_config)
-      }
+      
     }, err => {
       this.item_loading = false;
     });
@@ -99,10 +96,7 @@ export class AddItemComponent implements OnInit {
     this._formService.getDropdownValues(`${endpointV1}stores`).subscribe(response => {
       this.stock_loading = false;
       this.stores = response.results;
-      if (this.newEntry == false) {
-
-        this.add_item_form.get('store').setValue(this.instance.store)
-      }
+     
     }, err => {
       this.item_loading = false;
     });

@@ -49,6 +49,6 @@ export class ListItemComponent extends TableHandleActionsMixin implements OnInit
   }
 
   handleActions(action: any) {
-      this.handleTableActions(action, '/inventory/add', this.url);
+      action.name == 'edit' ? this.handleTableActions(action, '/inventory/edit', this.url): this.handleTableActions(action, '/inventory/add', this.url)
   }
 }

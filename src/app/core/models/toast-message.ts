@@ -5,7 +5,7 @@ export class ToastMessage {
   
     constructor(content: string, style?: string) {
       this.content = content
-      this.style = style || 'notify'
+      this.style = style || 'info'
     }
   
   }

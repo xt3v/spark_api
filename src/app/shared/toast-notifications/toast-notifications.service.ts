@@ -7,11 +7,13 @@ export class ToastNotificationsService {
 
   constructor() { }
 
-  toasts: any[] = [];
+  public toasts: any[] = [];
 
   show(text: string | TemplateRef<any>, options: any = {}) {
-    this.toasts.push({ text, ...options });
+    
+    this.toasts.push({ text, options });
     console.log(this.toasts);
+   
   }
   toastarray(){
     // console.log

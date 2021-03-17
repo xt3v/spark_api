@@ -7,18 +7,17 @@ import { ListItemComponent } from './items/list/list-item.component';
 import { CoreModule } from 'src/app/core/core.module';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { EditComponent } from './items/edit/edit.component';
 
 
 
 
 @NgModule({
-  declarations: [AddItemComponent, ListItemComponent],
+  declarations: [AddItemComponent, ListItemComponent, EditComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(InventoryRoutes),
     SharedModule,
-    NgbModule,
     CoreModule,
   ]
 })

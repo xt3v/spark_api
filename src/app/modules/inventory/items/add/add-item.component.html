@@ -132,18 +132,12 @@
     <div class="spark-dynamic-forms__button-wrapper">
       <button type="button" class="btn btn btn-sm mb-3 lift spark-dynamic-forms__clear"
         (click)="clearForm()">Clear</button>
-      <button *ngIf="newEntry == true" type="submit" class="btn btn-primary mb-3 lift spark-dynamic-forms__submit"
+      <button type="submit" class="btn btn-primary mb-3 lift spark-dynamic-forms__submit"
         [disabled]="!add_item_form.valid">
         <span class="spark-text">Add Item
-          <!-- {{isLoading?'Loading...': formAction+' '+submitButtonText}} -->
         </span>
       </button>
-      <button *ngIf="newEntry == false" type="submit" class="btn btn-primary mb-3 lift spark-dynamic-forms__submit"
-        [disabled]="!add_item_form.valid">
-        <span class="spark-text">Edit Item
-          <!-- {{isLoading?'Loading...': formAction+' '+submitButtonText}} -->
-        </span>
-      </button>
+    
 
     </div>
   </form>
