@@ -28,6 +28,10 @@ export class ListItemComponent extends TableHandleActionsMixin implements OnInit
       source: "item_config_name",
     },
     {
+      name: 'Warehouse / Stockroom',
+      source: "store_name",
+    },
+    {
       name: 'Region/ Location',
       source: "location_name",
     },
