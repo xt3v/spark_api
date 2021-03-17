@@ -25,11 +25,11 @@ export class ListItemComponent extends TableHandleActionsMixin implements OnInit
   headers = [
     {
       name: 'Item Name',
-      source: "item_config_details.name",
+      source: "item_config_name",
     },
     {
       name: 'Region/ Location',
-      source: "location_details.name",
+      source: "location_name",
     },
     "Purchase order",
     "Serial",
