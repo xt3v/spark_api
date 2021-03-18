@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { SerializedItemfields, NotSerializedItemfields } from './options';
 import { ToastNotificationsService } from 'src/app/shared/toast-notifications/toast-notifications.service';
 
@@ -18,7 +18,8 @@ export class EditComponent implements OnInit {
   ]
   constructor(
     private _activatedRoute: ActivatedRoute,
-    public toastService: ToastNotificationsService
+    private router: Router,
+    public toastService: ToastNotificationsService,
   ) {
     this._activatedRoute.queryParams.subscribe(params => {
       if (params.hasOwnProperty("id")) {
@@ -35,21 +36,10 @@ export class EditComponent implements OnInit {
   }
   onValidatedData(data: any) {
 
-    console.log(this.toastService.toasts);
   }
 
   onPostedData(data: any) {
     console.log(data);
-    
-    if(data.hasOwnProperty('id')){
-      let options = {}
-      
-      this.toastService.show("Successfull Edited", options);
-    } else {
-      let options = {}
-      this.toastService.show("Error editing", options);
-    } 
-
-    console.log(this.toastService.toastarray);
+    this.router.navigate(['/inventory/list'])
   }
 }

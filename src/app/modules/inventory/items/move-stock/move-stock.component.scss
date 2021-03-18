@@ -1,0 +1,96 @@
+@import "../../../../styles/mixins/button";
+@import "../../../../styles/vars";
+@import "../../../../styles/mixins/typography";
+@import "../../../../styles/settings";
+
+.row {
+    margin-top: 10px;
+}
+.linear {
+    &-background {
+        position: relative;
+        overflow: hidden;
+        display: block;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+        animation-iteration-count: infinite;
+        animation-name: placeHolderShimmer;
+        animation-timing-function: linear;
+        background: #f6f7f8;
+        background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+        background-size: 1000px 10px;
+        height: 30px;
+        border-radius: 3px;
+    }
+}
+@keyframes placeHolderShimmer {
+    0% {
+        background-position: -46px 0;
+    }
+    100% {
+        background-position: 46px 0;
+    }
+}
+
+.spark-dynamic-forms { 
+    &__button-wrapper {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        margin-top: 4rem;
+        margin-left: 0 !important;
+    }
+
+    &__clear {
+        @include button($size: small);
+        font-family: "Avenir-Heavy", Helvetica, Arial, serif;
+        margin-right: 3rem;
+        padding-left: 20px;
+        padding-right: 20px;
+    }   
+
+    &__submit {
+        @include button($color:primary, $size: small);
+        font-family: "Avenir-Heavy", Helvetica, Arial, serif;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    &__bulk {
+        &-wrapper {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 1rem;
+        }
+        &-btn {
+            @include button($size: small);
+            font-family: "Avenir-Heavy", Helvetica, Arial, serif;
+            margin-bottom: 15px !important;
+        }
+        &-btn-upload {
+            @include button($color:primary, $size: small);
+            font-family: "Avenir-Heavy", Helvetica, Arial, serif;
+            margin-bottom: 15px !important;
+            margin-left: 2rem;
+        }
+    }
+}
+
+.bulk {
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 3rem auto;
+    }
+    &__button-wrapper,
+    &__content {
+        font-size: 1.6rem;
+    }
+
+    &__button-wrapper {
+        padding-top: 2rem;
+        margin-left: -3.5rem;
+    }
+}
