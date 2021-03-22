@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormItemService } from 'src/app/services/forms/form-item.service';
 // import { SerializedItemfields, NotSerializedItemfields } from './options';
 // import { FormBase, DropdownItem, TextItem } from '../../../../core/models/form-base';
 
 // import { IntegerValidator } from '../../../../core/helpers/integer-validator';
+import { ToastNotificationsService } from '../../../../shared/toast-notifications/toast-notifications.service';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { endpointV1 } from "../../../../services/constants/form-options-configs";
+
 
 @Component({
   selector: 'app-add-item',
@@ -15,7 +17,7 @@ import { endpointV1 } from "../../../../services/constants/form-options-configs"
 })
 export class AddItemComponent implements OnInit {
 
-
+  page_title = 'Add Items'
   newEntry: boolean = true;
   add_item_form: any;
   items: any;
@@ -25,12 +27,13 @@ export class AddItemComponent implements OnInit {
   item_loading: boolean = true;
   stock_loading: boolean = true;
   box_loading: boolean = true;
-  instance: any =  {};
+  instance: any = {};
 
 
   constructor(
     private _activatedRoute: ActivatedRoute,
-    private _formService: FormItemService
+    private _formService: FormItemService,
+    private toastService: ToastNotificationsService
   ) {
 
 
@@ -48,24 +51,36 @@ export class AddItemComponent implements OnInit {
       item_count: item_count
     })
 
-    this._activatedRoute.queryParams.subscribe(params => {
-      if (params.hasOwnProperty("id")) {
-        this.instance = params
-        this.newEntry = false;
-        console.log(this.instance)
-      }
+    // this._activatedRoute.queryParams.subscribe(params => {
+    //   if (params.hasOwnProperty("id")) {
+    //     this.instance = params
+    //     this.newEntry = false;
+    //     console.log(this.instance)
+    //   }
 
-      //Show Serial textarea if edit 
-      if (params.hasOwnProperty("serial")) {
-        this.check_box = true;
-      }
-    });
+    //   //Show Serial textarea if edit 
+    //   if (params.hasOwnProperty("serial")) {
+    //     this.check_box = true;
+    //   }
+    // });
   }
 
   ngOnInit() {
 
     //initially populate dropdowns
     this.getDropdownValues();
+    this.showSuccess()
+  }
+
+  showSuccess() {
+    console.log("toast")
+    console.log(this.toastService.toastarray);
+    this.toastService.show('I am a success toast', {
+      classname: 'bg-success text-light',
+      delay: 2000,
+      autohide: true,
+      headertext: 'Toast Header'
+    });
   }
   getDropdownValues() {
     //Item config fetch dropdown values and set field value if an edit
@@ -73,10 +88,7 @@ export class AddItemComponent implements OnInit {
       this.item_loading = false;
       this.items = response.results;
       console.log(response);
-      if (this.newEntry == false) {
 
-        this.add_item_form.get('item_config').setValue(this.instance.item_config)
-      }
     }, err => {
       this.item_loading = false;
     });
@@ -85,12 +97,9 @@ export class AddItemComponent implements OnInit {
     this._formService.getDropdownValues(`${endpointV1}stores`).subscribe(response => {
       this.stock_loading = false;
       this.stores = response.results;
-      if (this.newEntry == false) {
 
-        this.add_item_form.get('store').setValue(this.instance.store)
-      }
     }, err => {
-      this.item_loading = false;
+      this.stock_loading = false;
     });
 
 
@@ -104,7 +113,7 @@ export class AddItemComponent implements OnInit {
     if (this.check_box == true) {
       delete this.add_item_form.value.item_count;
     } else {
-        delete this.add_item_form.value.serial_numbers;
+      delete this.add_item_form.value.serial_numbers;
     }
 
     let data = {
@@ -115,6 +124,7 @@ export class AddItemComponent implements OnInit {
     this._formService.postForm(this.newEntry, data).subscribe(response => {
       console.log(response);
       this.add_item_form.reset();
+
     }, err => {
       console.log(err);
     })

@@ -14,6 +14,7 @@ import { StockroomModule } from './stockroom/stockroom.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { InventoryModule } from './inventory/inventory.module';
 import { SuppliersModule } from './suppliers/suppliers.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
