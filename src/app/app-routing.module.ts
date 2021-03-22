@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-// import { AuthGuard } from './core/auth-guards/auth.guard';
 import { ErrorNotFoundComponent } from './core/errors/error-not-found/error-not-found.component';
 import { AuthenticationComponent } from './core/authentication/authentication.component';
 import { ModulesComponent } from './modules/modules.component';
@@ -14,7 +13,7 @@ export const AppRoutes: Routes = [
         path: '',
         loadChildren: () =>
           import(`./modules/modules.module`).then((m) => m.ModulesModule),
-          canActivate: [AuthGuard]
+        canActivate: [AuthGuard]
       },
     ],
   },
