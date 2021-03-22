@@ -17,7 +17,8 @@
     cursor: pointer;
 
     &[data-active=true]{
-        background-color: rgba(#036fb6, .5);
+        background-color: rgb(3, 111, 182);
+        color: #ffffff;
         pointer-events: none;
     }
 }
@@ -31,6 +32,11 @@
     font-size: 10px;
     color: #535252;
     opacity: 0.4;
+
+    &[data-active=true]{
+        color: #ffffff;
+        opacity: 1;
+    }
 }
 
 .list-group-item:hover {

@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 /** Custom modules */
 import { ModalsModule } from './modals/modals.module';
 import { MyformModule } from './myform/myform.module';
+import { ToastNotificationsModule } from './toast-notifications/toast-notifications.module';
 
 /** Components */
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
@@ -27,7 +28,8 @@ import { TextareaWithCountComponent } from './textarea-with-count/textarea-with-
     ModalsModule,
     MyformModule,
     TablesModule,
-    FiltersModule
+    FiltersModule,
+    ToastNotificationsModule
   ],
   exports: [
     FormsModule,
@@ -36,6 +38,7 @@ import { TextareaWithCountComponent } from './textarea-with-count/textarea-with-
     ModalsModule,
     TablesModule,
     FiltersModule,
+    ToastNotificationsModule,
     BreadcrumbComponent,
     AddButtonComponent,
     SideMenuComponent,

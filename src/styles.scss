@@ -450,3 +450,6 @@ template {
 @import 'app/styles/_authentication.scss';
 @import 'app/styles/footer';
 @import 'app/styles/navbar';
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';

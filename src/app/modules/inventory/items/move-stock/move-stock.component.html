@@ -1,0 +1,144 @@
+<div class="container">
+  <form class="form-group" [formGroup]="move_stock_form" (ngSubmit)="submitItem()">
+    <app-card [title]="page_title">
+      <div class="row">
+        <div class="col-md-3">
+
+          <!--Item -->
+          <!-- Field -->
+          <label for="from_store" class="form-label">From Store</label>
+          <select class="form-control form-control-lg opt-value" formControlName="from_store" *ngIf="!store_loading">
+            <option *ngFor="let store of stores" value="{{store.id}}" required>{{store.name}}</option>
+          </select>
+          <!-- Loader -->
+          <span class="linear-background" *ngIf="store_loading"></span>
+          <!-- Errors -->
+          <div
+              *ngIf="move_stock_form.controls['from_store'].invalid && (move_stock_form.controls['from_store'].dirty || move_stock_form.controls['from_store'].touched)"
+              class="alert">
+              <div *ngIf="move_stock_form.controls['from_store'].errors.required">
+                <span class="text-danger opt-value">
+                  Field is required <br>
+                </span>
+              </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+
+          <!--Item -->
+          <!-- Field -->
+          <label for="to_store" class="form-label">To Store</label>
+          <select class="form-control form-control-lg opt-value" formControlName="to_store" *ngIf="!store_loading">
+            <option *ngFor="let store of stores" value="{{store.id}}" required>{{store.name}}</option>
+          </select>
+          <!-- Loader -->
+          <span class="linear-background" *ngIf="store_loading"></span>
+          <!-- Errors -->
+          <div
+              *ngIf="move_stock_form.controls['to_store'].invalid && (move_stock_form.controls['to_store'].dirty || move_stock_form.controls['to_store'].touched)"
+              class="alert">
+              <div *ngIf="move_stock_form.controls['to_store'].errors.required">
+                <span class="text-danger opt-value">
+                  Field is required <br>
+                </span>
+              </div>
+            </div>
+        </div>
+        <div class="col-md-2 text-center">
+          <!-- Serialized Check Box -->
+
+
+          <label for="serials" class="form-label">Serialized? </label>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input opt-value" [(ngModel)]="check_box"
+              [ngModelOptions]="{standalone: true}" />
+          </div>
+
+
+        </div>
+        <div class="col-md-2" *ngIf="check_box == false">
+
+          <!--Item -->
+          <!-- Field -->
+          <label for="item_name" class="form-label">Item Name</label>
+          <select class="form-control form-control-lg opt-value" formControlName="item_config" *ngIf="!items_loading">
+            <option *ngFor="let item_config of item_configs" value="{{item_config.id}}" required>
+              {{item_config.type_name}}</option>
+          </select>
+          <!-- Loader -->
+          <span class="linear-background" *ngIf="items_loading"></span>
+          <!-- Errors -->
+          <div
+              *ngIf="move_stock_form.controls['item_config'].invalid && (move_stock_form.controls['item_config'].dirty || move_stock_form.controls['item_config'].touched)"
+              class="alert">
+              <div *ngIf="move_stock_form.controls['item_config'].errors.required">
+                <span class="text-danger opt-value">
+                  Field is required <br>
+                </span>
+              </div>
+            </div>
+        </div>
+        <div class="col-md-2" *ngIf="check_box == false">
+          <!-- Item Count Field -->
+          <!-- Field -->
+          <label for="item_name" class="form-label">Item Count</label>
+          <input type="number" class="form-control form-control-lg" formControlName="items_count" />
+
+          <div
+            *ngIf="move_stock_form.controls['items_count'].invalid && (move_stock_form.controls['items_count'].dirty || move_stock_form.controls['items_count'].touched)"
+            class="alert">
+            <div *ngIf="move_stock_form.controls['items_count'].errors.required">
+              <span class="text-danger opt-value">
+                Field is required <br>
+              </span>
+            </div>
+            <div *ngIf="move_stock_form.controls['items_count'].errors.required">
+              <span class="text-danger opt-value">
+                Field has to be a number <br>
+              </span>
+            </div>
+          </div>
+
+
+
+
+        </div>
+      </div>
+      <div class="row" *ngIf="check_box == true">
+
+        <div class="col-md-12">
+          <label for="serial_numbers" class="form-label">Serial Numbers</label>
+          <textarea class="form-control form-control-lg opt-value" formControlName="serial_numbers">
+
+          </textarea>
+          <div
+            *ngIf="(move_stock_form.controls['serial_numbers'].dirty || move_stock_form.controls['serial_numbers'].touched) && (check_box == true && move_stock_form.value.serial_numbers == '')"
+            class="alert">
+            <div>
+              <span class="text-danger opt-value">
+                Field is required <br>
+              </span>
+            </div>
+          </div>
+
+        </div>
+
+
+      </div>
+    </app-card>
+    <div class="spark-dynamic-forms__button-wrapper">
+      <button type="button" class="btn btn btn-sm mb-3 lift spark-dynamic-forms__clear"
+        (click)="clearForm()">Clear</button>
+      <button type="submit" class="btn btn-primary mb-3 lift spark-dynamic-forms__submit"
+        [disabled]="!move_stock_form.valid">
+        <span class="spark-text">Move Stock
+        </span>
+      </button>
+
+
+    </div>
+  </form>
+
+
+
+</div>

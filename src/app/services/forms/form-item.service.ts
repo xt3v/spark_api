@@ -35,7 +35,6 @@ export class FormItemService {
   }
 
   getDropdownValues(url:string){
-    
     return this._http.get<any>(url);
   }
 }

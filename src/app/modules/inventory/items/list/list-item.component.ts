@@ -25,11 +25,15 @@ export class ListItemComponent extends TableHandleActionsMixin implements OnInit
   headers = [
     {
       name: 'Item Name',
-      source: "item_config_details.name",
+      source: "item_config_name",
+    },
+    {
+      name: 'Warehouse / Stockroom',
+      source: "store_name",
     },
     {
       name: 'Region/ Location',
-      source: "location_details.name",
+      source: "location_name",
     },
     "Purchase order",
     "Serial",
@@ -49,6 +53,6 @@ export class ListItemComponent extends TableHandleActionsMixin implements OnInit
   }
 
   handleActions(action: any) {
-      this.handleTableActions(action, '/inventory/add', this.url);
+      action.name == 'edit' ? this.handleTableActions(action, '/inventory/edit', this.url): this.handleTableActions(action, '/inventory/add', this.url)
   }
 }
