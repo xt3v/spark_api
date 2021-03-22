@@ -18,7 +18,10 @@ export class ItemListComponent extends TableHandleActionsMixin implements OnInit
 
   headers = [
     "Name",
-    "Type",
+    {
+      name: "Type",
+      source: "type_name"
+    },
     "Description",
     {
       name: 'Actions',
@@ -32,12 +35,12 @@ export class ItemListComponent extends TableHandleActionsMixin implements OnInit
   
   formItems: any = ItemConfigfields;
   tableFiltersDropdown = [
-    ["name"],
+    ["type"],
     ["has_serial"]
   ];
 
   tableFiltersCollapsible = [
-    ["name","has_serial"]
+    ["type","has_serial"]
   ];
 
   sideMenuTitle = sideMenuOptions.sideMenuTitle;
