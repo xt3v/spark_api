@@ -41,7 +41,7 @@ export class PriceGroupListComponent implements OnInit {
     "Daily Rate",
     "Number of Days",
     "Minimum activation amount",
-    "Pay Go Provider",
+    "Pay Go Provider Name",
     {
       name: 'Actions',
       type: "actions",

@@ -91,7 +91,14 @@ const PriceGroupFields: any = {
                 "required": false,
                 "read_only": true,
                 "label": "Modified"
+            },
+            "pay_go_provider_name": {
+                "type": "string",
+                "required": false,
+                "read_only": true,
+                "label": "Pay Go Provider Name"
             }
+            
 
         }
     }
