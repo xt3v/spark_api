@@ -22,6 +22,12 @@
               </span>
             </div>
           </div>
+          <div *ngIf="api_errors.item_config">
+
+            <span class="text-danger opt-value">
+              {{api_errors.item_config}}
+            </span>
+          </div>
         </div>
 
         <div class="col-md-3">
@@ -46,6 +52,12 @@
             </div>
 
           </div>
+          <div *ngIf="api_errors.store">
+
+            <span class="text-danger opt-value">
+              {{api_errors.store}}
+            </span>
+          </div>
         </div>
         <div class="col-md-2">
           <!-- Purchase Order -->
@@ -63,7 +75,12 @@
               </span>
             </div>
           </div>
+          <div *ngIf="api_errors.purchase_order">
 
+            <span class="text-danger opt-value">
+              {{api_errors.purchase_order}}
+            </span>
+          </div>
         </div>
         <div class="col-md-2" *ngIf="check_box == false">
           <!-- Item Count Field -->
@@ -86,7 +103,12 @@
             </div>
           </div>
 
+          <div *ngIf="api_errors.item_count">
 
+            <span class="text-danger opt-value">
+              {{api_errors.item_count}}
+            </span>
+          </div>
 
 
         </div>
@@ -119,7 +141,12 @@
               </span>
             </div>
           </div>
+          <div *ngIf="api_errors.serial_numbers">
 
+            <span class="text-danger opt-value">
+              {{api_errors.serial_numbers}}
+            </span>
+          </div>
         </div>
 
 

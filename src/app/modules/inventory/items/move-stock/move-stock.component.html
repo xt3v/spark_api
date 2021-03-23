@@ -14,14 +14,20 @@
           <span class="linear-background" *ngIf="store_loading"></span>
           <!-- Errors -->
           <div
-              *ngIf="move_stock_form.controls['from_store'].invalid && (move_stock_form.controls['from_store'].dirty || move_stock_form.controls['from_store'].touched)"
-              class="alert">
-              <div *ngIf="move_stock_form.controls['from_store'].errors.required">
-                <span class="text-danger opt-value">
-                  Field is required <br>
-                </span>
-              </div>
+            *ngIf="move_stock_form.controls['from_store'].invalid && (move_stock_form.controls['from_store'].dirty || move_stock_form.controls['from_store'].touched)"
+            class="alert">
+            <div *ngIf="move_stock_form.controls['from_store'].errors.required">
+              <span class="text-danger opt-value">
+                Field is required <br>
+              </span>
             </div>
+          </div>
+          <div *ngIf="api_errors.from_store">
+
+            <span class="text-danger opt-value">
+              {{api_errors.from_store}}
+            </span>
+          </div>
         </div>
         <div class="col-md-3">
 
@@ -35,14 +41,20 @@
           <span class="linear-background" *ngIf="store_loading"></span>
           <!-- Errors -->
           <div
-              *ngIf="move_stock_form.controls['to_store'].invalid && (move_stock_form.controls['to_store'].dirty || move_stock_form.controls['to_store'].touched)"
-              class="alert">
-              <div *ngIf="move_stock_form.controls['to_store'].errors.required">
-                <span class="text-danger opt-value">
-                  Field is required <br>
-                </span>
-              </div>
+            *ngIf="move_stock_form.controls['to_store'].invalid && (move_stock_form.controls['to_store'].dirty || move_stock_form.controls['to_store'].touched)"
+            class="alert">
+            <div *ngIf="move_stock_form.controls['to_store'].errors.required">
+              <span class="text-danger opt-value">
+                Field is required <br>
+              </span>
             </div>
+          </div>
+          <div *ngIf="api_errors.to_store">
+
+            <span class="text-danger opt-value">
+              {{api_errors.to_store}}
+            </span>
+          </div>
         </div>
         <div class="col-md-2 text-center">
           <!-- Serialized Check Box -->
@@ -69,14 +81,20 @@
           <span class="linear-background" *ngIf="items_loading"></span>
           <!-- Errors -->
           <div
-              *ngIf="move_stock_form.controls['item_config'].invalid && (move_stock_form.controls['item_config'].dirty || move_stock_form.controls['item_config'].touched)"
-              class="alert">
-              <div *ngIf="move_stock_form.controls['item_config'].errors.required">
-                <span class="text-danger opt-value">
-                  Field is required <br>
-                </span>
-              </div>
+            *ngIf="move_stock_form.controls['item_config'].invalid && (move_stock_form.controls['item_config'].dirty || move_stock_form.controls['item_config'].touched)"
+            class="alert">
+            <div *ngIf="move_stock_form.controls['item_config'].errors.required">
+              <span class="text-danger opt-value">
+                Field is required <br>
+              </span>
             </div>
+          </div>
+          <div *ngIf="api_errors.item_config">
+
+            <span class="text-danger opt-value">
+              {{api_errors.item_config}}
+            </span>
+          </div>
         </div>
         <div class="col-md-2" *ngIf="check_box == false">
           <!-- Item Count Field -->
@@ -97,6 +115,11 @@
                 Field has to be a number <br>
               </span>
             </div>
+          </div>
+          <div *ngIf="api_errors.items_count">
+            <span class="text-danger opt-value">
+              {{api_errors.items_count}}
+            </span>
           </div>
 
 
@@ -120,7 +143,12 @@
               </span>
             </div>
           </div>
+          <div *ngIf="api_errors.serial_numbers">
+            <span class="text-danger opt-value">
 
+              {{api_errors.serial_numbers}}
+            </span>
+          </div>
         </div>
 
 

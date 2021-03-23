@@ -3,6 +3,7 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { FormItemService } from 'src/app/services/forms/form-item.service';
 import { endpointV1 } from "../../../../services/constants/form-options-configs";
 import { Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-move-stock',
@@ -20,6 +21,7 @@ export class MoveStockComponent implements OnInit {
   items_loading: boolean = true;
   check_box: boolean = false;
   newEntry: boolean = true;
+  api_errors: any = [];
   constructor(private _formService: FormItemService,
     private router: Router) {
     const from_store = new FormControl('', Validators.required);
@@ -67,6 +69,9 @@ export class MoveStockComponent implements OnInit {
       delete this.move_stock_form.value.serial_numbers;
     }
 
+    //reset API Errors
+    this.api_errors = [];
+
     let data = {
       url: `${endpointV1}itemz/move`,
       formData: this.move_stock_form.value
@@ -76,8 +81,10 @@ export class MoveStockComponent implements OnInit {
       console.log(response);
       this.move_stock_form.reset();
       this.router.navigate(['/inventory/list'])
-    }, err => {
+    }, (err: HttpErrorResponse) => {
       console.log(err);
+      this.api_errors = err.error;
+
     })
   }
 
