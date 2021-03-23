@@ -14,6 +14,8 @@ import { ItemTypeListComponent } from './item-type/list/item-type-list.component
 import { BoxConfigListComponent } from './box-config/list/box-config-list.component';
 import { PayGoProviderComponent } from './pay-go-provider/pay-go-provider.component';
 import { PayGoProviderListComponent } from './pay-go-provider/list/pay-go-provider-list.component';
+import { PriceGroupComponent } from './price-group/price-group.component';
+import { PriceGroupListComponent } from './price-group/list/price-group-list.component';
 
 
 @NgModule({
@@ -25,7 +27,9 @@ import { PayGoProviderListComponent } from './pay-go-provider/list/pay-go-provid
     ItemTypeListComponent,
     BoxConfigListComponent,
     PayGoProviderComponent,
-    PayGoProviderListComponent
+    PayGoProviderListComponent,
+    PriceGroupComponent,
+    PriceGroupListComponent
   ],
   imports: [
     CommonModule,
