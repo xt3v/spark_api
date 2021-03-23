@@ -131,9 +131,9 @@
 
         <div class="col-md-12">
           <label for="serial_numbers" class="form-label">Serial Numbers</label>
-          <textarea class="form-control form-control-lg opt-value" formControlName="serial_numbers">
 
-          </textarea>
+          <app-textarea-with-count formControlName="serial_numbers">
+          </app-textarea-with-count>
           <div
             *ngIf="(move_stock_form.controls['serial_numbers'].dirty || move_stock_form.controls['serial_numbers'].touched) && (check_box == true && move_stock_form.value.serial_numbers == '')"
             class="alert">

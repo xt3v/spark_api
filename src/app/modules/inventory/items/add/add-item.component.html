@@ -129,9 +129,12 @@
 
         <div class="col-md-12">
           <label for="serial_numbers" class="form-label">Serial</label>
-          <textarea class="form-control form-control-lg opt-value" formControlName="serial_numbers">
 
-          </textarea>
+          <app-textarea-with-count formControlName="serial_numbers">
+          </app-textarea-with-count>
+          <!-- <textarea class="form-control form-control-lg opt-value" formControlName="serial_numbers">
+
+          </textarea> -->
           <div
             *ngIf="(add_item_form.controls['serial_numbers'].dirty || add_item_form.controls['serial_numbers'].touched) && (check_box == true && add_item_form.value.serial_numbers == '')"
             class="alert">
@@ -160,7 +163,7 @@
         <span class="spark-text">Add Item
         </span>
       </button>
-    
+
 
     </div>
   </form>
