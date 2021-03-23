@@ -26,9 +26,6 @@
         <div *ngSwitchCase="'boolean'" class="form-check form-control-lg">
             <input [formControlName]="formControName" class="form-check-input opt-value" type="checkbox" value=""
                 [id]="formControName">
-            <!-- <label class="form-check-label" [for]="formControName">
-                {{displayControlName}}
-            </label> -->
         </div>
 
         <app-multi-select *ngSwitchCase="'multifield'" [parameter]="data" formControlName="items"></app-multi-select>
