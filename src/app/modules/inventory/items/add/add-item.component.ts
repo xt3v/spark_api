@@ -118,6 +118,8 @@ export class AddItemComponent implements OnInit {
       delete this.add_item_form.value.serial_numbers;
     }
 
+    //reset API errors
+    this.api_errors = [];
     let data = {
       url: this.newEntry == true ? `${endpointV1}itemz/bulk` : `${endpointV1}itemz/${this.instance.id}/`,
       formData: this.add_item_form.value
