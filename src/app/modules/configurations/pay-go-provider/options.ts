@@ -23,7 +23,8 @@ const PayGoProviderFields: any = {
                 "type": "string",
                 "required": true,
                 "read_only": false,
-                "label": "Description"
+                "label": "Description",
+                "max_length": 400
             },
             "created": {
                 "type": "datetime",
