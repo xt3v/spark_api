@@ -1,6 +1,7 @@
 <form [formGroup]="areaCountFormGroup">
     <div class="row">
-        <textarea rows="4" cols="50" class="form-control" formControlName="area_count"></textarea>
+        <textarea class="form-control form-control-lg opt-value" rows="4" cols="50" class="form-control"
+            formControlName="area_count" (blur)="onTouch()"></textarea>
     </div>
     <div class="row pt-1">
         <small><b>{{ count }}</b> items</small>
