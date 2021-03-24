@@ -16,6 +16,8 @@ import { PayGoProviderComponent } from './pay-go-provider/pay-go-provider.compon
 import { PayGoProviderListComponent } from './pay-go-provider/list/pay-go-provider-list.component';
 import { PriceGroupComponent } from './price-group/price-group.component';
 import { PriceGroupListComponent } from './price-group/list/price-group-list.component';
+import { ProductConfigComponent } from './product-config/product-config.component';
+import { ProductConfigListComponent } from './product-config/list/product-config-list.component';
 
 
 @NgModule({
@@ -29,7 +31,9 @@ import { PriceGroupListComponent } from './price-group/list/price-group-list.com
     PayGoProviderComponent,
     PayGoProviderListComponent,
     PriceGroupComponent,
-    PriceGroupListComponent
+    PriceGroupListComponent,
+    ProductConfigComponent,
+    ProductConfigListComponent
   ],
   imports: [
     CommonModule,

@@ -4,16 +4,17 @@ import { TablesComponent } from 'src/app/shared/tables/tables.component';
 import { ModalsService } from "src/app/shared/modals/modals.service";
 import { Router } from '@angular/router';
 import { TablesService } from 'src/app/shared/tables/tables.service';
-import { PriceGroupFields } from '../options'
+import { ProductFields } from '../options'
 import { sideMenuOptions } from '../../sidemenu-configs';
 
+
 @Component({
-  selector: 'app-price-group-list',
-  templateUrl: './price-group-list.component.html',
-  styleUrls: ['./price-group-list.component.scss']
+  selector: 'app-product-config-list',
+  templateUrl: './product-config-list.component.html',
+  styleUrls: ['./product-config-list.component.scss']
 })
-export class PriceGroupListComponent implements OnInit {
-  formItems: any = PriceGroupFields;
+export class ProductConfigListComponent implements OnInit {
+  formItems: any = ProductFields;
   tableFiltersDropdown = [
     ["name"],
     ["description"]
@@ -31,17 +32,19 @@ export class PriceGroupListComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  url = "price-group-configs"
+  url = "product-configs"
 
   headers = [
     "Name",
     "Description",
-    "Type",
-    "Days of Credit",
-    "Daily Rate",
-    "Number of Days",
-    "Min activation amount",
-    "Pay Go Provider Name",
+    {
+      "name": "Kit Configuration",
+      "source": "kit_configuration_details.name"
+    },
+    {
+      "name": "Price Group Configuration",
+      "source": "price_group_config_details.name"
+    },
     {
       name: 'Actions',
       type: "actions",
@@ -50,11 +53,12 @@ export class PriceGroupListComponent implements OnInit {
         "edit", "delete"
       ]
     },
+    
   ];
 
   handleActions(action: any) {
     if (action.name == "edit") {
-      this._router.navigate(['/configs/price-group/'], { state: { data: action.data } });
+      this._router.navigate(['/configs/product-config/'], { state: { data: action.data } });
 
     } 
     // else {

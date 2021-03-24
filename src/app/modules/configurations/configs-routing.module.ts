@@ -9,6 +9,8 @@ import { PayGoProviderComponent } from './pay-go-provider/pay-go-provider.compon
 import { PayGoProviderListComponent } from './pay-go-provider/list/pay-go-provider-list.component';
 import { PriceGroupListComponent } from './price-group/list/price-group-list.component';
 import { PriceGroupComponent } from './price-group/price-group.component';
+import { ProductConfigListComponent } from './product-config/list/product-config-list.component';
+import { ProductConfigComponent } from './product-config/product-config.component';
 
 export const ConfigRoutes: Routes = [
     { path: '', redirectTo: 'list-item-type', pathMatch: 'full' },
@@ -17,9 +19,11 @@ export const ConfigRoutes: Routes = [
     { path: 'item-config', component: ItemConfigComponent, data: { breadcrumb: 'Add Item Configuration' } },
     { path: 'list-item-configs', component: ItemListComponent, data: { breadcrumb: 'List Item Configs' } },
     { path: 'box-config', component: BoxConfigComponent, data: { breadcrumb: 'Add Kit / Box Configuration' } },
-    { path: 'list-box-config', component: BoxConfigListComponent, data: { breadcrumb: 'List Kit / Box Configuration' } },
+    { path: 'list-box-config', component: BoxConfigListComponent, data: { breadcrumb: 'List Box Configuration' } },
     { path: 'pay-go-providers', component: PayGoProviderComponent, data: { breadcrumb: 'Add Pay Go Provider'}},
     { path: 'list-pay-go-providers', component: PayGoProviderListComponent, data: { breadcrumb: 'Pay Go Providers'}},
     { path: 'list-price-groups', component: PriceGroupListComponent, data: {breadcrumb: 'Price Groups'}},
-    { path: 'price-group', component: PriceGroupComponent, data: {breadcrumb: 'Add Price Group'}}
+    { path: 'price-group', component: PriceGroupComponent, data: {breadcrumb: 'Add Price Group'}},
+    { path: 'list-product-configs', component: ProductConfigListComponent, data: {breadcrumb: 'Product Configuration'}},
+    { path: 'product-config', component: ProductConfigComponent, data: {breadcrumb: 'Add Product Configuration'}},
 ]
