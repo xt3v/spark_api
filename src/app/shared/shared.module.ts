@@ -15,10 +15,11 @@ import { TablesModule } from './tables/tables.module';
 import { AddButtonComponent } from './add-button/add-button.component';
 import { FiltersModule } from './filters/filters.module';
 import { SideMenuComponent } from './side-menu/side-menu.component';
+import { TextareaWithCountComponent } from './textarea-with-count/textarea-with-count.component';
 
 
 @NgModule({
-  declarations: [BreadcrumbComponent, AddButtonComponent, SideMenuComponent],
+  declarations: [BreadcrumbComponent, AddButtonComponent, SideMenuComponent, TextareaWithCountComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -31,16 +32,17 @@ import { SideMenuComponent } from './side-menu/side-menu.component';
     ToastNotificationsModule
   ],
   exports: [
-    FormsModule, 
-    MyformModule, 
-    ReactiveFormsModule, 
-    ModalsModule, 
+    FormsModule,
+    MyformModule,
+    ReactiveFormsModule,
+    ModalsModule,
     TablesModule,
     FiltersModule,
     ToastNotificationsModule,
     BreadcrumbComponent,
     AddButtonComponent,
-    SideMenuComponent
+    SideMenuComponent,
+    TextareaWithCountComponent
   ],
 })
 export class SharedModule { }

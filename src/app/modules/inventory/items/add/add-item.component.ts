@@ -8,6 +8,7 @@ import { FormItemService } from 'src/app/services/forms/form-item.service';
 import { ToastNotificationsService } from '../../../../shared/toast-notifications/toast-notifications.service';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
 import { endpointV1 } from "../../../../services/constants/form-options-configs";
+import { HttpErrorResponse } from '@angular/common/http';
 
 
 @Component({
@@ -28,6 +29,7 @@ export class AddItemComponent implements OnInit {
   stock_loading: boolean = true;
   box_loading: boolean = true;
   instance: any = {};
+  api_errors: any = [];
 
 
   constructor(
@@ -116,6 +118,8 @@ export class AddItemComponent implements OnInit {
       delete this.add_item_form.value.serial_numbers;
     }
 
+    //reset API errors
+    this.api_errors = [];
     let data = {
       url: this.newEntry == true ? `${endpointV1}itemz/bulk` : `${endpointV1}itemz/${this.instance.id}/`,
       formData: this.add_item_form.value
@@ -125,8 +129,10 @@ export class AddItemComponent implements OnInit {
       console.log(response);
       this.add_item_form.reset();
 
-    }, err => {
-      console.log(err);
+    }, (err: HttpErrorResponse) => {
+
+      this.api_errors = err.error;
+
     })
   }
 

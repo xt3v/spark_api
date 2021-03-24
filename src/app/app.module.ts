@@ -27,7 +27,6 @@ import { ModulesComponent } from './modules/modules.component';
     CoreModule,
     SharedModule,
     HttpClientModule,
-    // NgbModule,
 
   ],
   providers: [
@@ -38,6 +37,6 @@ import { ModulesComponent } from './modules/modules.component';
     },
   ],
   bootstrap: [AppComponent],
-  entryComponents: [/*PromptComponent*/],
+  entryComponents: [],
 })
 export class AppModule { }

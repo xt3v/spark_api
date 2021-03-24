@@ -46,5 +46,16 @@ export const ModulesRoutes: Routes = [
     loadChildren: () =>
       import(`./inventory/inventory.module`).then((m) => m.InventoryModule),
     canActivate: [AuthGuard]
-  }
+  },
+
+  // todo: remove on live product. | SVO - used for unit tests
+  {
+    path: 'demo',
+    data: { breadcrumb: 'Demo' },
+    loadChildren: () =>
+      import(`./demo/demo.module`).then((m) => m.DemoModule),
+    canActivate: [AuthGuard]
+  },
+
+
 ]

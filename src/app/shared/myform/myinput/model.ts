@@ -11,6 +11,7 @@ class MyInputModel {
     required: boolean;
     read_only: boolean;
     options: any
+
     constructor(
         name: String,
         type?: string,

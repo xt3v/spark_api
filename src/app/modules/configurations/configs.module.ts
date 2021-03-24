@@ -14,6 +14,12 @@ import { ItemTypeListComponent } from './item-type/list/item-type-list.component
 import { BoxConfigListComponent } from './box-config/list/box-config-list.component';
 import { KitConfigComponent } from './kit-config/kit-config.component';
 import { KitConfigListComponent } from './kit-config/list/kit-config-list/kit-config-list.component';
+import { PayGoProviderComponent } from './pay-go-provider/pay-go-provider.component';
+import { PayGoProviderListComponent } from './pay-go-provider/list/pay-go-provider-list.component';
+import { PriceGroupComponent } from './price-group/price-group.component';
+import { PriceGroupListComponent } from './price-group/list/price-group-list.component';
+import { ProductConfigComponent } from './product-config/product-config.component';
+import { ProductConfigListComponent } from './product-config/list/product-config-list.component';
 
 
 @NgModule({
@@ -25,7 +31,13 @@ import { KitConfigListComponent } from './kit-config/list/kit-config-list/kit-co
     ItemTypeListComponent,
     BoxConfigListComponent,
     KitConfigComponent,
-    KitConfigListComponent
+    KitConfigListComponent,
+    PayGoProviderComponent,
+    PayGoProviderListComponent,
+    PriceGroupComponent,
+    PriceGroupListComponent,
+    ProductConfigComponent,
+    ProductConfigListComponent
   ],
   imports: [
     CommonModule,

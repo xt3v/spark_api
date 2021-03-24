@@ -22,6 +22,12 @@
               </span>
             </div>
           </div>
+          <div *ngIf="api_errors.item_config">
+
+            <span class="text-danger opt-value">
+              {{api_errors.item_config}}
+            </span>
+          </div>
         </div>
 
         <div class="col-md-3">
@@ -46,6 +52,12 @@
             </div>
 
           </div>
+          <div *ngIf="api_errors.store">
+
+            <span class="text-danger opt-value">
+              {{api_errors.store}}
+            </span>
+          </div>
         </div>
         <div class="col-md-2">
           <!-- Purchase Order -->
@@ -63,7 +75,12 @@
               </span>
             </div>
           </div>
+          <div *ngIf="api_errors.purchase_order">
 
+            <span class="text-danger opt-value">
+              {{api_errors.purchase_order}}
+            </span>
+          </div>
         </div>
         <div class="col-md-2" *ngIf="check_box == false">
           <!-- Item Count Field -->
@@ -86,7 +103,12 @@
             </div>
           </div>
 
+          <div *ngIf="api_errors.item_count">
 
+            <span class="text-danger opt-value">
+              {{api_errors.item_count}}
+            </span>
+          </div>
 
 
         </div>
@@ -107,9 +129,12 @@
 
         <div class="col-md-12">
           <label for="serial_numbers" class="form-label">Serial</label>
-          <textarea class="form-control form-control-lg opt-value" formControlName="serial_numbers">
 
-          </textarea>
+          <app-textarea-with-count formControlName="serial_numbers">
+          </app-textarea-with-count>
+          <!-- <textarea class="form-control form-control-lg opt-value" formControlName="serial_numbers">
+
+          </textarea> -->
           <div
             *ngIf="(add_item_form.controls['serial_numbers'].dirty || add_item_form.controls['serial_numbers'].touched) && (check_box == true && add_item_form.value.serial_numbers == '')"
             class="alert">
@@ -119,7 +144,12 @@
               </span>
             </div>
           </div>
+          <div *ngIf="api_errors.serial_numbers">
 
+            <span class="text-danger opt-value">
+              {{api_errors.serial_numbers}}
+            </span>
+          </div>
         </div>
 
 
@@ -133,7 +163,7 @@
         <span class="spark-text">Add Item
         </span>
       </button>
-    
+
 
     </div>
   </form>

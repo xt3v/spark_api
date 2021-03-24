@@ -5,4 +5,5 @@ import { ListComponent } from './list/list.component';
 export const AccountsRoutes: Routes = [
     { path: '', component: ListComponent, data: { breadcrumb: 'Accounts' } },
     { path: 'add', component: AddComponent, data: { breadcrumb: 'Add Accounts' } },
+    // <app-textarea-with-count></app-textarea-with-count>
 ]

@@ -34,6 +34,7 @@ export class MyinputComponent implements OnInit {
       this.formControl.valueChanges.subscribe((val) => {
         this.sortValidationErrors(true)
       })
+
       // Check if its a field 
       if (this.data.type == "field") {
         this.getUrlBasedOptions()
@@ -75,7 +76,7 @@ export class MyinputComponent implements OnInit {
       return
     }
 
-    //Clear the form errors on value changes only
+    // Clear the form errors on value changes only
     if (clearFormError) {
       delete this.formErrors[this.formControName]
     }
@@ -108,38 +109,36 @@ export class MyinputComponent implements OnInit {
     switch (this.data.type) {
       case 'integer':
         return "number"
-        break;
+
       case 'string':
         if (this.data.max_length && this.data.max_length > 100) {
           return 'textArea'
         }
         return "text"
-        break;
+
       case 'datetime':
         return "date"
-        break;
+
       case 'datetime':
         return "date"
-        break;
+
       case 'field':
         if (this.data.multiple) {
           return 'multiplechoice'
         }
         return "choice"
-        break;
+
       default:
         return this.data.type
-        break;
     }
   }
 
   get displayControlName() {
-    return this.data.label //this.formControName.replace("_", " ")
+    return this.data.label
   }
 
   ngOnInit(): void {
 
   }
-
 
 }
