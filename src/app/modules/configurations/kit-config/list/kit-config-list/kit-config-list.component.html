@@ -8,7 +8,7 @@
     <div class="col-sm-3">
         <!-- enable the dropdown filters to show them -->
         <!-- <app-dropdown-filters [url]="listTypeUrl" [filterUrl]="listTypeUrl"  [formItems]="formItems" [formGroupOrder]="tableFiltersCollapsible"></app-dropdown-filters> -->
-        <app-side-menu [title]="sideMenuTitle" [lists]="sideMenuLists" [active]="' Kit Configuration'"></app-side-menu>
+        <app-side-menu [title]="sideMenuTitle" [lists]="sideMenuLists" [active]="'Kit Configuration'"></app-side-menu>
     </div>
     <div class="col-sm-9">
         <app-tables [listTypeUrl]="url" (actionsEvent)="handleActions($event)" [headers]="headers"

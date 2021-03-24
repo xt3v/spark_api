@@ -204,21 +204,37 @@ export const KitConfigFields: any = {
                 "read_only": true,
                 "label": "Modified"
             },
+            "name": {
+                "type": "string",
+                "required": true,
+                "read_only": false,
+                "label": "Name",
+                "max_length": 50
+            },
+            "description": {
+                "type": "string",
+                "required": true,
+                "read_only": false,
+                "label": "Description",
+                "max_length": 400
+            },
             "serial": {
                 "type": "string",
                 "required": false,
                 "read_only": false,
-                "label": "Name",
+                "label": "Serial",
                 "max_length": 45
             },
             "boxes": {
                 "type": "field",
-                "required": false,
+                "multiple": true,
+                "required": true,
                 "read_only": false,
-                "label": "Boxes",
+                "label": "Item Type",
                 "display_name": "name",
                 "url": `${endpointV1}box-configs/`
             }
+            
         }
     }
 }

@@ -12,8 +12,9 @@ export class KitConfigComponent implements OnInit {
   url: string = "kit-configs/"
   instance: any;
   formGroupOrder = [
-    ['serial'],
-    ['boxes'],
+    ['name'],
+    ['description'],
+    ['boxes']
   ]
   constructor(
 

@@ -38,13 +38,12 @@ export class KitConfigListComponent extends TableHandleActionsMixin implements O
   url = "kit-configs"
 
   headers = [
-    {
-      name: "Name",
-      source: "serial"
-    },
+    "Name",
+    "Description",
     {
       name: "Box",
-      source: "boxes_details[0].name",
+      source: "boxes_details",
+      display_name: "name"
     },
     {
       name: 'Actions',

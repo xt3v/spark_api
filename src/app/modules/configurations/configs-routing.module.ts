@@ -22,7 +22,7 @@ export const ConfigRoutes: Routes = [
     { path: 'list-item-configs', component: ItemListComponent, data: { breadcrumb: 'List Item Configs' } },
     { path: 'kit-config', component: KitConfigComponent, data: { breadcrumb: 'Add Kit Configuration' } },
     { path: 'list-kit-config', component: KitConfigListComponent, data: { breadcrumb: 'List Kit Configuration' } },
-    { path: 'box-config', component: BoxConfigComponent, data: { breadcrumb: 'Add Kit / Box Configuration' } },
+    { path: 'box-config', component: BoxConfigComponent, data: { breadcrumb: 'Add Box Configuration' } },
     { path: 'list-box-config', component: BoxConfigListComponent, data: { breadcrumb: 'List Box Configuration' } },
     { path: 'pay-go-providers', component: PayGoProviderComponent, data: { breadcrumb: 'Add Pay Go Provider'}},
     { path: 'list-pay-go-providers', component: PayGoProviderListComponent, data: { breadcrumb: 'Pay Go Providers'}},
