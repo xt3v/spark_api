@@ -7,12 +7,13 @@ import { TablesService } from 'src/app/shared/tables/tables.service';
 import { PriceGroupFields } from '../options'
 import { sideMenuOptions } from '../../sidemenu-configs';
 
+const TableHandleActionsMixin = tableHandleActionsMixin(TablesComponent);
 @Component({
   selector: 'app-price-group-list',
   templateUrl: './price-group-list.component.html',
   styleUrls: ['./price-group-list.component.scss']
 })
-export class PriceGroupListComponent implements OnInit {
+export class PriceGroupListComponent extends TableHandleActionsMixin implements OnInit {
   formItems: any = PriceGroupFields;
   tableFiltersDropdown = [
     ["name"],
@@ -25,8 +26,8 @@ export class PriceGroupListComponent implements OnInit {
   
   sideMenuTitle = sideMenuOptions.sideMenuTitle;
   sideMenuLists =sideMenuOptions.list;
-  constructor(private _router: Router, private _tablesService: TablesService) {
-    
+  constructor(private _router: Router, private _tableService: TablesService, private _modalService: ModalsService) {
+      super();
    }
 
   ngOnInit(): void {
@@ -57,9 +58,9 @@ export class PriceGroupListComponent implements OnInit {
       this._router.navigate(['/configs/price-group/'], { state: { data: action.data } });
 
     } 
-    // else {
-    //   this.handleTableActions(action, '/configs/pay-go-providers', this.url);
-    // }
+    else {
+      this.handleTableActions(action, '/configs/price-group', this.url);
+    }
   }
 
 }

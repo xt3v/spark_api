@@ -8,12 +8,14 @@ import { ProductFields } from '../options'
 import { sideMenuOptions } from '../../sidemenu-configs';
 
 
+
+const TableHandleActionsMixin = tableHandleActionsMixin(TablesComponent);
 @Component({
   selector: 'app-product-config-list',
   templateUrl: './product-config-list.component.html',
   styleUrls: ['./product-config-list.component.scss']
 })
-export class ProductConfigListComponent implements OnInit {
+export class ProductConfigListComponent extends TableHandleActionsMixin implements OnInit {
   formItems: any = ProductFields;
   tableFiltersDropdown = [
     ["name"],
@@ -26,8 +28,8 @@ export class ProductConfigListComponent implements OnInit {
   
   sideMenuTitle = sideMenuOptions.sideMenuTitle;
   sideMenuLists =sideMenuOptions.list;
-  constructor(private _router: Router, private _tablesService: TablesService) {
-    
+  constructor(private _router: Router, private _tableService: TablesService, private _modalService: ModalsService) {
+    super();
    }
 
   ngOnInit(): void {
@@ -59,11 +61,10 @@ export class ProductConfigListComponent implements OnInit {
   handleActions(action: any) {
     if (action.name == "edit") {
       this._router.navigate(['/configs/product-config/'], { state: { data: action.data } });
-
     } 
-    // else {
-    //   this.handleTableActions(action, '/configs/pay-go-providers', this.url);
-    // }
+    else {
+      this.handleTableActions(action, '/configs/product-config', this.url);
+    }
   }
 
 }

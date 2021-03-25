@@ -5,6 +5,7 @@ import { PayGoProviderFields } from '../options';
 import { TablesComponent } from 'src/app/shared/tables/tables.component';
 import { Router } from '@angular/router';
 import { TablesService } from 'src/app/shared/tables/tables.service';
+import { ModalsService } from 'src/app/shared/modals/modals.service';
 
 
 
@@ -15,7 +16,7 @@ const TableHandleActionsMixin = tableHandleActionsMixin(TablesComponent);
   templateUrl: './pay-go-provider-list.component.html',
   styleUrls: ['./pay-go-provider-list.component.scss']
 })
-export class PayGoProviderListComponent implements OnInit {
+export class PayGoProviderListComponent extends TableHandleActionsMixin implements OnInit {
   formItems: any = PayGoProviderFields;
   tableFiltersDropdown = [
     ["name"],
@@ -28,8 +29,8 @@ export class PayGoProviderListComponent implements OnInit {
   
   sideMenuTitle = sideMenuOptions.sideMenuTitle;
   sideMenuLists =sideMenuOptions.list;
-  constructor(private _router: Router, private _tablesService: TablesService) {
-    
+  constructor(private _router: Router, private _tableService: TablesService, private _modalService: ModalsService) {
+      super();
    }
 
   ngOnInit(): void {
@@ -52,11 +53,11 @@ export class PayGoProviderListComponent implements OnInit {
   handleActions(action: any) {
     if (action.name == "edit") {
       this._router.navigate(['/configs/pay-go-providers'], { state: { data: action.data } });
-
     } 
-    // else {
-    //   this.handleTableActions(action, '/configs/pay-go-providers', this.url);
-    // }
+    else {
+      console.log("Delete triggered");
+      this.handleTableActions(action, '/configs/pay-go-providers', this.url);
+    }
   }
 
 }
