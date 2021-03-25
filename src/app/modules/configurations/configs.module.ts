@@ -12,6 +12,8 @@ import { BoxConfigComponent } from './box-config/box-config.component';
 import { ItemListComponent } from './item-config/list/item-list.component';
 import { ItemTypeListComponent } from './item-type/list/item-type-list.component';
 import { BoxConfigListComponent } from './box-config/list/box-config-list.component';
+import { KitConfigComponent } from './kit-config/kit-config.component';
+import { KitConfigListComponent } from './kit-config/list/kit-config-list/kit-config-list.component';
 import { PayGoProviderComponent } from './pay-go-provider/pay-go-provider.component';
 import { PayGoProviderListComponent } from './pay-go-provider/list/pay-go-provider-list.component';
 import { PriceGroupComponent } from './price-group/price-group.component';
@@ -28,6 +30,8 @@ import { ProductConfigListComponent } from './product-config/list/product-config
     ItemListComponent,
     ItemTypeListComponent,
     BoxConfigListComponent,
+    KitConfigComponent,
+    KitConfigListComponent,
     PayGoProviderComponent,
     PayGoProviderListComponent,
     PriceGroupComponent,
