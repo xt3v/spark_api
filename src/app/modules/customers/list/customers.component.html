@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="col-sm-12">
+        <app-add-button [url]="'/customers'"></app-add-button>
+    </div>
+</div>
+
+
+<!-- <div class="col-sm-9"> -->
+    <app-tables [listTypeUrl]="url" (actionsEvent)="handleActions($event)" [headers]="headers"
+        [tableFilters]="tableFiltersCollapsible" [filterFormItems]="formItems" [hasSideMenu]="true">
+    </app-tables>
+<!-- </div> -->
+
+
+<app-confirm-dialog></app-confirm-dialog>
