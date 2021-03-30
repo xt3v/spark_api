@@ -16,7 +16,6 @@ export class MyformComponent implements OnInit {
   @Input()
   formGroup: FormGroup = new FormGroup({});
 
-
   @Input()
   formItems: any
 
@@ -51,7 +50,6 @@ export class MyformComponent implements OnInit {
     private http: HttpClient
 
   ) {
-
   }
 
   ngOnChanges() {

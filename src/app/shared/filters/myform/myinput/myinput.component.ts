@@ -25,7 +25,8 @@ export class MyinputComponent implements OnInit {
   isLoading: boolean = false
   constructor(
     private http: HttpClient
-  ) { }
+  ) {
+  }
 
   ngOnChanges() {
     if (this.form && this.formControName && !this.intital) {
@@ -55,6 +56,7 @@ export class MyinputComponent implements OnInit {
       'Content-Type': 'application/json',
       Authorization: 'Bearer micha'
     })
+
     this.http.get<any>(this.data.url, { headers: headers }).subscribe(res => {
       this.showLoader(false)
       this.choices = res.results.map((value: any) => {
@@ -68,6 +70,7 @@ export class MyinputComponent implements OnInit {
       const status = error.status
     })
   }
+
   sortValidationErrors(clearFormError = false) {
     this.errors = []
     if (this.formControl.untouched) {
@@ -139,6 +142,5 @@ export class MyinputComponent implements OnInit {
   ngOnInit(): void {
 
   }
-
 
 }
