@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup, FormControl, AbstractControl } from '@angular/forms';
+import { FormGroup, AbstractControl } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
 
 @Component({
   selector: 'app-myinput',
@@ -75,7 +74,7 @@ export class MyinputComponent implements OnInit {
       return
     }
 
-    //Clear the form errors on value changes only
+    // Clear the form errors on value changes only
     if (clearFormError) {
       delete this.formErrors[this.formControName]
     }
@@ -105,36 +104,36 @@ export class MyinputComponent implements OnInit {
     if (this.data.obscure) {
       return "password"
     }
+
     switch (this.data.type) {
       case 'integer':
         return "number"
-        break;
+
       case 'string':
-        if (this.data.max_length && this.data.max_length > 100) {
+        if (this.data.max_length && this.data.max_length > 150) {
           return 'textArea'
         }
         return "text"
-        break;
+
       case 'datetime':
         return "date"
-        break;
+
       case 'datetime':
         return "date"
-        break;
+
       case 'field':
         if (this.data.multiple) {
           return 'multiplechoice'
         }
         return "choice"
-        break;
+
       default:
         return this.data.type
-        break;
     }
   }
 
   get displayControlName() {
-    return this.data.label //this.formControName.replace("_", " ")
+    return this.data.label
   }
 
   ngOnInit(): void {

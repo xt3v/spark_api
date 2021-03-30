@@ -38,5 +38,5 @@ export const AppRoutes: Routes = [
     path: '**',
     pathMatch: 'full',
     redirectTo: '404',
-  },
+  }
 ];

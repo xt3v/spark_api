@@ -53,6 +53,7 @@ export class MyformComponent implements OnInit {
   ) {
 
   }
+
   ngOnChanges() {
     if (this.formGroupOrder && !this.initial) {
       this.initial = false
@@ -114,14 +115,12 @@ export class MyformComponent implements OnInit {
       } else {
         this.sendDataHttp(data)
       }
-    } else {
-    }
+    } else { }
   }
 
   get myFormValid(): boolean {
     return this.formGroup.valid
   }
-
 
   sendDataHttp(data: any) {
     this.showLoader(true)
@@ -136,8 +135,6 @@ export class MyformComponent implements OnInit {
     this.formGroup.reset();
   }
 
-  bulkOptions() {
-
-  }
+  bulkOptions() { }
 
 }
