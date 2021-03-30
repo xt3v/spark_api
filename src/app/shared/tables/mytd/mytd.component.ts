@@ -44,7 +44,7 @@ export class MytdComponent implements OnInit {
     if (this.isHeaderCell)
       return `${this.columnName[0].toLocaleUpperCase()}${this.columnName.substr(1, this.columnName.length - 1)}`
     const parts = this.dataSourceName.split(".")
-    let value = "Incorrect Data Source";
+    let value = `\u2014`;
     let tempValue = this.rowData;
     //Check if data hardcoded
     if (this.columnConfigDataType == "object") {
