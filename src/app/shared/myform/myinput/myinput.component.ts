@@ -26,7 +26,8 @@ export class MyinputComponent implements OnInit {
   isLoading: boolean = false
   constructor(
     private http: HttpClient
-  ) { }
+  ) {
+  }
 
   ngOnChanges() {
     if (this.form && this.formControName && !this.intital) {
@@ -111,7 +112,7 @@ export class MyinputComponent implements OnInit {
         return "number"
 
       case 'string':
-        if (this.data.max_length && this.data.max_length > 100) {
+        if (this.data.max_length && this.data.max_length > 150) {
           return 'textArea'
         }
         return "text"

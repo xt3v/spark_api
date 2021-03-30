@@ -1,3 +1,5 @@
+import { environment } from '../../../../environments/environment'
+
 const MY_EXAMPLE_OPTIONS_DATA: any = {
     "name": "List Create Item Configs Api",
     "description": "",
@@ -61,7 +63,7 @@ const MY_EXAMPLE_OPTIONS_DATA: any = {
                 "required": true,
                 "read_only": false,
                 "display_name": "name",
-                "url": "https://api.spark.sisitech.dev/api/v1/item-type-configs/",
+                "url": environment.APIv1Endpoint + "item-type-configs/",
                 "label": "Type",
             }
         }
