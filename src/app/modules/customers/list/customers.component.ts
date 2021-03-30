@@ -40,7 +40,10 @@ export class CustomersComponent extends TableHandleActionsMixin implements OnIni
       source: "location_details.name",
     },
     "Village",
-    "Closest spark agent shop",
+    {
+      name: 'Closest spark agent shop (Kms)',
+      source: "closest_spark_agent_shop",
+    },
     {
       name: 'Actions',
       type: "actions",

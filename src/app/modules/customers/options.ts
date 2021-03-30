@@ -86,7 +86,6 @@ export const CustomerConfigs: any = {
             required: false,
             read_only: false,
             label: 'Occupation',
-            help_text: 'In Kms',
             max_length: 45,
         },
         avg_monthly_income: {
