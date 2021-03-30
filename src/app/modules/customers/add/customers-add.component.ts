@@ -15,7 +15,7 @@ export class CustomersAddComponent implements OnInit {
   formGroupOrder = [
     ['name', 'primary_phone', 'id_number'],
     ['region', 'village', 'closest_spark_agent_shop'],
-    ['occupation', 'avg_monthly_income'],
+    ['occupation', 'min_salary', 'max_salary'],
   ]
   constructor(private route: ActivatedRoute, ) {
 
