@@ -36,17 +36,6 @@
                         </div>
                     </div>
                 </div>
-
-                <!-- <div class="row">
-                    <div class="col-sm-6">
-                        <app-myinput [form]="formGroup" formControName="name"></app-myinput>
-                    </div>
-                    <div class="col-sm-6">
-                        <app-myinput [form]="formGroup" formControName="description"></app-myinput>
-            
-                    </div>
-            
-                </div> -->
                 <br>
             </div>
         </app-card>
@@ -66,22 +55,12 @@
                     </div>
                 </div>
 
-                <!-- <div class="row">
-                    <div class="col-sm-6">
-                        <app-myinput [form]="formGroup" formControName="name"></app-myinput>
-                    </div>
-                    <div class="col-sm-6">
-                        <app-myinput [form]="formGroup" formControName="description"></app-myinput>
-            
-                    </div>
-            
-                </div> -->
                 <br>
             </div>
         </app-card-dropdown>
-        
+
         <div class="spark-dynamic-forms__button-wrapper">
-            <button type="button" (click)="resetForm()"
+            <button *ngIf="isNew" type="button" (click)="resetForm()"
                 class="btn btn btn-sm mb-3 lift spark-dynamic-forms__clear">Clear</button>
             <button [disabled]="!formGroup.valid" type="submit"
                 class="btn btn-primary mb-3 lift spark-dynamic-forms__submit">

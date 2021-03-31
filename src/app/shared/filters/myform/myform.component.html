@@ -1,39 +1,25 @@
 <div class="container">
     <form class="" [formGroup]="formGroup" (ngSubmit)="dataReceived()">
-            <span *ngFor="let error of detailErrors" class="text-danger">
-                {{error}} <br>
-            </span>
-            <div>
-                <div *ngFor="let item of formGroupOrder;let i=index;">
-                    <div class="row">
-                        <div *ngFor="let field of item;let j=index;" class="col-sm-{{12/item.length}}">
-                            <app-myinput [formErrors]="formErrors" [data]="getDescriptionObject(field)"
-                                [form]="formGroup" formControName="{{field}}">
-                            </app-myinput>
-                        </div>
+        <span *ngFor="let error of detailErrors" class="text-danger">
+            {{error}} <br>
+        </span>
+        <div>
+            <div *ngFor="let item of formGroupOrder;let i=index;">
+                <div class="row">
+                    <div *ngFor="let field of item;let j=index;" class="col-sm-{{12/item.length}}">
+                        <app-myinput [formErrors]="formErrors" [data]="getDescriptionObject(field)" [form]="formGroup"
+                            formControName="{{field}}">
+                        </app-myinput>
                     </div>
                 </div>
-
-                <!-- <div class="row">
-                    <div class="col-sm-6">
-                        <app-myinput [form]="formGroup" formControName="name"></app-myinput>
-                    </div>
-                    <div class="col-sm-6">
-                        <app-myinput [form]="formGroup" formControName="description"></app-myinput>
-            
-                    </div>
-            
-                </div> -->
-                <br>
             </div>
+            <br>
+        </div>
 
-        
-        
         <div class="spark-dynamic-forms__button-wrapper">
             <button type="button" (click)="resetForm()"
                 class="btn btn-light  btn-sm mb-3 lift spark-dynamic-forms__clear">Clear</button>
-            <button  type="submit"
-                class="btn btn-primary mb-3 lift spark-dynamic-forms__submit">
+            <button type="submit" class="btn btn-primary mb-3 lift spark-dynamic-forms__submit">
                 <span>
                     {{isLoading?'Loading...': 'Add Options'}}
                 </span>

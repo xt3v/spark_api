@@ -30,7 +30,6 @@ export class MycelldisplayComponent implements OnInit {
     if (this.isActions) {
       console.log(this.valueType)
     }
-
   }
 
 

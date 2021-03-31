@@ -83,18 +83,23 @@ export class MyformComponent implements OnInit {
       this.initial = false
       const fields = this.formItems.actions.POST;
       const possibleFields = this.formGroupOrder.reduce((acc, val) => acc.concat(val), [])
-      // console.log(this.isValidationOnly)
+
+      // console.log(possibleFields)
+      // console.log(fields)
+
       for (var key in fields) {
         const field = fields[key];
-        const myinputfield = MyInputModel.fromJson(key, field);
+
         if (field.read_only || !possibleFields.includes(key)) {
           continue
         }
+
         const defaultField = field.type == "boolean" ? false : ""
         this.formGroup.addControl(
           key, new FormControl(defaultField, [
           ])
         )
+
         const fieldcontrol = this.formGroup.controls[key]
         const validators = []
         if (field.required) {
@@ -106,7 +111,6 @@ export class MyformComponent implements OnInit {
         if (validators.length > 0) {
           fieldcontrol.setValidators(validators)
         }
-
       }
     }
     this.checkInstanceChangesUpdateForm()
@@ -130,6 +134,7 @@ export class MyformComponent implements OnInit {
     }
     return instance
   }
+
   checkInstanceChangesUpdateForm() {
     if (this.instanceChanged) {
       this.instanceChanged = false
@@ -155,6 +160,7 @@ export class MyformComponent implements OnInit {
   ngOnInit(): void {
     this.url = `${endpointV1}${this.url}`
   }
+
   showLoader(status: boolean) {
     this.isLoading = status
     this.isLoading$.emit(status)
@@ -218,13 +224,6 @@ export class MyformComponent implements OnInit {
     this.formGroup.reset();
   }
 
-  bulkOptions() {
-
-  }
-
-  // onSelectedTab(tab: string) {
-  //   console.log("THE TAB IN MYFORM", tab);
-  //   this.onSelectTab.emit(tab)
-  // }
+  bulkOptions() { }
 
 }

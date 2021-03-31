@@ -26,18 +26,11 @@
         <div *ngSwitchCase="'boolean'" class="form-check form-control-lg">
             <input [formControlName]="formControName" class="form-check-input opt-value" type="checkbox" value=""
                 [id]="formControName">
-            <!-- <label class="form-check-label" [for]="formControName">
-                {{displayControlName}}
-            </label> -->
         </div>
 
         <textarea *ngSwitchCase="'textArea'" class="form-control form-control-lg opt-value"
-            [attr.aria-label]="formControName" rows="5" [formControlName]="formControName"
-            [id]="formControName">
+            [attr.aria-label]="formControName" rows="5" [formControlName]="formControName" [id]="formControName">
         </textarea>
-        <!-- TODO -->
-        <!-- <div *ngIf="formControlType === 'textArea' && formControName === 'serial'">2 serial numbers</div> -->
-
 
         <div *ngSwitchDefault>
             <input [formControlName]="formControName" [type]="formControlType"
