@@ -90,5 +90,6 @@ export class MoveStockComponent implements OnInit {
 
   clearForm() {
     this.move_stock_form.reset();
+    this.check_box = false;
   }
 }
