@@ -89,8 +89,6 @@ export class MoveStockComponent implements OnInit {
   }
 
   clearForm() {
-
-    this.newEntry = false;
     this.move_stock_form.reset();
   }
 }
