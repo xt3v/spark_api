@@ -8,7 +8,7 @@
           <!-- Field -->
           <label for="item_name" class="form-label">Item Name</label>
           <select class="form-control form-control-lg opt-value" formControlName="item_config" *ngIf="!item_loading">
-            <option *ngFor="let item of items" value="{{item.id}}" required>{{item.type_name}}</option>
+            <option *ngFor="let item of items" value="{{item.id}}" required>{{item.name}}</option>
           </select>
           <!-- Loader -->
           <span class="linear-background" *ngIf="item_loading"></span>
