@@ -118,6 +118,7 @@ export class AuthService {
         if (rememberMe) {
           const loggedInTime = Date.now();
           const refreshTokenTime = Math.max(loggedInTime + 3600000, 3600000);
+          // const refreshTokenTime = loggedInTime + 2000;
           tokenItems = { token, tokenExpiry, tokenRefresh, refreshTokenTime };
         }
 
