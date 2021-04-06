@@ -56,7 +56,7 @@ export const optionsField: any =
             },
             "contact_phone": {
                 "type": "string",
-                "required": false,
+                "required": true,
                 "read_only": false,
                 "label": "Contact phone",
                 "max_length": 150
