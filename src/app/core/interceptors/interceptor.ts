@@ -10,6 +10,8 @@ import {
 import { Observable, throwError } from 'rxjs';
 import { catchError, take } from 'rxjs/operators';
 import { AuthService, ErrorsService, StorageService } from 'src/app/services';
+import { environment } from 'src/environments/environment';
+const endpoint = environment.APIEndpoint;
 @Injectable()
 export class Interceptor implements HttpInterceptor {
   constructor(
@@ -88,7 +90,8 @@ export class Interceptor implements HttpInterceptor {
           case 401:
             errorStatus = error.status;
             errorStatusText = 'Oops! You are unauthorized to view this page';
-
+            console.log('REFRESH TOKEN ERROR:', error);
+            
             if (
               error.error.detail ===
               'Authentication credentials were not provided.'
@@ -137,6 +140,10 @@ export class Interceptor implements HttpInterceptor {
 
           //     break;
           case 500:
+            if (/DoesNotExist|\/auth\/token/.test(error.error) ) {
+                this._route.navigate(['/signin']);
+            }
+
             errorStatus = error.status;
             errorStatusText =
               'Oops! You caught us doing some house keeping. Please come back in a few. Sorry for any inconvenience';
