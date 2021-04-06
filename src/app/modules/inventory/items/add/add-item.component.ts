@@ -89,6 +89,7 @@ export class AddItemComponent implements OnInit {
     this._formService.getDropdownValues(`${endpointV1}item-configs`).subscribe(response => {
       this.item_loading = false;
       this.items = response.results;
+      console.log("item-configs");
       console.log(response);
 
     }, err => {

@@ -63,8 +63,8 @@ export const CustomerConfigs: any = {
             read_only: false,
             label: 'Region',
             max_length: 45,
-            "display_name": "name",
-            "url": `${endpointV1}locations/`
+            display_name: "name",
+            url: `${endpointV1}locations/`
         },
         village: {
             type: 'string',
@@ -74,7 +74,7 @@ export const CustomerConfigs: any = {
             max_length: 45,
         },
         closest_spark_agent_shop: {
-            type: 'string',
+            type: 'integer',
             required: false,
             read_only: false,
             label: 'Closest spark agent shop',
@@ -86,17 +86,28 @@ export const CustomerConfigs: any = {
             required: false,
             read_only: false,
             label: 'Occupation',
-            help_text: 'In Kms',
             max_length: 45,
         },
         avg_monthly_income: {
             type: 'string',
             required: false,
-            read_only: false,
+            read_only: true,
             label: 'Avg monthly income',
             help_text: 'In Kms',
             max_length: 45,
         },
+        min_salary: {
+            "type": "integer",
+            "required": false,
+            "read_only": false,
+            "label": "Min salary"
+        },
+        max_salary: {
+            "type": "integer",
+            "required": false,
+            "read_only": false,
+            "label": "Max salary"
+        }
         },
     },
 };

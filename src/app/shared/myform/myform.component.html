@@ -60,7 +60,7 @@
         </app-card-dropdown>
 
         <div class="spark-dynamic-forms__button-wrapper">
-            <button type="button" (click)="resetForm()"
+            <button *ngIf="isNew" type="button" (click)="resetForm()"
                 class="btn btn btn-sm mb-3 lift spark-dynamic-forms__clear">Clear</button>
             <button [disabled]="!formGroup.valid" type="submit"
                 class="btn btn-primary mb-3 lift spark-dynamic-forms__submit">

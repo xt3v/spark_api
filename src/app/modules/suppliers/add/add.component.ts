@@ -15,11 +15,8 @@ export class AddComponent implements OnInit {
   instance: any
 
   formGroupOrder = [
-    ['name'],
-    ['email'],
-    ['phone'],
-    ['contact_person'],
-    ['contact_phone']
+    ['name', 'email', 'phone'],
+    ['contact_person', 'contact_phone']
   ]
 
   extraParams = {

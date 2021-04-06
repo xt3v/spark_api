@@ -21,8 +21,6 @@
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" [routerLink]="['/suppliers']">Suppliers</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Products</a>
-                    <div class="dropdown-divider"></div>
             <li class="dropdown-submenu">
                 <a class="dropdown-item" href="#">Configurations &nbsp; &nbsp;<i class="fa fa-caret-right"></i></a>
                 <ul class="dropdown-menu">
@@ -58,6 +56,8 @@
             <a [routerLink]="['/inventory/list']" class="dropdown-item" href="#">Items</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" [routerLink]="['/inventory/move']">Move Stock</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Products</a>
         </div>
     </li>
     <li class="nav-item">
@@ -70,7 +70,7 @@
     <li class="nav-item dropdown form-inline my-2 my-lg-0 user-profile-wrapper">
         <a class="nav-link dropdown-toggle user-profile" href="#" id="navbarDropdown" role="button"
             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Bayan Monadjem
+            {{username}}
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a (click)="signOut()" class="dropdown-item" href="#">Sign out</a>
