@@ -27,7 +27,7 @@ export class AddComponent implements OnInit {
     private _activatedRoute: ActivatedRoute,
     private _modalService: ModalsService
   ) {
-    this._activatedRoute.queryParamMap.subscribe(params => {
+    this._activatedRoute.queryParams.subscribe(params => {
       if (params.hasOwnProperty('id')) {
         this.instance = params
         console.log(this.instance)
