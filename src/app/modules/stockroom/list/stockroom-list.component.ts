@@ -20,14 +20,14 @@ export class StockroomListComponent extends TableHandleActionsMixin implements O
   ];
   constructor(
     private _router: Router,
-    private _modalService:ModalsService,
-    private _tableService:TablesService
-  ) { 
+    private _modalService: ModalsService,
+    private _tableService: TablesService
+  ) {
     super();
   }
 
   url = "stores/?type=SR&"
-  apiUrl = "stores";
+  apiUrl = "stores"
 
   headers = [
     "Name",
@@ -59,7 +59,7 @@ export class StockroomListComponent extends TableHandleActionsMixin implements O
   }
 
   handleActions(action: any) {
-      this.handleTableActions(action, '/stockroom/add', this.apiUrl);
+    this.handleTableActions(action, '/stockroom/add', this.apiUrl)
   }
 
 }

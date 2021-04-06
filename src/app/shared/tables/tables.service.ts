@@ -23,10 +23,10 @@ export class TablesService {
 
   }
 
-  getList(typeUrl: string, page_size: number, page: number, filters: Array<any>, searchInput:string): Observable<any> {
-    
+  getList(typeUrl: string, page_size: number, page: number, filters: Array<any>, searchInput: string): Observable<any> {
+
     //const filterOpt = typeof filters !== 'undefined' && filters.length ? this.getFilters(filters) : '';
-    const searchName  = typeof searchInput !== undefined && searchInput !== null ? searchInput : null;
+    const searchName = typeof searchInput !== undefined && searchInput !== null ? searchInput : null;
 
     return this._http.get<any>(endpointV1 + `${typeUrl}/?page_size=${page_size}&page=${page}&${filters}&name=${searchName}`);
   }
@@ -45,7 +45,7 @@ export class TablesService {
   //   return filterOpt.join("&");
   // }
 
-  delete(data: any, typeUrl:string)  {
+  delete(data: any, typeUrl: string) {
     //TODO -> Send an alert if delete not possible
     return this._http.delete<any>(`${endpointV1}${typeUrl}/${data.id}`).pipe(
       switchMap(async () => this.deletedItem$.emit(data))

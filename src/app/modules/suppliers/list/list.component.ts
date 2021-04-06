@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { tableHandleActionsMixin } from 'src/app/core/mixins/table-handle-actions-mixin';
-import { TablesComponent } from 'src/app/shared/tables/tables.component';
+import { Component, OnInit } from '@angular/core'
+import { Router } from '@angular/router'
+import { tableHandleActionsMixin } from 'src/app/core/mixins/table-handle-actions-mixin'
+import { TablesComponent } from 'src/app/shared/tables/tables.component'
 
-import { ModalsService } from "src/app/shared/modals/modals.service";
-import { TablesService } from 'src/app/shared/tables/tables.service';
-import { optionsField } from '../options';
+import { ModalsService } from "src/app/shared/modals/modals.service"
+import { TablesService } from 'src/app/shared/tables/tables.service'
+import { optionsField } from '../options'
 
-const TableHandleActionsMixin = tableHandleActionsMixin(TablesComponent);
+const TableHandleActionsMixin = tableHandleActionsMixin(TablesComponent)
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
@@ -17,7 +17,7 @@ export class ListComponent extends TableHandleActionsMixin implements OnInit {
   formItems: any = optionsField
   tableFiltersDropdown = [
     ["name"],
-  ];
+  ]
 
   constructor(
     private _router: Router,
@@ -27,8 +27,8 @@ export class ListComponent extends TableHandleActionsMixin implements OnInit {
     super()
   }
 
-  url = "suppliers";
-  apiUrl = "suppliers";
+  url = "suppliers"
+  apiUrl = "suppliers"
 
   headers = [
     // "Name",
@@ -64,7 +64,7 @@ export class ListComponent extends TableHandleActionsMixin implements OnInit {
         "edit", "delete"
       ]
     },
-  ];
+  ]
 
   // tableFilters = ["Name"]
 
@@ -72,6 +72,6 @@ export class ListComponent extends TableHandleActionsMixin implements OnInit {
   }
 
   handleActions(action: any) {
-    this.handleTableActions(action, '/suppliers/add', this.apiUrl);
+    this.handleTableActions(action, '/suppliers/add', this.apiUrl)
   }
 }
