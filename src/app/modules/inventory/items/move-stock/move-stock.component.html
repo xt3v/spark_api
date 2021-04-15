@@ -75,7 +75,7 @@
           <label for="item_name" class="form-label">Item Name</label>
           <select class="form-control form-control-lg opt-value" formControlName="item_config" *ngIf="!items_loading">
             <option *ngFor="let item_config of item_configs" value="{{item_config.id}}" required>
-              {{item_config.type_name}}</option>
+              {{item_config.name}}</option>
           </select>
           <!-- Loader -->
           <span class="linear-background" *ngIf="items_loading"></span>
@@ -121,9 +121,6 @@
               {{api_errors.items_count}}
             </span>
           </div>
-
-
-
 
         </div>
       </div>
