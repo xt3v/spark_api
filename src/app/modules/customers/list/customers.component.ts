@@ -22,7 +22,7 @@ export class CustomersComponent extends TableHandleActionsMixin implements OnIni
   ];
 
   tableFiltersCollapsible = [
-    ["name","angaza_qid"]
+    ["name", "angaza_qid"]
   ];
 
   headers = [
@@ -37,7 +37,7 @@ export class CustomersComponent extends TableHandleActionsMixin implements OnIni
     "Occupation",
     {
       name: 'Region',
-      source: "location_details.name",
+      source: "region",
     },
     "Village",
     {
@@ -67,7 +67,7 @@ export class CustomersComponent extends TableHandleActionsMixin implements OnIni
 
   handleActions(action: any) {
     this.handleTableActions(action, '/customers', this.url);
-}
+  }
 
   // handleActions(action: any) {
   //   if (action.name == "edit") {
