@@ -1,29 +1,32 @@
 import { Component, OnInit } from '@angular/core';
 import { BoxConfigFields } from './options';
-import { TablesComponent } from 'src/app/shared/tables/tables.component';
+import { ActivatedRoute } from '@angular/router';
 import { ModalsService } from "src/app/shared/modals/modals.service";
-import { TablesService } from 'src/app/shared/tables/tables.service';
-import { tableHandleActionsMixin } from 'src/app/core/mixins/table-handle-actions-mixin';
-
-
-const TableHandleActionsMixin = tableHandleActionsMixin(TablesComponent);
 
 @Component({
   selector: 'app-boxes',
   templateUrl: './boxes.component.html',
   styleUrls: ['./boxes.component.scss']
 })
-export class BoxesComponent extends TableHandleActionsMixin implements OnInit {
+export class BoxesComponent implements OnInit {
   formItems: any = BoxConfigFields;
   url: string = "boxs/bulk/"
-  instance: any
+  instance: any;
   formGroupOrder = [
-    ["box_config", "store","purchase_order"],
+    ["box_config", "store", "purchase_order"],
     ["serial_numbers"]
   ]
-  constructor() {
-    super();
-   }
+  constructor(
+    private _activatedRoute: ActivatedRoute,
+    private _modalService: ModalsService
+  ) {
+    this._activatedRoute.queryParams.subscribe(params => {
+      if (params.hasOwnProperty('id')) {
+        this.instance = params;
+        console.log(this.instance)
+      }
+    })
+  }
 
   ngOnInit(): void {
   }

@@ -12,25 +12,25 @@ const TableHandleActionsMixin = tableHandleActionsMixin(TablesComponent);
   templateUrl: './list.component.html',
   styleUrls: ['./list.component.scss']
 })
-export class ListBoxesComponent extends TableHandleActionsMixin implements OnInit  {
+export class ListBoxesComponent extends TableHandleActionsMixin implements OnInit {
 
   constructor(
     private _router: Router,
-    private _modalService:ModalsService,
-    private _tableService:TablesService
-  ) { 
+    private _modalService: ModalsService,
+    private _tableService: TablesService
+  ) {
     super();
   }
   url = "boxs";
 
   headers = [
-    {
-      name: 'Store Name',
-      source: 's'
-    },
+    "box_config",
     "store",
-    "Purchase order",
-    "Serial",
+    "purchase_order",
+    {
+      "name": "Serials",
+      "source": "serial"
+    },
     {
       name: 'Actions',
       type: "actions",
@@ -42,6 +42,10 @@ export class ListBoxesComponent extends TableHandleActionsMixin implements OnIni
   ];
 
   ngOnInit(): void {
+  }
+
+  handleActions(action: any) {
+    this.handleTableActions(action, '/check-in', this.url);
   }
 
 }
