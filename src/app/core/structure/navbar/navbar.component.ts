@@ -18,10 +18,12 @@ export class NavbarComponent implements OnInit {
     this.getUserDetails();
   }
 
-  getUserDetails(){
+  getUserDetails() {
     this.username = this._authService.getUserProfile().username;
   }
   signOut() {
     this._authService.signOut();
   }
+
+
 }
