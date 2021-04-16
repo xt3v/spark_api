@@ -34,11 +34,14 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="#">Products</a>
-                        <a class="dropdown-item" href="#">Items</a>
+                        <a class="dropdown-item" [routerLink]="['/list-boxes']">Boxes</a>
+                        <a class="dropdown-item" [routerLink]="['/inventory/list']">Items</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" [routerLink]="['/inventory/move']">Move Stock</a>
                     </div>
                 </li>
                 <li class="nav-item pr-3">
-                    <a class="nav-link" href="#">Customers</a>
+                    <a class="nav-link" [routerLink]="['/customers/list']">Customers</a>
                 </li>
                 <li class="nav-item pr-3">
                     <a class="nav-link disabled" href="#">Payments</a>
