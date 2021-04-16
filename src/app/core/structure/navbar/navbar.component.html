@@ -1,82 +1,60 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a [routerLink]="['/home']">
-        <img class="navbar-logo" src="../../../../assets/img/logo/spark-logo-trans-bg.png"> 
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link py-5" href="#">Dashboard <span class="sr-only">(current)</span></a>
-            </li>
-
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle py-5" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="false">
-                    Administration
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" [routerLink]="['/accounts']">User Management</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" [routerLink]="['/suppliers']">Suppliers</a>
-                    <div class="dropdown-divider"></div>
-            <li class="dropdown-submenu">
-                <a class="dropdown-item" href="#">Configurations &nbsp; &nbsp;<i class="fa fa-caret-right"></i></a>
-                <ul class="dropdown-menu">
-                    <a class="dropdown-item" [routerLink]="['/configs/list-item-type']">Item Type</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" [routerLink]="['/configs/list-item-configs']">Item</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" [routerLink]="['/configs/list-box-config']">Box</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" [routerLink]="['/configs/list-kit-config']">Kit</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" [routerLink]="['/configs/list-pay-go-providers']">Pay Go Providers</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" [routerLink]="['/configs/list-price-groups']">Price Group</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" [routerLink]="['/configs/list-product-configs']">Product</a>
-
-                </ul>
-            </li>
-            <div class="dropdown-divider"></div>
-            <a [routerLink]="['/warehouse/list']" class="dropdown-item" href="#">Warehouse</a>
-            <div class="dropdown-divider"></div>
-            <a [routerLink]="['/stockroom/list']" class="dropdown-item" href="#">Stockrooms</a>
-    </div>
-    </li>
-
-    <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle py-5" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Inventory
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a [routerLink]="['/inventory/list']" class="dropdown-item" href="#">Items</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" [routerLink]="['/inventory/move']">Move Stock</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Products</a>
+    <div class="container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerMainMenu"
+            aria-controls="navbarTogglerMainMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-brand">
+            <a [routerLink]="['/home']">
+                <img class="navbar-logo" src="../../../../assets/img/logo/spark-logo-trans-bg.png">
+            </a>
         </div>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link py-5" [routerLink]="['/customers/list']">Customers</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link py-5" href="#">Payments</a>
-    </li>
-    <li class="nav-item dropdown form-inline my-2 my-lg-0 user-profile-wrapper">
-        <a class="nav-link dropdown-toggle user-profile" href="#" id="navbarDropdown" role="button"
-            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            {{username}}
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a (click)="signOut()" class="dropdown-item" href="#">Sign out</a>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerMainMenu">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item pr-3 active">
+                    <a class="nav-link" href="#">Dashboard <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item pr-3 dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Administration
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </li>
+                <li class="nav-item pr-3 dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Inventory
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Products</a>
+                        <a class="dropdown-item" href="#">Items</a>
+                    </div>
+                </li>
+                <li class="nav-item pr-3">
+                    <a class="nav-link" href="#">Customers</a>
+                </li>
+                <li class="nav-item pr-3">
+                    <a class="nav-link disabled" href="#">Payments</a>
+                </li>
+            </ul>
+            <div class="form-inline my-2 my-lg-0">
+                <li class="nav-item dropdown form-inline my-2 my-lg-0 user-profile-wrapper">
+                    <a class="nav-link dropdown-toggle user-profile" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{username}}
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a (click)="signOut()" class="dropdown-item" href="#">Sign out</a>
+                    </div>
+                </li>
+            </div>
         </div>
-    </li>
-    </ul>
     </div>
 </nav>
