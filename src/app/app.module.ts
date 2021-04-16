@@ -16,8 +16,7 @@ import { SharedModule } from './shared/shared.module';
 import { AppComponent } from './app.component';
 import { AuthenticationComponent } from './core/authentication/authentication.component';
 import { ModulesComponent } from './modules/modules.component';
-// import { PromptComponent } from './shared/modal/prompt/prompt.component';
-// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [AppComponent, AuthenticationComponent, ModulesComponent],
@@ -27,6 +26,7 @@ import { ModulesComponent } from './modules/modules.component';
     CoreModule,
     SharedModule,
     HttpClientModule,
+    FontAwesomeModule
 
   ],
   providers: [
