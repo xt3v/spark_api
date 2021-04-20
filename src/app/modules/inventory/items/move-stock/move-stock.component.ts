@@ -1,18 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { FormItemService } from 'src/app/services/forms/form-item.service';
-import { endpointV1 } from "../../../../services/constants/form-options-configs";
+import { endpointV1 } from '../../../../services/constants/form-options-configs';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-move-stock',
   templateUrl: './move-stock.component.html',
-  styleUrls: ['./move-stock.component.scss']
+  styleUrls: ['./move-stock.component.scss'],
 })
 export class MoveStockComponent implements OnInit {
-
-
   page_title: string = 'Move Stock';
   move_stock_form: any;
   stores: any;
@@ -22,20 +20,19 @@ export class MoveStockComponent implements OnInit {
   check_box: boolean = false;
   newEntry: boolean = true;
   api_errors: any = [];
-  constructor(private _formService: FormItemService,
-    private router: Router) {
+  constructor(private _formService: FormItemService, private router: Router) {
     const from_store = new FormControl('', Validators.required);
     const to_store = new FormControl('', Validators.required);
     const serial_numbers = new FormControl('');
-    const items_count = new FormControl('');
+    const items_count = new FormControl('', Validators.min(1));
     const item_config = new FormControl('');
     this.move_stock_form = new FormGroup({
       from_store: from_store,
       to_store: to_store,
       serial_numbers: serial_numbers,
       items_count: items_count,
-      item_config: item_config
-    })
+      item_config: item_config,
+    });
   }
 
   ngOnInit(): void {
@@ -43,21 +40,25 @@ export class MoveStockComponent implements OnInit {
   }
 
   loadFields() {
-    this._formService.getDropdownValues(`${endpointV1}stores`).subscribe(response => {
-      this.store_loading = false;
-      this.stores = response.results;
+    this._formService.getDropdownValues(`${endpointV1}stores`).subscribe(
+      response => {
+        this.store_loading = false;
+        this.stores = response.results;
+      },
+      err => {
+        this.store_loading = false;
+      }
+    );
 
-    }, err => {
-      this.store_loading = false;
-    });
-
-    this._formService.getDropdownValues(`${endpointV1}item-configs`).subscribe(response => {
-      this.items_loading = false;
-      this.item_configs = response.results;
-
-    }, err => {
-      this.items_loading = false;
-    });
+    this._formService.getDropdownValues(`${endpointV1}item-configs`).subscribe(
+      response => {
+        this.items_loading = false;
+        this.item_configs = response.results;
+      },
+      err => {
+        this.items_loading = false;
+      }
+    );
   }
 
   submitItem() {
@@ -74,22 +75,33 @@ export class MoveStockComponent implements OnInit {
 
     let data = {
       url: `${endpointV1}itemz/move`,
-      formData: this.move_stock_form.value
-    }
+      formData: this.move_stock_form.value,
+    };
     console.log(data);
-    this._formService.postForm(this.newEntry, data).subscribe(response => {
-      console.log(response);
-      this.move_stock_form.reset();
-      this.router.navigate(['/inventory/list'])
-    }, (err: HttpErrorResponse) => {
-      console.log(err);
-      this.api_errors = err.error;
-
-    })
+    this._formService.postForm(this.newEntry, data).subscribe(
+      response => {
+        console.log(response);
+        this.move_stock_form.reset();
+        this.router.navigate(['/inventory/list']);
+      },
+      (err: HttpErrorResponse) => {
+        console.log(err);
+        this.api_errors = err.error;
+      }
+    );
   }
 
   clearForm() {
     this.move_stock_form.reset();
     this.check_box = false;
+  }
+
+  toggleApiErrorMessage(evt: any) {
+    if (
+      typeof this.api_errors.items_count !== 'undefined' &&
+      /Only 0 left in store$/.test(this.api_errors.items_count)
+    ) {
+      this.api_errors.items_count = '';
+    }
   }
 }
