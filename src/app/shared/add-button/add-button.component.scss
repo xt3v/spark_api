@@ -4,25 +4,18 @@
 @import "../../styles/settings";
 
 .spark-dynamic-forms { 
-    &__button-wrapper {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-end;
-        margin-top: 4rem;
-        margin-left: 0 !important;
-    }
-
     &__bulk {
         &-wrapper {
             display: flex;
             justify-content: flex-end;
-            margin-bottom: 1rem;
+            margin-bottom: 0.5rem;
         }
         &-btn {
-            @include button($color:primary,$size: small);
+            // todo: change the font to read as a variable for ease of maintenance
+            // todo: change all primary color buttons to be of the same size (ease of maintenance)
+            @include button($color:primary, $size: small);
+            line-height: 2.25rem;
             font-family: "Avenir-Heavy", Helvetica, Arial, serif;
-            margin-bottom: 15px !important;
-
         }
     }
 }
