@@ -29,10 +29,6 @@
     }
 }
 
-table {
-    margin-left: -15px;
-    width: 95%;
-}
 
 thead {
     line-height: 40px;
@@ -44,7 +40,6 @@ thead {
 
 tr {
     line-height: 30px;
-    min-height: 30px;
     height: 30px;
     background-color: rgb(245, 245, 245, 0.4);
     font-family: "Avenir-Heavy", Helvetica, Arial, serif;
@@ -67,6 +62,8 @@ tr {
 
  .search-section {
      background-color: rgba(112, 112, 112, 0.2);
+     height: 3.5rem;
+     width: 100%;
  }
 
  .search-box {
@@ -76,15 +73,7 @@ tr {
     height: 35px;
     border: none;
     border-radius: 5px;
-    width: 300px;
- }
-
- .btn-search-clear {
-     width: 70% !important;
-     height: 35px;
-     line-height: 0px !important;
-     margin-left: 90px;
-     margin-top: 15px;
+    width: 30%;
  }
 
  .spark-dynamic-forms { 
@@ -93,29 +82,18 @@ tr {
         display: flex;
         flex-direction: row;
         justify-content: flex-end;
-        margin-top: 4rem;
-        margin-left: 0 !important;
     }
 
-    
+    // todo: move to central place for ease of maintenance
     &__bulk {
         &-wrapper {
             display: flex;
             justify-content: flex-end;
-            align-items: center;
-            margin-bottom: 1rem;
-            max-width: 95%;
         }
 
         &-btn {
             @include button($color:primary,$size: small);
             font-family: "Avenir-Heavy", Helvetica, Arial, serif;
-            margin-bottom: 15px !important;
-
         }
     }
-}
-
-.table-wrapper {
-    width: 95%;
 }
