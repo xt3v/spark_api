@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BoxConfigFields } from './options';
 import { ActivatedRoute } from '@angular/router';
-import { ModalsService } from "src/app/shared/modals/modals.service";
 
 @Component({
   selector: 'app-boxes',
@@ -17,8 +16,7 @@ export class BoxesComponent implements OnInit {
     ["serial_numbers"]
   ]
   constructor(
-    private _activatedRoute: ActivatedRoute,
-    private _modalService: ModalsService
+    private _activatedRoute: ActivatedRoute
   ) {
     this._activatedRoute.queryParams.subscribe(params => {
       if (params.hasOwnProperty('id')) {
