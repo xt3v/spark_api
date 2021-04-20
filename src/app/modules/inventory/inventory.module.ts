@@ -11,7 +11,7 @@ import { EditComponent } from './items/edit/edit.component';
 import { MoveStockComponent } from './items/move-stock/move-stock.component';
 import { BoxesComponent } from './boxes/boxes.component';
 import { ListBoxesComponent } from './boxes/list/list.component';
-
+import { ProductsModule } from './products/products.module';
 
 
 
@@ -22,6 +22,7 @@ import { ListBoxesComponent } from './boxes/list/list.component';
     RouterModule.forChild(InventoryRoutes),
     SharedModule,
     CoreModule,
+    ProductsModule
   ]
 })
 export class InventoryModule { }
