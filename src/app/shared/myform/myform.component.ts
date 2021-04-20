@@ -1,4 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import {Location} from '@angular/common';
+
 import { MY_EXAMPLE_OPTIONS_DATA } from './myfields';
 import { MyInputModel, InputType } from './myinput/model';
 import { FormBuilder, FormGroup, FormControl, AbstractControl, Validators } from '@angular/forms';
@@ -73,8 +75,8 @@ export class MyformComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
-    private _formService: FormItemService
-
+    private _formService: FormItemService,
+    private _location: Location
   ) {
 
   }
@@ -201,6 +203,12 @@ export class MyformComponent implements OnInit {
       if (this.isNew) {
         this.resetForm();
       }
+   
+      setTimeout(() => {
+        this._location.back();
+      }, 1000);
+      
+      
     }, error => {
       this.showLoader(false)
       const status = error.status
