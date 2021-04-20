@@ -5,6 +5,7 @@ import { EditComponent } from './items/edit/edit.component';
 import { MoveStockComponent } from './items/move-stock/move-stock.component';
 import { BoxesComponent } from './boxes/boxes.component';
 import { ListBoxesComponent } from './boxes/list/list.component';
+import { AuthGuard } from 'src/app/core/auth-guards/auth.guards';
 
 export const InventoryRoutes: Routes = [
     { path: '', redirectTo: 'list', pathMatch: 'full' },
@@ -13,5 +14,13 @@ export const InventoryRoutes: Routes = [
     { path: 'edit', component: EditComponent, data: {breadcrumb: 'Edit Item'}},
     { path: 'move', component: MoveStockComponent, data: {breadcrumb: 'Move Stock'}},
     { path: 'check-in',  component: BoxesComponent, data: {breadcrumb: 'Check-in Box'}},
-    { path: 'list-boxes',  component: ListBoxesComponent, data: {breadcrumb: 'List Boxes'}}
+    { path: 'list-boxes',  component: ListBoxesComponent, data: {breadcrumb: 'List Boxes'}},
+    {
+        path: 'products',
+        data: { breadcrumb: 'products' },
+        loadChildren: () =>
+          import(`./products/products.module`).then((m) => m.ProductsModule),
+        canActivate: [AuthGuard]
+    },
+    
 ]
