@@ -16,7 +16,7 @@ export class ItemConfigComponent implements OnInit {
     ['type', 'has_serial'],
     ['description'],
   ]
-  constructor(private route: ActivatedRoute, ) {
+  constructor(private route: ActivatedRoute) {
 
     this.route.queryParams.subscribe(params => {
       if (params.hasOwnProperty("id")) {

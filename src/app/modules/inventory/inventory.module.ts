@@ -9,17 +9,20 @@ import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { EditComponent } from './items/edit/edit.component';
 import { MoveStockComponent } from './items/move-stock/move-stock.component';
-
+import { BoxesComponent } from './boxes/boxes.component';
+import { ListBoxesComponent } from './boxes/list/list.component';
+import { ProductsModule } from './products/products.module';
 
 
 
 @NgModule({
-  declarations: [AddItemComponent, ListItemComponent, EditComponent, MoveStockComponent],
+  declarations: [AddItemComponent, ListItemComponent, EditComponent, MoveStockComponent, BoxesComponent, ListBoxesComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(InventoryRoutes),
     SharedModule,
     CoreModule,
+    ProductsModule
   ]
 })
 export class InventoryModule { }

@@ -99,8 +99,8 @@
         <div class="col-md-2" *ngIf="check_box == false">
           <!-- Item Count Field -->
           <!-- Field -->
-          <label for="item_name" class="form-label">Item Count</label>
-          <input type="number" class="form-control form-control-lg" formControlName="items_count" />
+          <label for="item_count" class="form-label">Item Count</label>
+          <input type="number" name="item_count" (ngModelChange)="toggleApiErrorMessage($event)" class="form-control form-control-lg" formControlName="items_count" />
 
           <div
             *ngIf="move_stock_form.controls['items_count'].invalid && (move_stock_form.controls['items_count'].dirty || move_stock_form.controls['items_count'].touched)"
@@ -113,6 +113,11 @@
             <div *ngIf="move_stock_form.controls['items_count'].errors.required">
               <span class="text-danger opt-value">
                 Field has to be a number <br>
+              </span>
+            </div>
+            <div *ngIf="move_stock_form.controls['items_count'].errors.min">
+              <span class="text-danger opt-value">
+                Field should contain at least 1 item count <br>
               </span>
             </div>
           </div>
