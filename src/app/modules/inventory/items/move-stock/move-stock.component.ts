@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Location } from '@angular/common'
+import { FormGroup, FormControl, Validators,  } from '@angular/forms';
 import { FormItemService } from 'src/app/services/forms/form-item.service';
 import { endpointV1 } from '../../../../services/constants/form-options-configs';
 import { Router } from '@angular/router';
@@ -20,7 +21,7 @@ export class MoveStockComponent implements OnInit {
   check_box: boolean = false;
   newEntry: boolean = true;
   api_errors: any = [];
-  constructor(private _formService: FormItemService, private router: Router) {
+  constructor(private _formService: FormItemService, private router: Router, private location: Location) {
     const from_store = new FormControl('', Validators.required);
     const to_store = new FormControl('', Validators.required);
     const serial_numbers = new FormControl('');
@@ -82,7 +83,7 @@ export class MoveStockComponent implements OnInit {
       response => {
         console.log(response);
         this.move_stock_form.reset();
-        this.router.navigate(['/inventory/list']);
+        this.location.back();
       },
       (err: HttpErrorResponse) => {
         console.log(err);

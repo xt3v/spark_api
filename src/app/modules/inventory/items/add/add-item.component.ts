@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormItemService } from 'src/app/services/forms/form-item.service';
+import { Location } from '@angular/common'
 // import { SerializedItemfields, NotSerializedItemfields } from './options';
 // import { FormBase, DropdownItem, TextItem } from '../../../../core/models/form-base';
 
@@ -35,7 +36,8 @@ export class AddItemComponent implements OnInit {
   constructor(
     private _activatedRoute: ActivatedRoute,
     private _formService: FormItemService,
-    private toastService: ToastNotificationsService
+    private toastService: ToastNotificationsService,
+    private location: Location
   ) {
 
 
@@ -129,6 +131,8 @@ export class AddItemComponent implements OnInit {
     this._formService.postForm(this.newEntry, data).subscribe(response => {
       console.log(response);
       this.add_item_form.reset();
+      this.location.back();
+
 
     }, (err: HttpErrorResponse) => {
 
