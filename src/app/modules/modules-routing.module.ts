@@ -3,66 +3,48 @@ import { AuthGuard } from '../core/auth-guards/auth.guards';
 import { DashboardComponent } from './dashboard/dashboard.component';
 
 export const ModulesRoutes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: DashboardComponent, data: { breadcrumb: 'Home' } },
   {
     path: 'accounts',
     data: { breadcrumb: 'accounts' },
     loadChildren: () =>
-      import(`./accounts/accounts.module`).then((m) => m.AccountsModule),
-    canActivate: [AuthGuard]
+      import(`./accounts/accounts.module`).then((m) => m.AccountsModule), canActivate: [AuthGuard]
   },
   {
     path: 'suppliers',
     data: { breadcrumb: 'suppliers' },
     loadChildren: () =>
-      import(`./suppliers/suppliers.module`).then((m) => m.SuppliersModule),
-    canActivate: [AuthGuard]
+      import(`./suppliers/suppliers.module`).then((m) => m.SuppliersModule), canActivate: [AuthGuard]
   },
   {
     path: 'configs',
     data: { breadcrumb: 'Configs' },
     loadChildren: () =>
-      import(`./configurations/configs.module`).then((m) => m.ConfigsModule),
-    canActivate: [AuthGuard]
+      import(`./configurations/configs.module`).then((m) => m.ConfigsModule), canActivate: [AuthGuard]
   },
   {
     path: 'warehouse',
     data: { breadcrumb: 'Warehouse' },
     loadChildren: () =>
-      import(`./warehouse/warehouse.module`).then((m) => m.WarehouseModule),
-    canActivate: [AuthGuard]
+      import(`./warehouse/warehouse.module`).then((m) => m.WarehouseModule), canActivate: [AuthGuard]
   },
   {
     path: 'stockroom',
     data: { breadcrumb: 'Stockroom' },
     loadChildren: () =>
-      import(`./stockroom/stockroom.module`).then((m) => m.StockroomModule),
-    canActivate: [AuthGuard]
+      import(`./stockroom/stockroom.module`).then((m) => m.StockroomModule), canActivate: [AuthGuard]
   },
   {
     path: 'inventory',
     data: { breadcrumb: 'Inventory' },
     loadChildren: () =>
-      import(`./inventory/inventory.module`).then((m) => m.InventoryModule),
-    canActivate: [AuthGuard]
+      import(`./inventory/inventory.module`).then((m) => m.InventoryModule), canActivate: [AuthGuard]
   },
   {
     path: 'customers',
     data: { breadcrumb: 'Customer' },
     loadChildren: () =>
-      import(`./customers/customers.module`).then((m) => m.CustomersModule),
-    canActivate: [AuthGuard]
-  },
-
-  // todo: remove on live product. | SVO - used for unit tests
-  {
-    path: 'demo',
-    data: { breadcrumb: 'Demo' },
-    loadChildren: () =>
-      import(`./demo/demo.module`).then((m) => m.DemoModule),
-    canActivate: [AuthGuard]
-  },
-
+      import(`./customers/customers.module`).then((m) => m.CustomersModule), canActivate: [AuthGuard]
+  }
 
 ]

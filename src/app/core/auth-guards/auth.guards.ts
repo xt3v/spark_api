@@ -13,7 +13,7 @@ import { AuthService } from '../../services/authentication/auth.service';
   providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
-  constructor(private auth: AuthService, private _route: Router) {}
+  constructor(private auth: AuthService, private _route: Router) { }
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
@@ -25,18 +25,19 @@ export class AuthGuard implements CanActivate {
     if (this.auth.isLoggedIn()) {
       if (this.auth.hasWebDashboardAccess()) {
         return true;
+
       } else {
-        //doesn't have the right credentials
         this._route.navigate(['/signin'], {
           queryParams: { returnUrl: state.url },
         });
-
         return false;
+
       }
     }
     this._route.navigate(['/signin'], {
       queryParams: { returnUrl: state.url },
     });
     return false;
+
   }
 }

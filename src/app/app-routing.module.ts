@@ -3,6 +3,7 @@ import { ErrorNotFoundComponent } from './core/errors/error-not-found/error-not-
 import { AuthenticationComponent } from './core/authentication/authentication.component';
 import { ModulesComponent } from './modules/modules.component';
 import { AuthGuard } from './core/auth-guards/auth.guards';
+import { DashboardComponent } from './modules/dashboard/dashboard.component';
 
 export const AppRoutes: Routes = [
   {
@@ -36,7 +37,6 @@ export const AppRoutes: Routes = [
   },
   {
     path: '**',
-    pathMatch: 'full',
-    redirectTo: '404',
+    redirectTo: '/'
   }
 ];

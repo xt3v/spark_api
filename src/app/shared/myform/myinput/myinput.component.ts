@@ -54,6 +54,7 @@ export class MyinputComponent implements OnInit {
   getUrlBasedOptions() {
     if (!this.data.url) return
     this.showLoader(true)
+    // todo: remove this hard-coded auths 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       Authorization: 'Bearer micha'

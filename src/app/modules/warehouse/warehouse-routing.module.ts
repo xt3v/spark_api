@@ -3,7 +3,6 @@ import { AddWarehouseComponent } from './add/add-warehouse.component';
 import { WarehouseListComponent } from './list/warehouse-list.component';
 
 export const WarehouseRoutes: Routes = [
-    { path: '', redirectTo: 'add', pathMatch: 'full' },
+    { path: '', component: WarehouseListComponent, data: { breadcrumb: 'List' } },
     { path: 'add', component: AddWarehouseComponent, data: { breadcrumb: 'Add' } },
-    { path: 'list', component: WarehouseListComponent, data: { breadcrumb: 'List' } },
 ]

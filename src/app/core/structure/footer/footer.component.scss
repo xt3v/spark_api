@@ -1,7 +1,10 @@
 .footer {
-    padding-bottom: 1%;
-
-    &__title {
+    // todo: check on padding * 
+    padding-bottom: 1%; 
+    
+    // todo: pick fonts from variables.scss
+    .title {
+        text-align: center;
         font-family: "Museo-Sans", Helvetica, Arial, serif;
         font-size: 13px;
     }

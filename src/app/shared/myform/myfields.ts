@@ -56,6 +56,7 @@ const MY_EXAMPLE_OPTIONS_DATA: any = {
                 "read_only": false,
                 "label": "Has serial"
             },
+            // todo: remove the hard-coded URL 
             "type": {
                 "type": "field",
                 "required": true,
