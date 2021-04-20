@@ -7,7 +7,7 @@
           <!--Item -->
           <!-- Field -->
           <label for="from_store" class="form-label">From Store</label>
-          <select class="form-control form-control-lg opt-value" formControlName="from_store" *ngIf="!store_loading">
+          <select class="form-control form-control-sm opt-value" formControlName="from_store" *ngIf="!store_loading">
             <option *ngFor="let store of stores" value="{{store.id}}" required>{{store.name}}</option>
           </select>
           <!-- Loader -->
@@ -34,7 +34,7 @@
           <!--Item -->
           <!-- Field -->
           <label for="to_store" class="form-label">To Store</label>
-          <select class="form-control form-control-lg opt-value" formControlName="to_store" *ngIf="!store_loading">
+          <select class="form-control form-control-sm opt-value" formControlName="to_store" *ngIf="!store_loading">
             <option *ngFor="let store of stores" value="{{store.id}}" required>{{store.name}}</option>
           </select>
           <!-- Loader -->
@@ -73,7 +73,7 @@
           <!--Item -->
           <!-- Field -->
           <label for="item_name" class="form-label">Item Name</label>
-          <select class="form-control form-control-lg opt-value" formControlName="item_config" *ngIf="!items_loading">
+          <select class="form-control form-control-sm opt-value" formControlName="item_config" *ngIf="!items_loading">
             <option *ngFor="let item_config of item_configs" value="{{item_config.id}}" required>
               {{item_config.name}}</option>
           </select>
@@ -100,7 +100,7 @@
           <!-- Item Count Field -->
           <!-- Field -->
           <label for="item_count" class="form-label">Item Count</label>
-          <input type="number" name="item_count" (ngModelChange)="toggleApiErrorMessage($event)" class="form-control form-control-lg" formControlName="items_count" />
+          <input type="number" name="item_count" (ngModelChange)="toggleApiErrorMessage($event)" class="form-control form-control-sm" formControlName="items_count" />
 
           <div
             *ngIf="move_stock_form.controls['items_count'].invalid && (move_stock_form.controls['items_count'].dirty || move_stock_form.controls['items_count'].touched)"
