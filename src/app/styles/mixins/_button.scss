@@ -45,7 +45,7 @@
     @if $color == primary {
       background-color: $color_links_buttons;
     } @else {
-      background-color: #b2b1b1;
+      background-color: #797979;
     }
     @if $size == small {
       border-radius: .3rem;
