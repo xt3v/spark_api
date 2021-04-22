@@ -1,6 +1,11 @@
-.fa {
-    &.fa-edit,
-    &.fa-trash {
-        cursor: pointer;
-    }
+@use '../../../styles/vars' as vars;
+
+.edit {
+    cursor: pointer;
+    color: vars.$color_secondary;
+    padding-right: 0.6rem;
+}
+.delete {
+    cursor: pointer;
+    color: vars.$color_warning;
 }

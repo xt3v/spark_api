@@ -56,7 +56,7 @@ export class MytdComponent implements OnInit {
       const key = parts[index]
       if (tempValue.hasOwnProperty(key)) {
         tempValue = tempValue[key]
-        
+
         value = tempValue
       }
     }

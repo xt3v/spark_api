@@ -31,9 +31,9 @@
           </tr>
         </tbody>
         <tbody *ngIf="loading">
-          <tr *ngFor="let dum of dummyData">
+          <tr *ngFor="let value of tableData">
             <th *ngIf="showNumbering"><span class="linear-background"></span></th>
-            <td *ngFor="let dum of tableHeaders">
+            <td *ngFor="let value of tableHeaders">
               <span class="linear-background"></span>
             </td>
           </tr>

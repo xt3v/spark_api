@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { TablesService } from './../tables.service';
+import { faEdit } from '@fortawesome/free-solid-svg-icons';
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-mycelldisplay',
@@ -7,6 +9,9 @@ import { TablesService } from './../tables.service';
   styleUrls: ['./mycelldisplay.component.scss']
 })
 export class MycelldisplayComponent implements OnInit {
+  faEdit = faEdit
+  faTrashAlt = faTrashAlt
+
   _value: any
   @Input()
   set displayValue(data) {
@@ -31,7 +36,6 @@ export class MycelldisplayComponent implements OnInit {
       console.log(this.valueType)
     }
   }
-
 
   get valueType() {
     const val = this.displayValue

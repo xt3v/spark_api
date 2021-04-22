@@ -16,6 +16,7 @@ import { MyformComponent } from '../myform/myform.component';
 import { MyinputComponent } from '../myform/myinput/myinput.component';
 import { FiltersModule } from '../filters/filters.module';
 import { CardComponent } from '../card/card.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -31,8 +32,8 @@ import { CardComponent } from '../card/card.component';
     FormsModule,
     ReactiveFormsModule,
     NgMultiSelectDropDownModule,
-    FiltersModule
-    // HttpClientModule
+    FiltersModule,
+    FontAwesomeModule
   ],
   exports: [
     TablesComponent,
@@ -41,4 +42,4 @@ import { CardComponent } from '../card/card.component';
     MycelldisplayComponent
   ]
 })
-export class TablesModule { } 
+export class TablesModule { }
