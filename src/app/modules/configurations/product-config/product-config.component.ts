@@ -31,6 +31,5 @@ export class ProductConfigComponent implements OnInit {
   }
   onPostedData(data: any) {
     console.log(data)
-    this._router.navigate(['/configs/list-product-configs'])
   }
 }

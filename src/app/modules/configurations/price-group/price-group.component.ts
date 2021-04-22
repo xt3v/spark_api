@@ -31,7 +31,6 @@ export class PriceGroupComponent implements OnInit {
   }
   onPostedData(data: any) {
     console.log(data)
-    this._router.navigate(['/configs/list-price-groups'])
   }
 
 }
