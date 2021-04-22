@@ -7,7 +7,7 @@ import { Component, OnInit, VERSION } from '@angular/core';
 })
 export class AuthenticationComponent implements OnInit {
   public version = VERSION;
-  constructor() {}
+  constructor() { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 }

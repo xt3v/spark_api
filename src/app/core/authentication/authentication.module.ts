@@ -6,8 +6,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthRoutes } from './authentication-routing.module';
 
 import { CoreModule } from '../core.module';
+import { ForgotComponent } from './forgot/forgot.component';
+import { SigninComponent } from './signin/signin.component';
+import { ResetComponent } from './reset/reset.component';
 @NgModule({
-  declarations: [],
+  declarations: [SigninComponent, ForgotComponent, ResetComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(AuthRoutes),
@@ -16,4 +19,4 @@ import { CoreModule } from '../core.module';
     CoreModule,
   ],
 })
-export class AuthenticationModule {}
+export class AuthenticationModule { }

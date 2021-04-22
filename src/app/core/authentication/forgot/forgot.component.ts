@@ -15,7 +15,7 @@ export class ForgotComponent implements OnInit {
   public errorMessage!: string;
 
   constructor(
-    private _authService:AuthService,
+    private _authService: AuthService,
     private formBuilder: FormBuilder
   ) { }
 
@@ -26,9 +26,9 @@ export class ForgotComponent implements OnInit {
 
   }
 
-  get f() { 
+  get f() {
     console.log(this.forgotPasswordForm.controls);
-    return this.forgotPasswordForm.controls; 
+    return this.forgotPasswordForm.controls;
   }
 
   forgotPassword() {
@@ -41,7 +41,7 @@ export class ForgotComponent implements OnInit {
       return;
     }
 
-     
+
     this._authService.forgotPassword(this.forgotPasswordForm.value).subscribe((res) => {
       if (res) {
         this.loading = false;
@@ -49,9 +49,9 @@ export class ForgotComponent implements OnInit {
       }
 
       if (res.detail === 'Failed to send email.') {
-          this.error = true;
-          this.errorMessage = res.detail;
-          return;
+        this.error = true;
+        this.errorMessage = res.detail;
+        return;
       }
 
       this.forgotPasswordForm.reset();
@@ -69,7 +69,7 @@ export class ForgotComponent implements OnInit {
   }
 
   resetPassword() {
-    
+
   }
 
 }
