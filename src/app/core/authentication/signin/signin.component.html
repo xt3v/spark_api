@@ -1,4 +1,5 @@
-<div class="container" style="padding-top: 10%;">
+<!-- todo: standard all the label fonts for auth pages -->
+<div class="container top-padding">
   <div class="row justify-content-center">
     <div class="col-12 col-md-5 col-xl-4 my-5">
       <h1 class="display-4 text-center mb-3">
@@ -8,7 +9,6 @@
         Gain access to our dashboard
       </p>
       <span *ngIf="hasError">{{error}}</span>
-      <!-- ..... -->
       <form class="authentication__form" [formGroup]="signinForm" (ngSubmit)="signIn()">
         <div class="form-group">
           <label class="form-label" for="signin-email">Email Address</label>
@@ -51,7 +51,7 @@
             class="form-check-input" />
           <label class="form-label" for="rememberMe" class="form-check-label">Remember Me</label>
         </div>
-        <button [attr.disabled]="loading ? true: null" type="submit" class="btn btn-lg btn-block btn-primary mb-3 lift">
+        <button [attr.disabled]="loading ? true: null" type="submit" class="btn btn btn-block btn-primary mb-3 lift">
           <span class="spark-text has--loading" [ngClass]="{'has--loading': loading}">
             {{ loading ? 'Signing In' : 'Sign In' }}
           </span>
