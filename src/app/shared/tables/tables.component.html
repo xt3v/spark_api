@@ -12,9 +12,8 @@
       </form>
     </div>
   </div>
-
   <div class="row">
-    <div class="table-responsive-sm w-100">
+    <div class="table-responsive">
       <table class="table">
         <thead>
           <th *ngIf="showNumbering">#</th>
@@ -43,7 +42,7 @@
         </tbody>
       </table>
     </div>
+    <app-mypagination [selectedPage]="page" [pageSize]="page_size" (onPageSelect)="onPageSelect($event)"
+      [resultsMeta]="resultsMeta" *ngIf="!loading"></app-mypagination>
   </div>
-  <app-mypagination [selectedPage]="page" [pageSize]="page_size" (onPageSelect)="onPageSelect($event)"
-    [resultsMeta]="resultsMeta" *ngIf="!loading"></app-mypagination>
 </div>

@@ -7,17 +7,9 @@ import { toJSDate } from '@ng-bootstrap/ng-bootstrap/datepicker/ngb-calendar';
   styleUrls: ['./mytd.component.scss']
 })
 export class MytdComponent implements OnInit {
-
-
-  @Input()
-  columnConfig: any
-  @Input()
-  rowData: any = {}
-
-  @Input()
-  isHeaderCell: boolean = false
-
-
+  @Input() columnConfig: any
+  @Input() rowData: any = {}
+  @Input() isHeaderCell: boolean = false
 
   constructor() { }
 
@@ -46,7 +38,6 @@ export class MytdComponent implements OnInit {
     const parts = this.dataSourceName.split(".")
     let value = `\u2014`;
     let tempValue = this.rowData;
-    //Check if data hardcoded
     if (this.columnConfigDataType == "object") {
       if (this.columnConfig.hasOwnProperty("data")) {
         return this.columnConfig.data

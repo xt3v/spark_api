@@ -7,7 +7,7 @@
     <div *ngSwitchCase="'boolean'">
         <input type="checkbox" [checked]="displayValue" onclick="return false;">
     </div>
-    <div *ngSwitchDefault>{{displayValue}}</div>
+    <span *ngSwitchDefault>{{displayValue}}</span>
 </div>
 <div class="row ml-2" *ngIf="isActions">
     <div *ngFor="let val of displayValue" [ngSwitch]="val">
