@@ -41,8 +41,8 @@ export class TablesComponent implements OnInit {
   @Input()
   set headers(value) {
     this._headers = value
-    this.dummyData = Array.from({ length: this.page_size }, (_, x) => x).map(h => {
-      return { dummy: "" }
+    this.tableData = Array.from({ length: this.page_size }, (_, x) => x).map(h => {
+      return { data: "" }
     })
   }
 
@@ -51,7 +51,7 @@ export class TablesComponent implements OnInit {
   }
 
   page: number = 1
-  dummyData: any[] = []
+  tableData: any[] = []
   loading: boolean = false
   results: any[] = []
   resultsMeta: any

@@ -1,8 +1,13 @@
+
+@use '../../../styles/vars' as vars;
+
 $menu-font-size: 0.875rem;
 $menu-font-family: "Avenir-Heavy", Helvetica, Arial, serif;
-$primary-menu-color: #036FB6;
-$secondary-menu-color: #535252;
-$menu-background-color: #ffffff; 
+
+
+$primary-menu-color: vars.$color_primary;
+$secondary-menu-color: vars.$color_title_default;
+$menu-background-color: vars.$color_background; 
 $menu-background-shadow-color: 0px 3px 6px rgba(0, 0, 0, 0.161);
 
 .navbar-logo {
@@ -12,6 +17,7 @@ $menu-background-shadow-color: 0px 3px 6px rgba(0, 0, 0, 0.161);
 .navbar {
     background-color:$menu-background-color;
     box-shadow: $menu-background-shadow-color;
+    padding:  0.6rem 0.6rem;
 }
 
 .dropdown-divider {
