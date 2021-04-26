@@ -78,13 +78,7 @@ export class AddItemComponent implements OnInit {
 
   showSuccess() {
     console.log("toast")
-    console.log(this.toastService.toastarray);
-    this.toastService.show('I am a success toast', {
-      classname: 'bg-success text-light',
-      delay: 2000,
-      autohide: true,
-      headertext: 'Toast Header'
-    });
+    this.toastService.update('I am a success toast', 'info');
   }
   getDropdownValues() {
     //Item config fetch dropdown values and set field value if an edit

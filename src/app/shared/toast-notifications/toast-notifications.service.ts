@@ -1,25 +1,25 @@
 import { Injectable, TemplateRef } from '@angular/core';
+import { Subject } from 'rxjs';
 
+export interface Notice {
+  message: string;
+  style: string;
+}
 @Injectable({
   providedIn: 'root'
 })
 export class ToastNotificationsService {
-
+  
   constructor() { }
 
-  public toasts: any[] = [];
-
-  show(text: string | TemplateRef<any>, options: any = {}) {
-    
-    this.toasts.push({ text, options });
-    console.log(this.toasts);
-   
+  private noticeSource = new Subject<Notice | null>();
+  notice = this.noticeSource.asObservable();
+  
+  update(message: string, style: string) {
+    const notice: Notice= { message, style };
+    this.noticeSource.next(notice);
   }
-  toastarray(){
-    // console.log
-    return this.toasts;
-  }
-  remove(toast: any) {
-    this.toasts = this.toasts.filter(t => t !== toast);
-  }
+  // remove(toast: any) {
+  //   this.toasts = this.toasts.filter(t => t !== toast);
+  // }
 }

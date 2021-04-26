@@ -1,3 +1,19 @@
-.toast {
-    background-color: blue;
+@import "../../styles/mixins/typography";
+@import "../../styles/vars";
+@import "../../styles/settings";
+
+p {
+    color: $color_white;
 }
+.success {
+    background-color: $color_success;
+}
+.info {
+    background-color: $color_secondary;
+}
+.warning {
+    background-color: $color_warning;
+}
+.border-radius {
+
+}   

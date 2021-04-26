@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BoxConfigFields } from './options';
 import { ActivatedRoute } from '@angular/router';
+import { ToastNotificationsService } from 'src/app/shared/toast-notifications/toast-notifications.service';
 
 @Component({
   selector: 'app-boxes',
@@ -16,7 +17,8 @@ export class BoxesComponent implements OnInit {
     ["serial_numbers"]
   ]
   constructor(
-    private _activatedRoute: ActivatedRoute
+    private _activatedRoute: ActivatedRoute,
+    private toastService: ToastNotificationsService
   ) {
     this._activatedRoute.queryParams.subscribe(params => {
       if (params.hasOwnProperty('id')) {
@@ -34,7 +36,9 @@ export class BoxesComponent implements OnInit {
   }
 
   onPostedData(data: any) {
-    console.log(data)
+    console.log(data);
+
+    this.toastService.update('I am a success toast', 'info');
   }
 
 }
