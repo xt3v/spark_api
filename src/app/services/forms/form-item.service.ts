@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { tap } from 'rxjs/internal/operators/tap';
+import { ToastNotificationsService } from 'src/app/shared/toast-notifications/toast-notifications.service';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
@@ -12,6 +15,7 @@ export class FormItemService {
 
   constructor(
     private _http: HttpClient,
+    private _toastService: ToastNotificationsService
   ) { 
     // this.selectedTab = new BehaviorSubject(this.tab);
     // this.selectedTabChange.subscribe((value) => {
@@ -22,9 +26,27 @@ export class FormItemService {
   postForm(isNew: boolean, data: any) {
     let request: Observable<any>;
     if (isNew) {
-      request = this._http.post<any>(data.url, data.formData);
+      request = this._http.post<any>(data.url, data.formData)
+        .pipe(
+          tap(data => {
+            this._toastService.showToast("Successfully added Record", "success");
+          }),
+          catchError((err, caught) => {
+            this._toastService.showToast("Error Posting Record", "danger");
+            return Observable.throw(err);
+          })
+        );
     } else {
-      request = this._http.patch<any>(data.url, data.formData);
+      request = this._http.patch<any>(data.url, data.formData)
+      .pipe(
+        tap(data => {
+          this._toastService.showToast("Successfully edited Record", "success");
+        }),
+        catchError((err, caught) => {
+          this._toastService.showToast("Error editing Record", "danger");
+          return Observable.throw(err);
+        })
+      );
     }
     return request
   }

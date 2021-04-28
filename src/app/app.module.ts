@@ -17,6 +17,7 @@ import { AppComponent } from './app.component';
 import { AuthenticationComponent } from './core/authentication/authentication.component';
 import { ModulesComponent } from './modules/modules.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { ToastNotificationsService } from './shared/toast-notifications/toast-notifications.service';
 
 @NgModule({
   declarations: [AppComponent, AuthenticationComponent, ModulesComponent],
@@ -35,6 +36,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
       useClass: Interceptor,
       multi: true,
     },
+    ToastNotificationsService
   ],
   bootstrap: [AppComponent],
   entryComponents: [],

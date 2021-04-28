@@ -1,10 +1,11 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, catchError } from 'rxjs/operators';
 import { FiltersService } from '../filters/filters.service';
+import { ToastNotificationsService } from '../toast-notifications/toast-notifications.service';
 
 const endpointV1 = environment.APIv1Endpoint;
 
@@ -18,7 +19,8 @@ export class TablesService {
 
   constructor(
     private _http: HttpClient,
-    private _filtersService: FiltersService
+    private _filtersService: FiltersService,
+    private _toastService: ToastNotificationsService
   ) {
 
   }
@@ -48,7 +50,15 @@ export class TablesService {
   delete(data: any, typeUrl: string) {
     //TODO -> Send an alert if delete not possible
     return this._http.delete<any>(`${endpointV1}${typeUrl}/${data.id}`).pipe(
-      switchMap(async () => this.deletedItem$.emit(data))
+      switchMap(async () => {
+        this.deletedItem$.emit(data)
+        this._toastService.showToast("Successfully deleted record", 'info')
+      }
+      ),
+      catchError((err, caught) => {
+        this._toastService.showToast("Error deleting record", 'danger')
+        return Observable.throw(err)
+      })
     );
   }
 }

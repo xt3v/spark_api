@@ -8,21 +8,21 @@
                        'is-danger':   message.style=='danger',
                        'is-success':  message.style=='success'}" -->
 
-<div class="position-absolute bottom-0 right-0 p-3" style="z-index: 5; right: 0; bottom: 0;">
-  <div *ngFor="let message of toastService.messages" id="liveToast" class="toast show" role="alert" aria-live="assertive" aria-atomic="true" data-delay="10000">
-
+<div class="position-absolute bottom-0 right-0 p-3" style="z-index: 5; right: 0; bottom: 0;min-width:100">
+  <div *ngFor="let message of _toasts;let indexOfelement=index;" id="liveToast" class="toast show" role="alert"
+    aria-live="assertive" aria-atomic="true">
+    
     <div class="toast-body" [ngClass]="{'info': message.style=='info',
     'danger':   message.style=='danger',
     'success':  message.style=='success'}">
-      <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+      <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close"
+        (click)="closeToast(indexOfelement)">
         <span aria-hidden="true">&times;</span>
       </button>
       <p>
-
-        Hello, world! This is a toast message.
+        {{message.message}}
       </p>
     </div>
   </div>
- 
-</div>
 
+</div>
