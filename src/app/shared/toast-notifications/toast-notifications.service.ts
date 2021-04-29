@@ -21,6 +21,10 @@ export class ToastNotificationsService {
     };
     this.toastData = [data, ...this.toastData]
     this.toasts.next(this.toastData);
+    setTimeout(() => {
+      this.toastData.pop();
+      this.toasts.next(this.toastData);
+    }, 5000)
   }
 
   removeToast(index: number) {

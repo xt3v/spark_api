@@ -13,7 +13,7 @@
     aria-live="assertive" aria-atomic="true">
     
     <div class="toast-body" [ngClass]="{'info': message.style=='info',
-    'warning':   message.style=='warning',
+    'warning':   message.style=='danger',
     'success':  message.style=='success'}">
       <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close"
         (click)="closeToast(indexOfelement)">
