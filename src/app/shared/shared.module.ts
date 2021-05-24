@@ -16,10 +16,15 @@ import { AddButtonComponent } from './add-button/add-button.component';
 import { FiltersModule } from './filters/filters.module';
 import { SideMenuComponent } from './side-menu/side-menu.component';
 import { TextareaWithCountComponent } from './textarea-with-count/textarea-with-count.component';
-
+// import { CardComponent } from './card/card.component'
+// import { CardDropdownComponent } from './card/card-dropdown/card-dropdown.component';
 
 @NgModule({
-  declarations: [BreadcrumbComponent, AddButtonComponent, SideMenuComponent, TextareaWithCountComponent],
+  declarations: [
+    BreadcrumbComponent, AddButtonComponent,
+    SideMenuComponent, TextareaWithCountComponent ,
+
+  ],
   imports: [
     CommonModule,
     FormsModule,

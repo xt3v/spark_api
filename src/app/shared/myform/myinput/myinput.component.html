@@ -28,7 +28,7 @@
                 [id]="formControName">
         </div>
 
-        <app-multi-select *ngSwitchCase="'multifield'" [parameter]="data" formControlName="items"></app-multi-select>
+        <!-- <app-multi-select *ngSwitchCase="'multifield'" [parameter]="data" formControlName="items"></app-multi-select> -->
 
         <textarea *ngSwitchCase="'textArea'" class="form-control opt-value" [attr.aria-label]="formControName" rows="5"
             [formControlName]="formControName" [id]="formControName">

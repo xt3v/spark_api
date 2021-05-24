@@ -12,6 +12,8 @@ import { Interceptor } from './core/interceptors/interceptor';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 
+
+
 /** Main App Components */
 import { AppComponent } from './app.component';
 import { AuthenticationComponent } from './core/authentication/authentication.component';
@@ -27,8 +29,7 @@ import { ToastNotificationsService } from './shared/toast-notifications/toast-no
     CoreModule,
     SharedModule,
     HttpClientModule,
-    FontAwesomeModule
-
+    FontAwesomeModule,
   ],
   providers: [
     {
