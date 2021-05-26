@@ -13,7 +13,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { InventoryModule } from './inventory/inventory.module';
 import { SuppliersModule } from './suppliers/suppliers.module';
 import { CustomersModule } from './customers/customers.module';
-import { ToastNotificationsService } from '../shared/toast-notifications/toast-notifications.service';
+//import { ToastNotificationsService } from '../shared/toast-notifications/toast-notifications.service';
 
 
 @NgModule({

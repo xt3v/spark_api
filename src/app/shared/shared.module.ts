@@ -16,6 +16,7 @@ import { AddButtonComponent } from './add-button/add-button.component';
 import { FiltersModule } from './filters/filters.module';
 import { SideMenuComponent } from './side-menu/side-menu.component';
 import { TextareaWithCountComponent } from './textarea-with-count/textarea-with-count.component';
+import { MultiSelectModule } from './ng-multi-select/multi-select.module';
 // import { CardComponent } from './card/card.component'
 // import { CardDropdownComponent } from './card/card-dropdown/card-dropdown.component';
 
@@ -23,7 +24,6 @@ import { TextareaWithCountComponent } from './textarea-with-count/textarea-with-
   declarations: [
     BreadcrumbComponent, AddButtonComponent,
     SideMenuComponent, TextareaWithCountComponent ,
-
   ],
   imports: [
     CommonModule,
@@ -34,7 +34,8 @@ import { TextareaWithCountComponent } from './textarea-with-count/textarea-with-
     MyformModule,
     TablesModule,
     FiltersModule,
-    ToastNotificationsModule
+    ToastNotificationsModule,
+    MultiSelectModule
   ],
   exports: [
     FormsModule,
@@ -47,7 +48,8 @@ import { TextareaWithCountComponent } from './textarea-with-count/textarea-with-
     BreadcrumbComponent,
     AddButtonComponent,
     SideMenuComponent,
-    TextareaWithCountComponent
+    TextareaWithCountComponent,
+    MultiSelectModule
   ],
 })
 export class SharedModule { }

@@ -185,7 +185,8 @@
 
       var _angular_core__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(
       /*! @angular/core */
-      "fXoL");
+      "fXoL"); //import { ToastNotificationsService } from '../shared/toast-notifications/toast-notifications.service';
+
 
       var ModulesModule = function ModulesModule() {
         _classCallCheck(this, ModulesModule);
