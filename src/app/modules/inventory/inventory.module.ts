@@ -22,7 +22,7 @@ import { ProductsModule } from './products/products.module';
     RouterModule.forChild(InventoryRoutes),
     SharedModule,
     CoreModule,
-    ProductsModule
+
   ]
 })
 export class InventoryModule { }
