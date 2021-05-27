@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, AbstractControl } from '@angular/forms';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpService } from 'src/app/services';
 
 @Component({
   selector: 'app-myinput',
@@ -24,7 +24,7 @@ export class MyinputComponent implements OnInit {
   intital: boolean = false
   isLoading: boolean = false
   constructor(
-    private http: HttpClient
+    private http: HttpService
   ) {
   }
 
@@ -52,12 +52,8 @@ export class MyinputComponent implements OnInit {
   getUrlBasedOptions() {
     if (!this.data.url) return
     this.showLoader(true)
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      Authorization: 'Bearer micha'
-    })
 
-    this.http.get<any>(this.data.url, { headers: headers }).subscribe(res => {
+    this.http.get<any>(this.data.url).subscribe(res => {
       this.showLoader(false)
       this.choices = res.results.map((value: any) => {
         return {

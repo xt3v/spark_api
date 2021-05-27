@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import {  Observable, Subject } from 'rxjs';
 import { tap } from 'rxjs/internal/operators/tap';
 import { ToastNotificationsService } from 'src/app/shared/toast-notifications/toast-notifications.service';
 import { catchError } from 'rxjs/operators';
+import { HttpService } from '../http/http-service.service';
 
 @Injectable({
   providedIn: 'root',
@@ -14,7 +14,7 @@ export class FormItemService {
   // selectedTab: BehaviorSubject<string> | undefined;
 
   constructor(
-    private _http: HttpClient,
+    private _http: HttpService,
     private _toastService: ToastNotificationsService
   ) { 
     // this.selectedTab = new BehaviorSubject(this.tab);

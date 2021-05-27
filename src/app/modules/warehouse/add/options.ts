@@ -1,5 +1,5 @@
 
-import { parses, renders, endpointV1 } from "../../../services/constants/form-options-configs";
+import { parses, renders} from "../../../services/constants/form-options-configs";
 
 const storeFields: any = {
     "name": "List Create Stores Api",
@@ -55,7 +55,7 @@ const storeFields: any = {
                 "read_only": false,
                 "label": "Location / Region / Province",
                 "display_name": "name",
-                "url": `${endpointV1}locations/`
+                "url": `locations/`
             },
             "manager": {
                 "type": "field",
@@ -63,7 +63,7 @@ const storeFields: any = {
                 "read_only": false,
                 "label": "Manager",
                 "display_name": "full_name",
-                "url": `${endpointV1}users/`
+                "url": `users/`
             }
         }
     }

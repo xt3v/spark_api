@@ -1,7 +1,3 @@
-import { environment } from 'src/environments/environment';
-
-const endpoint = environment.APIEndpoint;
-const endpointV1 = environment.APIv1Endpoint;
 
 const parses:any = {
     "parses": [
@@ -19,5 +15,5 @@ const renders: any = {
 }
 
 export {
-    parses, renders, endpoint, endpointV1
+    parses, renders,
 }

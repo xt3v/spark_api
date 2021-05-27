@@ -1,4 +1,4 @@
-import { parses, renders, endpointV1 } from "../../../services/constants/form-options-configs";
+import { parses, renders } from "../../../services/constants/form-options-configs";
 
 const BoxConfigfields: any = {
     "name": "List Create Box Configs Api",

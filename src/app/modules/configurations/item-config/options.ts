@@ -1,4 +1,4 @@
-import { parses, renders, endpointV1 } from "../../../services/constants/form-options-configs";
+import { parses, renders } from "../../../services/constants/form-options-configs";
 
 const ItemConfigfields: any = {
     "name": "List Create Item Configs Api",
@@ -57,7 +57,7 @@ const ItemConfigfields: any = {
                 "read_only": false,
                 "label": "Item Type",
                 "display_name": "name",
-                "url": `${endpointV1}item-type-configs/`
+                "url": `item-type-configs/`
             }
         }
     }

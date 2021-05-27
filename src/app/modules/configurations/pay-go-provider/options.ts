@@ -1,4 +1,4 @@
-import { parses, renders, endpointV1 } from "../../../services/constants/form-options-configs";
+import { parses, renders  } from "../../../services/constants/form-options-configs";
 
 const PayGoProviderFields: any = {
     "name": "List Create Pay Go Providers Api",

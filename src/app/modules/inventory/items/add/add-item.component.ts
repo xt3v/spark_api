@@ -8,7 +8,6 @@ import { Location } from '@angular/common'
 // import { IntegerValidator } from '../../../../core/helpers/integer-validator';
 import { ToastNotificationsService } from '../../../../shared/toast-notifications/toast-notifications.service';
 import { FormControl, Validators, FormGroup } from '@angular/forms';
-import { endpointV1 } from "../../../../services/constants/form-options-configs";
 import { HttpErrorResponse } from '@angular/common/http';
 
 
@@ -81,7 +80,7 @@ export class AddItemComponent implements OnInit {
   }
   getDropdownValues() {
     //Item config fetch dropdown values and set field value if an edit
-    this._formService.getDropdownValues(`${endpointV1}item-configs`).subscribe(response => {
+    this._formService.getDropdownValues(`item-configs`).subscribe(response => {
       this.item_loading = false;
       this.items = response.results;
       console.log("item-configs");
@@ -92,7 +91,7 @@ export class AddItemComponent implements OnInit {
     });
 
     //Store fetch dropdown values and set field value if an edit
-    this._formService.getDropdownValues(`${endpointV1}stores`).subscribe(response => {
+    this._formService.getDropdownValues(`stores`).subscribe(response => {
       this.stock_loading = false;
       this.stores = response.results;
 
@@ -117,7 +116,7 @@ export class AddItemComponent implements OnInit {
     //reset API errors
     this.api_errors = [];
     let data = {
-      url: this.newEntry == true ? `${endpointV1}itemz/bulk` : `${endpointV1}itemz/${this.instance.id}/`,
+      url: this.newEntry == true ? `itemz/bulk` : `itemz/${this.instance.id}/`,
       formData: this.add_item_form.value
     }
     console.log(data);

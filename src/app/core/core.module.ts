@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import {  HTTP_INTERCEPTORS } from '@angular/common/http';
+/** App Interceptor */
+import { Interceptor } from '../core/interceptors/interceptor';
 
 import { SharedModule } from '../shared/shared.module';
 
@@ -19,6 +22,13 @@ import { LockScreenComponent } from './authentication/lock-screen/lock-screen.co
     LockScreenComponent,
   ],
   imports: [CommonModule, SharedModule, RouterModule],
-  exports: [FooterComponent, NavbarComponent]
+  exports: [FooterComponent, NavbarComponent],
+  providers : [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: Interceptor,
+      multi: true,
+    },
+  ]
 })
 export class CoreModule { }

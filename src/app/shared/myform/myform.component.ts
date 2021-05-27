@@ -1,16 +1,15 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {Location} from '@angular/common';
 
-import { MY_EXAMPLE_OPTIONS_DATA } from './myfields';
-import { MyInputModel, InputType } from './myinput/model';
+// import { MY_EXAMPLE_OPTIONS_DATA } from './myfields';
+// import { MyInputModel, InputType } from './myinput/model';
 import { FormBuilder, FormGroup, FormControl, AbstractControl, Validators } from '@angular/forms';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
-import { from } from 'rxjs';
+// import { from } from 'rxjs';
 import { FormItemService } from 'src/app/services/forms/form-item.service';
-const endpoint = environment.APIEndpoint;
-const endpointV1 = environment.APIv1Endpoint;
+import { HttpService } from 'src/app/services';
+
 @Component({
   selector: 'app-myform',
   templateUrl: './myform.component.html',
@@ -74,7 +73,7 @@ export class MyformComponent implements OnInit {
   isLoading: boolean = false;
   constructor(
     private fb: FormBuilder,
-    private http: HttpClient,
+    private http: HttpService,
     private _formService: FormItemService,
     private _location: Location
   ) {
@@ -160,7 +159,7 @@ export class MyformComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.url = `${endpointV1}${this.url}`
+ 
   }
 
   showLoader(status: boolean) {

@@ -1,4 +1,4 @@
-import { parses, renders, endpointV1 } from "../../../services/constants/form-options-configs";
+import { parses, renders} from "../../../services/constants/form-options-configs";
 
 const ProductFields: any = {
     "name": "List Create Pay Go Providers Api",
@@ -31,7 +31,7 @@ const ProductFields: any = {
                 "required": true,
                 "read_only": false,
                 "label": "Kit Configuration",
-                "url": `${endpointV1}kit-configs/`,
+                "url": `kit-configs/`,
                 "display_name": "name"
             },
             "price_group_config": {
@@ -39,7 +39,7 @@ const ProductFields: any = {
                 "required": true,
                 "read_only": false,
                 "label": "Price Group Config",
-                "url": `${endpointV1}price-group-configs/`,
+                "url": `price-group-configs/`,
                 "display_name": "name"
             },
             "kit_configuration_details": {

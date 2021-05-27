@@ -644,7 +644,7 @@
               "read_only": false,
               "label": "Pay Go Provider",
               "display_name": "name",
-              "url": "".concat(_services_constants_form_options_configs__WEBPACK_IMPORTED_MODULE_0__["endpointV1"], "pay-go-providers/")
+              "url": "pay-go-providers/"
             },
             "created": {
               "type": "datetime",
@@ -778,7 +778,7 @@
               "required": true,
               "read_only": false,
               "label": "Kit Configuration",
-              "url": "".concat(_services_constants_form_options_configs__WEBPACK_IMPORTED_MODULE_0__["endpointV1"], "kit-configs/"),
+              "url": "kit-configs/",
               "display_name": "name"
             },
             "price_group_config": {
@@ -786,7 +786,7 @@
               "required": true,
               "read_only": false,
               "label": "Price Group Config",
-              "url": "".concat(_services_constants_form_options_configs__WEBPACK_IMPORTED_MODULE_0__["endpointV1"], "price-group-configs/"),
+              "url": "price-group-configs/",
               "display_name": "name"
             },
             "kit_configuration_details": {
@@ -1848,7 +1848,7 @@
               "read_only": false,
               "label": "Item Type",
               "display_name": "name",
-              "url": "".concat(_services_constants_form_options_configs__WEBPACK_IMPORTED_MODULE_0__["endpointV1"], "box-configs/")
+              "url": "box-configs/"
             }
           }
         }
@@ -2321,7 +2321,7 @@
               "read_only": false,
               "label": "Item Type",
               "display_name": "name",
-              "url": "".concat(_services_constants_form_options_configs__WEBPACK_IMPORTED_MODULE_0__["endpointV1"], "item-type-configs/")
+              "url": "item-type-configs/"
             }
           }
         }

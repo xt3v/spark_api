@@ -3,6 +3,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import {  HTTP_INTERCEPTORS } from '@angular/common/http';
+
+
+/** App Interceptor */
+import { Interceptor } from '../core/interceptors/interceptor';
 
 /** Custom modules */
 import { ModalsModule } from './modals/modals.module';
@@ -51,5 +56,8 @@ import { MultiSelectModule } from './ng-multi-select/multi-select.module';
     TextareaWithCountComponent,
     MultiSelectModule
   ],
+  providers :[
+  
+  ]
 })
 export class SharedModule { }

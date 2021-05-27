@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common'
 import { FormGroup, FormControl, Validators,  } from '@angular/forms';
 import { FormItemService } from 'src/app/services/forms/form-item.service';
-import { endpointV1 } from '../../../../services/constants/form-options-configs';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 
@@ -41,7 +40,7 @@ export class MoveStockComponent implements OnInit {
   }
 
   loadFields() {
-    this._formService.getDropdownValues(`${endpointV1}stores`).subscribe(
+    this._formService.getDropdownValues(`stores`).subscribe(
       response => {
         this.store_loading = false;
         this.stores = response.results;
@@ -51,7 +50,7 @@ export class MoveStockComponent implements OnInit {
       }
     );
 
-    this._formService.getDropdownValues(`${endpointV1}item-configs`).subscribe(
+    this._formService.getDropdownValues(`item-configs`).subscribe(
       response => {
         this.items_loading = false;
         this.item_configs = response.results;
@@ -75,7 +74,7 @@ export class MoveStockComponent implements OnInit {
     this.api_errors = [];
 
     let data = {
-      url: `${endpointV1}itemz/move`,
+      url: `itemz/move`,
       formData: this.move_stock_form.value,
     };
     console.log(data);

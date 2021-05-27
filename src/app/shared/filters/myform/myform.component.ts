@@ -1,11 +1,10 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { MY_EXAMPLE_OPTIONS_DATA } from './myfields';
-import { MyInputModel, InputType } from './myinput/model';
+import { MyInputModel} from './myinput/model';
 import { FormBuilder, FormGroup, FormControl, AbstractControl, Validators } from '@angular/forms';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
+import { HttpService } from 'src/app/services';
 
-import { from } from 'rxjs';
+
 @Component({
   selector: 'app-myform',
   templateUrl: './myform.component.html',
@@ -47,7 +46,7 @@ export class MyformComponent implements OnInit {
   isLoading: boolean = false;
   constructor(
     private fb: FormBuilder,
-    private http: HttpClient
+    private http: HttpService
 
   ) {
   }

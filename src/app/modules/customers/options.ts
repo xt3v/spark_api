@@ -1,7 +1,6 @@
 import {
   parses,
-  renders,
-  endpointV1,
+  renders
 } from '../../services/constants/form-options-configs';
 
 export const CustomerConfigs: any = {
@@ -64,7 +63,7 @@ export const CustomerConfigs: any = {
             label: 'Region',
             max_length: 45,
             display_name: "name",
-            url: `${endpointV1}locations/`
+            url: `locations/`
         },
         village: {
             type: 'string',

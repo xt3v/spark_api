@@ -1,4 +1,4 @@
-import { parses, renders, endpointV1 } from "../../../services/constants/form-options-configs";
+import { parses, renders  } from "../../../services/constants/form-options-configs";
 
 const PriceGroupFields: any = {
     "name": "List Create Price Groups Api",
@@ -78,7 +78,7 @@ const PriceGroupFields: any = {
                 "read_only": false,
                 "label": "Pay Go Provider",
                 "display_name": "name",
-                "url": `${endpointV1}pay-go-providers/`
+                "url": `pay-go-providers/`
             },
             "created": {
                 "type": "datetime",

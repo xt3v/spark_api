@@ -1,4 +1,4 @@
-import { parses, renders, endpointV1 } from "../../../../services/constants/form-options-configs";
+import { parses, renders } from "../../../../services/constants/form-options-configs";
 
 const SerializedItemfields: any = {
     "name": "List Create Items Api",
@@ -45,7 +45,7 @@ const SerializedItemfields: any = {
                 "read_only": false,
                 "label": "Warehouse / Stockroom",
                 "display_name": "name",
-                "url": `${endpointV1}stores`
+                "url": `stores`
             },
             "item_config": {
                 "type": "field",
@@ -53,7 +53,7 @@ const SerializedItemfields: any = {
                 "read_only": false,
                 "label": "Item Name",
                 "display_name": "name",
-                "url": `${endpointV1}item-configs`
+                "url": `item-configs`
             },
             "box": {
                 "type": "field",
@@ -61,7 +61,7 @@ const SerializedItemfields: any = {
                 "read_only": false,
                 "label": "Box",
                 "display_name": "name",
-                "url": `${endpointV1}box-configs`
+                "url": `box-configs`
             }
         }
     }
@@ -112,7 +112,7 @@ const NotSerializedItemfields: any = {
                 "read_only": false,
                 "label": "Warehouse / Stockroom",
                 "display_name": "name",
-                "url": `${endpointV1}stores`
+                "url": `stores`
             },
             "item_config": {
                 "type": "field",
@@ -120,7 +120,7 @@ const NotSerializedItemfields: any = {
                 "read_only": false,
                 "label": "Item Name",
                 "display_name": "name",
-                "url": `${endpointV1}item-configs`
+                "url": `item-configs`
             },
             "box": {
                 "type": "field",
@@ -128,7 +128,7 @@ const NotSerializedItemfields: any = {
                 "read_only": false,
                 "label": "Box",
                 "display_name": "name",
-                "url": `${endpointV1}box-configs`
+                "url": `box-configs`
             }
         }
     }

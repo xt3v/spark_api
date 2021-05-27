@@ -1,13 +1,12 @@
 import { Injectable, EventEmitter } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+
 
 import { Observable, of } from 'rxjs';
-import { environment } from 'src/environments/environment';
 import { switchMap, catchError } from 'rxjs/operators';
 import { FiltersService } from '../filters/filters.service';
 import { ToastNotificationsService } from '../toast-notifications/toast-notifications.service';
+import { HttpService } from 'src/app/services';
 
-const endpointV1 = environment.APIv1Endpoint;
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +17,7 @@ export class TablesService {
   deletedItem$: EventEmitter<any> = new EventEmitter();
 
   constructor(
-    private _http: HttpClient,
+    private _httpService : HttpService,
     private _filtersService: FiltersService,
     private _toastService: ToastNotificationsService
   ) {
@@ -30,7 +29,7 @@ export class TablesService {
     //const filterOpt = typeof filters !== 'undefined' && filters.length ? this.getFilters(filters) : '';
     const searchName = typeof searchInput !== undefined && searchInput !== null ? searchInput : null;
 
-    return this._http.get<any>(endpointV1 + `${typeUrl}/?page_size=${page_size}&page=${page}&${filters}&name=${searchName}`);
+    return this._httpService.get<any>(`${typeUrl}/?page_size=${page_size}&page=${page}&${filters}&name=${searchName}`);
   }
 
   emitAction(name: string, data: any) {
@@ -49,7 +48,7 @@ export class TablesService {
 
   delete(data: any, typeUrl: string) {
     //TODO -> Send an alert if delete not possible
-    return this._http.delete<any>(`${endpointV1}${typeUrl}/${data.id}`).pipe(
+    return this._httpService.delete<any>(`${typeUrl}/${data.id}`).pipe(
       switchMap(async () => {
         this.deletedItem$.emit(data)
         this._toastService.showToast("Successfully deleted record", 'info')

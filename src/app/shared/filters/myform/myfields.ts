@@ -63,7 +63,7 @@ const MY_EXAMPLE_OPTIONS_DATA: any = {
                 "required": true,
                 "read_only": false,
                 "display_name": "name",
-                "url": environment.APIv1Endpoint + "item-type-configs/",
+                "url": "item-type-configs/",
                 "label": "Type",
             }
         }

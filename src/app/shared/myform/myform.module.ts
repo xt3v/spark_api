@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule ,FormsModule} from '@angular/forms';
 
 import { MyformComponent } from './myform.component';
@@ -20,7 +19,6 @@ import { MultiSelectModule } from '../ng-multi-select/multi-select.module';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    HttpClientModule,
     ModalsModule,
     MultiSelectModule,
     FormsModule

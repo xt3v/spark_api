@@ -1,4 +1,4 @@
-import { parses, renders, endpointV1 } from '../../../services/constants/form-options-configs'
+import { parses, renders } from '../../../services/constants/form-options-configs'
 
 export const optionsField: any =
 {
@@ -211,7 +211,7 @@ export const optionsField: any =
                 "read_only": false,
                 "label": "Customer",
                 "display_name": "name",
-                "url": `${endpointV1}customers/`
+                "url": `customers/`
 
             //     "type": "multifield",
             //     "required": true,
@@ -232,7 +232,7 @@ export const optionsField: any =
                 "read_only": false,
                 "label": "Product config",
                 "display_name": "name",
-                "url": `${endpointV1}product-configs/`
+                "url": `product-configs/`
             },
             "items": {
                 "type": "field",
@@ -241,7 +241,7 @@ export const optionsField: any =
                 "read_only": false,
                 "label": "Items",
                 "display_name": "item_config_name",
-                "url": `${endpointV1}itemz/`
+                "url": `itemz/`
             },
             "boxes": {
                 "type": "field",
@@ -250,7 +250,7 @@ export const optionsField: any =
                 "read_only": false,
                 "label": "Boxes",
                 "display_name": "box_config",
-                "url": `${endpointV1}boxs/`
+                "url": `boxs/`
             }
         }
     }

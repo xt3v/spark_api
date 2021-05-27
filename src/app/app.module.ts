@@ -1,12 +1,10 @@
 /** Angular imports */
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 /** Main App Routing */
 import { AppRoutes } from './app-routing.module';
-/** App Interceptor */
-import { Interceptor } from './core/interceptors/interceptor';
 
 /** Reusable modules */
 import { CoreModule } from './core/core.module';
@@ -32,11 +30,11 @@ import { ToastNotificationsService } from './shared/toast-notifications/toast-no
     FontAwesomeModule,
   ],
   providers: [
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: Interceptor,
-      multi: true,
-    },
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: Interceptor,
+    //   multi: true,
+    // },
     ToastNotificationsService
   ],
   bootstrap: [AppComponent],

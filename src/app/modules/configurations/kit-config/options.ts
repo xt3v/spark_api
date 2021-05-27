@@ -1,4 +1,4 @@
-import { parses, renders, endpointV1 } from "../../../services/constants/form-options-configs";
+import { parses, renders } from "../../../services/constants/form-options-configs";
 
 export const KitConfigFields: any = {
     "name": "List Create Kit Configs Api",
@@ -232,7 +232,7 @@ export const KitConfigFields: any = {
                 "read_only": false,
                 "label": "Item Type",
                 "display_name": "name",
-                "url": `${endpointV1}box-configs/`
+                "url": `box-configs/`
             }
             
         }

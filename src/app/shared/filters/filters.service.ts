@@ -1,13 +1,7 @@
-import { HttpClient } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { HttpService } from 'src/app/services';
 
-const endpointV1 = "https://api.spark.sisitech.dev/api/v1/";
-const headers = {
-  'Content-Type': 'application/json',
-  Accept: 'application/json',
-  Authorization: `Bearer micha`,
-}
 
 @Injectable()
 export class FiltersService {
@@ -15,7 +9,7 @@ export class FiltersService {
   getFilters$: EventEmitter<any> = new EventEmitter();
   
   constructor(
-    private _http: HttpClient,
+    private _http: HttpService,
   ) { }
 
   submitSelectedFilters(data:any, url:string) {
@@ -23,7 +17,7 @@ export class FiltersService {
   }
 
   getFilters(data: any, url: string):Observable<any> {
-    return this._http.get<any>(endpointV1 + `${url}?${data}`, { headers: headers });
+    return this._http.get<any>(`${url}?${data}`);
   }
 
   getJoinedFilters(data: any) {

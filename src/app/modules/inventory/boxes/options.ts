@@ -1,4 +1,4 @@
-import { parses, renders, endpointV1 } from "../../../services/constants/form-options-configs";
+import { parses, renders} from "../../../services/constants/form-options-configs";
 const BoxConfigFields: any = {
     "name": "Bulk Create Boxs Api",
     "description": "",
@@ -12,7 +12,7 @@ const BoxConfigFields: any = {
                 "read_only": false,
                 "label": "Box Configuration",
                 "display_name": "name",
-                "url": `${endpointV1}box-configs/`
+                "url": `box-configs/`
             },
           
             "store": {
@@ -21,7 +21,7 @@ const BoxConfigFields: any = {
                 "read_only": false,
                 "label": "Store",
                 "display_name": "name",
-                "url": `${endpointV1}stores/`
+                "url": `stores/`
             },
             "purchase_order": {
                 "type": "string",
