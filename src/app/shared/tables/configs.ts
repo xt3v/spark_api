@@ -59,7 +59,7 @@ const storeFields: any = {
                 "read_only": false,
                 "label": "Location / Region",
                 "display_name": "name",
-                "url": `https://api.spark.sisitech.dev/api/v1/locations/`
+                "url": `locations/`
             },
             "manager": {
                 "type": "field",
@@ -67,7 +67,7 @@ const storeFields: any = {
                 "read_only": false,
                 "label": "Manager",
                 "display_name": "full_name",
-                "url": `https://api.spark.sisitech.dev/api/v1/users/`
+                "url": `users/`
             }
         }
     }

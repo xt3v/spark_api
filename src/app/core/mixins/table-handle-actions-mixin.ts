@@ -23,6 +23,9 @@ export function tableHandleActionsMixin(BaseClass: any) {
             }
           )
           break;
+        case "view":
+          this._router.navigate([url], { queryParams: action.data });
+          break;
         default:
           break;
       }

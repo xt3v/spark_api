@@ -12,11 +12,12 @@ import { MoveStockComponent } from './items/move-stock/move-stock.component';
 import { BoxesComponent } from './boxes/boxes.component';
 import { ListBoxesComponent } from './boxes/list/list.component';
 import { ProductsModule } from './products/products.module';
+import { ItemHistoryComponent } from './items/history/history-item.component';
 
 
 
 @NgModule({
-  declarations: [AddItemComponent, ListItemComponent, EditComponent, MoveStockComponent, BoxesComponent, ListBoxesComponent],
+  declarations: [AddItemComponent, ListItemComponent, EditComponent, MoveStockComponent, BoxesComponent, ListBoxesComponent,ItemHistoryComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(InventoryRoutes),

@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { TablesService } from './../tables.service';
-import { faEdit } from '@fortawesome/free-solid-svg-icons';
-import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { faTrashAlt , faEdit ,faEye } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-mycelldisplay',
@@ -11,6 +10,7 @@ import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 export class MycelldisplayComponent implements OnInit {
   faEdit = faEdit
   faTrashAlt = faTrashAlt
+  faEyeAlt = faEye
 
   _value: any
   @Input()

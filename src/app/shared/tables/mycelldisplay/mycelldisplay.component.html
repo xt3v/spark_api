@@ -14,5 +14,7 @@
         <fa-icon (click)="emitAction(val)" *ngSwitchCase="'edit'" [icon]="faEdit" class="edit">
         </fa-icon>
         <fa-icon (click)="emitAction(val)" *ngSwitchCase="'delete'" [icon]="faTrashAlt" class="delete"></fa-icon>
+
+        <fa-icon (click)="emitAction(val)" *ngSwitchCase="'view'" [icon]="faEyeAlt" class="view" style="margin-right:10px;"></fa-icon>
     </div>
 </div>

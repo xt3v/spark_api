@@ -42,7 +42,7 @@ export class ListItemComponent extends TableHandleActionsMixin implements OnInit
       type: "actions",
       source: "",
       data: [
-        "edit", "delete"
+        "view",  "edit", "delete"
       ]
     },
   ];
@@ -53,6 +53,7 @@ export class ListItemComponent extends TableHandleActionsMixin implements OnInit
   }
 
   handleActions(action: any) {
-      action.name == 'edit' ? this.handleTableActions(action, '/inventory/edit', this.url): this.handleTableActions(action, '/inventory/add', this.url)
+      action.name == 'edit' ? this.handleTableActions(action, '/inventory/edit', this.url): action.name == "delete" ? this.handleTableActions(action, '/inventory/add', this.url) :
+      this.handleTableActions(action,'/inventory/item-history',this.url)
   }
 }
